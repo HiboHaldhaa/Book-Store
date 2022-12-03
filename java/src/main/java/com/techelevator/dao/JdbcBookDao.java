@@ -26,15 +26,19 @@ public class JdbcBookDao implements BookDao{
     }
 
     public int findIdByName(String idName, String tableName, String queryName, String name) {
-
         String sql = "SELECT " + idName + " FROM " + tableName + " WHERE " + queryName + " = ?";
         int id = 0;
         SqlRowSet row = jdbcTemplate.queryForRowSet(sql, name);
-
         if (row.next()) {
             id = row.getInt(idName);
         }
+        return id;
+    }
 
+    public int addName(String tableName, String queryName, String name, String idName) {
+
+        String sql = "INSERT INTO " + tableName + "(" + queryName + ") VALUES (?) RETURNING " + idName;
+        int id = jdbcTemplate.queryForObject(sql, Integer.class, name);
         return id;
 
     }

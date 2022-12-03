@@ -23,12 +23,16 @@ public class JdbcBookDaoTests extends BaseDaoTests{
     }
 
     @Test
-    public void returns_correct_author_id_adding_author() {
+    public void returns_correct_author_id_after_adding_new_author() {
 
-        int id = sut.addAuthor("Maria Duenas");
+        int id = sut.addName("author", "author_name", "Maria Duenas", "author_id");
         Assert.assertEquals(2, id);
 
+        int secondId = sut.findIdByName("author_id", "author", "author_name", "Maria Duenas");
+        Assert.assertEquals(2, secondId);
+
     }
+
 
 
 }
