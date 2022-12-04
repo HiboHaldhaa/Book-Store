@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 DROP TABLE IF EXISTS book_genre, book_author, book, tag, book_tag, author, genre, publisher,book_language, book_publisher CASCADE;
-DROP SEQUENCE IF EXISTS genre_serial, author_serial, tag_serial, publisher_serial, language_serial ;
+DROP SEQUENCE IF EXISTS genre_serial, author_serial, tag_serial, publisher_serial, language_serial;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -64,6 +64,7 @@ CREATE TABLE book_language (
 CREATE TABLE book (
     isbn13 BIGINT NOT NULL,
     title varchar(200) NOT NULL,
+	author_id INT NOT NULL,
     pub_date date NULL,
     num_pages INT,
 	language_id INT,

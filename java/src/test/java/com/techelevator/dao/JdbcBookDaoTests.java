@@ -1,11 +1,14 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Book;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class JdbcBookDaoTests extends BaseDaoTests{
+
+    private static final Book BOOK_1 = new Book(9780063270886L, "The Fellowship of The Ring", "J.R.R. To
 
     private JdbcBookDao sut;
 
@@ -34,6 +37,12 @@ public class JdbcBookDaoTests extends BaseDaoTests{
 
     }
 
+    @Test
+    public void finds_book_by_isbn() {
 
+        Assert.assertTrue(sut.findBookByIsbn(9780063270886L));
+        Assert.assertFalse(sut.findBookByIsbn(4));
+
+    }
 
 }

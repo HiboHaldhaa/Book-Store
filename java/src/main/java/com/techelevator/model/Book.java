@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Book {
 
-    private String isbn;
+    private long isbn;
     private String title;
     private String author;
     private LocalDate publicationDate;
@@ -19,7 +19,7 @@ public class Book {
 
     public Book () {}
 
-    public Book(String isbn, String title, String author, LocalDate publicationDate, String language,
+    public Book(long isbn, String title, String author, LocalDate publicationDate, String language,
                 List<String> genres, List<String> tags, int pages, String publisher, String overview,
                 String coverLink) {
         this.isbn = isbn;
@@ -35,11 +35,11 @@ public class Book {
         this.coverLink = coverLink;
     }
 
-    public String getIsbn() {
+    public long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(String isbn) {
+    public void setIsbn(long isbn) {
         this.isbn = isbn;
     }
 
