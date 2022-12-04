@@ -38,6 +38,8 @@ INSERT INTO users (username,password_hash,role) VALUES ('user2','user2','ROLE_US
 INSERT INTO users (username,password_hash,role) VALUES ('user3','user3','ROLE_USER');
 
 INSERT INTO author(author_name) VALUES ('Tolkien');
+INSERT INTO author(author_name) VALUES ('Marquez');
+
 
 
 COMMIT TRANSACTION;

@@ -43,11 +43,4 @@ public class JdbcBookDao implements BookDao{
 
     }
 
-    public int addAuthor(String author) {
-
-        String sql = "INSERT INTO author(author_name) VALUES (?) RETURNING author_id";
-        int authorId = jdbcTemplate.queryForObject(sql, Integer.class, author);
-        return authorId;
-
-    }
 }
