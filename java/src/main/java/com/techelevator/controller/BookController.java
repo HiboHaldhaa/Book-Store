@@ -17,8 +17,10 @@ public class BookController {
         this.bookDao = bookDao;
     }
 
-    @RequestMapping(path = "/books/", method = RequestMethod.POST)
+    @RequestMapping(path = "/books", method = RequestMethod.POST)
     public void addBook(@RequestBody Book book) {
+
+        bookDao.addBook(book);
 
     }
 }

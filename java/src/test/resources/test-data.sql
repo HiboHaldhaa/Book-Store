@@ -71,14 +71,19 @@ CREATE TABLE book (
 
 CREATE TABLE book_tag (
 	isbn13 BIGINT NOT NULL,
-	tag_id INT,
-    CONSTRAINT PK_book_tag PRIMARY KEY(isbn13)
+	tag_id INT NOT NULL,
+    CONSTRAINT PK_book_tag PRIMARY KEY(isbn13, tag_id),
+	CONSTRAINT FK_book_tag_book FOREIGN KEY(isbn13) REFERENCES book(isbn13),
+	CONSTRAINT FK_book_tag_tag FOREIGN KEY(tag_id) REFERENCES tag(tag_id)
+
 );
 
 CREATE TABLE book_publisher (
 	isbn13 BIGINT NOT NULL,
-  	publisher_id INT,
-  CONSTRAINT pk_book_publisher PRIMARY KEY (isbn13)
+  	publisher_id INT NOT NULL,
+  	CONSTRAINT pk_book_publisher PRIMARY KEY (isbn13, publisher_id),
+	CONSTRAINT FK_book_publisher_book FOREIGN KEY(isbn13) REFERENCES book(isbn13),
+	CONSTRAINT FK_book_publisher_publisher FOREIGN KEY(publisher_id) REFERENCES publisher(publisher_id)
 );
 
 CREATE TABLE book_author (
@@ -100,16 +105,5 @@ CREATE TABLE book_genre (
 INSERT INTO users (username,password_hash,role) VALUES ('user1','user1','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('user2','user2','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('user3','user3','ROLE_USER');
-
-INSERT INTO author(author_name) VALUES ('Tolkien');
-INSERT INTO author(author_name) VALUES ('Marquez');
-
-INSERT INTO book (isbn13, title, pub_date, num_pages, language_id, overview ,CoverLink)
-VALUES (9780063270886, 'The Fellowship of the Ring','07/05/2022','432', 1, 'J.R.R. Tolkien’s classic fantasy has accumulated worldwide acclaim as the greatest adventure tale ever written. No other writer has created a world as distinct as Middle-earth, complete with its own geography, history, languages, and legends. And no one has created characters as endearing as Tolkien’s large-hearted, hairy-footed hobbits.',
-		'https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B600%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&source=url%5Bhttps://prodimage.images-bn.com/pimages/9780063270886_p0_v2_s600x595.jpg%5D&scale=options%5Blimit%5D,size%5B600x10000%5D&sink=format%5Bwebp%5D'),
-		(9780063227262, 'Sira','09/13/2022','736', 3, 'Cuatro ciudades, dos misiones, una mujer. Vuelve a sumergirte en un tiempo inolvidable. Después de El tiempo entre costuras, SIRA, la nueva novela de María Dueñas.',
-		 'https://prodimage.images-bn.com/pimages/9780063227262_p0_v2_s600x595.jpg'),
-		(9781728281414, 'The Sun and Its Shade','02/28/2023', '544', 1, 'The novella features Zaccai, one of the Northern fae, and his complicated relationship with a mortal and another fae as the three train for the coming war with the queen. Exploring issues of identity, sexuality, power, and loyalty, Piper CJ brings strong writing and rich characters to expand her THE NIGHT AND ITS MOON world even further.',
-		 'https://prodimage.images-bn.com/lf?set=key%5Bresolve.pixelRatio%5D,value%5B1%5D&set=key%5Bresolve.width%5D,value%5B300%5D&set=key%5Bresolve.height%5D,value%5B10000%5D&set=key%5Bresolve.imageFit%5D,value%5Bcontainerwidth%5D&set=key%5Bresolve.allowImageUpscaling%5D,value%5B0%5D&set=key%5Bresolve.format%5D,value%5Bwebp%5D&source=url%5Bhttps://prodimage.images-bn.com/pimages/9781728281414_p0_v1_s600x595.jpg%5D&scale=options%5Blimit%5D,size%5B300x10000%5D&sink=format%5Bwebp%5D');
 
 COMMIT TRANSACTION;

@@ -64,7 +64,6 @@ CREATE TABLE book_language (
 CREATE TABLE book (
     isbn13 BIGINT NOT NULL,
     title varchar(200) NOT NULL,
-	author_id INT NOT NULL,
     pub_date date NULL,
     num_pages INT,
 	language_id INT,
@@ -75,14 +74,19 @@ CREATE TABLE book (
 
 CREATE TABLE book_tag (
 	isbn13 BIGINT NOT NULL,
-	tag_id INT,
-    CONSTRAINT PK_book_tag PRIMARY KEY(isbn13)
+	tag_id INT NOT NULL,
+    CONSTRAINT PK_book_tag PRIMARY KEY(isbn13, tag_id),
+	CONSTRAINT FK_book_tag_book FOREIGN KEY(isbn13) REFERENCES book(isbn13),
+	CONSTRAINT FK_book_tag_tag FOREIGN KEY(tag_id) REFERENCES tag(tag_id)
+
 );
 
 CREATE TABLE book_publisher (
 	isbn13 BIGINT NOT NULL,
-  	publisher_id INT,
-  CONSTRAINT pk_book_publisher PRIMARY KEY (isbn13)
+  	publisher_id INT NOT NULL,
+  	CONSTRAINT pk_book_publisher PRIMARY KEY (isbn13, publisher_id),
+	CONSTRAINT FK_book_publisher_book FOREIGN KEY(isbn13) REFERENCES book(isbn13),
+	CONSTRAINT FK_book_publisher_publisher FOREIGN KEY(publisher_id) REFERENCES publisher(publisher_id)
 );
 
 CREATE TABLE book_author (
