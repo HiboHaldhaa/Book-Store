@@ -56,8 +56,6 @@ CREATE TABLE book_language (
     CONSTRAINT pk_language PRIMARY KEY (language_id)
 );
 
-
-
 CREATE TABLE book (
     isbn13 BIGINT NOT NULL,
     title varchar(200) NOT NULL,

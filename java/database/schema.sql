@@ -65,8 +65,8 @@ CREATE TABLE book (
     isbn13 BIGINT NOT NULL,
     title varchar(200) NOT NULL,
     pub_date date NULL,
-    num_pages INT,
-	language_id INT,
+    num_pages INT NULL,
+	language_id INT NULL,
 	overview text NULL,
     CoverLink varchar(500) NULL,
 	CONSTRAINT PK_book PRIMARY KEY(isbn13)

@@ -31,12 +31,8 @@ public class JdbcBookDao implements BookDao{
            int pages = book.getPages();
            String overview = book.getOverview();
            String coverLink = book.getCoverLink();
-           int languageId = findIdByName("language_id", "book_language", "language_name",
-                   book.getLanguage());
-           if (languageId == 0) {
-               languageId = addName("book_language", "language_name", book.getLanguage(),
-                       "language_id");
-           }
+           int languageId = bookLanguage(book.getLanguage());
+
            String sql = "INSERT INTO book (isbn13, title, pub_date, num_pages, language_id, overview, CoverLink) " +
                    "VALUES(?,?,?,?,?,?,?);";
            jdbcTemplate.update(sql, isbn, title, publicationDate, pages, languageId, overview, coverLink);
@@ -47,6 +43,20 @@ public class JdbcBookDao implements BookDao{
            publisherRelation(book.getPublisher(), isbn);
        }
 
+    }
+
+    public int bookLanguage(String language) {
+        if (language == "") {
+            return 0;
+        }
+
+        int languageId = findIdByName("language_id", "book_language", "language_name", language);
+        if (languageId == 0) {
+            languageId = addName("book_language", "language_name", language,
+                    "language_id");
+        }
+
+        return languageId;
     }
 
     public void publisherRelation(String publisher, long isbn) {
