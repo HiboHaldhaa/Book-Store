@@ -3,10 +3,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BookDao;
 import com.techelevator.model.Book;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BookController {
@@ -21,6 +18,14 @@ public class BookController {
     public void addBook(@RequestBody Book book) {
 
         bookDao.addBook(book);
+
+    }
+
+    @RequestMapping(path = "/books/{isbn}", method = RequestMethod.GET)
+    public Book getBookByIsbn(@PathVariable String isbn) {
+        long longIsbn = Long.parseLong(isbn);
+
+        return bookDao.getBookByIsbn(longIsbn);
 
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -42,6 +43,91 @@ public class JdbcBookDao implements BookDao{
            tagRelation(book.getTags(), isbn);
            publisherRelation(book.getPublisher(), isbn);
        }
+
+    }
+
+    @Override
+    public Book getBookByIsbn(long isbn) {
+
+        Book book = null;
+
+        if (!findBookByIsbn(isbn)) {
+            return book;
+        }
+
+        book = mapBook(isbn);
+        return book;
+    }
+
+    private Book mapBook(long isbn) {
+
+        Book book = new Book();
+        String sql = "SELECT isbn13, title, pub_date, num_pages, language_id, overview, coverlink FROM book " +
+                "WHERE isbn13 = ?;";
+        SqlRowSet row = jdbcTemplate.queryForRowSet(sql, isbn);
+        if (row.next()) {
+            book.setIsbn(row.getLong("isbn13"));
+            book.setTitle(row.getString("title"));
+            book.setPages(row.getInt("num_pages"));
+            book.setOverview(row.getString("overview"));
+            book.setCoverLink(row.getString("coverlink"));
+            if (row.getDate("pub_date") == null) {
+                book.setPublicationDate(LocalDate.MIN);
+            } else {
+                book.setPublicationDate(row.getDate("pub_date").toLocalDate());
+            }
+            int languageId = row.getInt("language_id");
+            if (languageId == 0) {
+                book.setLanguage("Not Available");
+            } else {
+                sql = "SELECT language_id, language_name FROM book_language WHERE language_id = ?;";
+                row = jdbcTemplate.queryForRowSet(sql, languageId);
+                if (row.next()) {
+                    book.setLanguage(row.getString("language_name"));
+                }
+            }
+            sql = "SELECT isbn13, author_name FROM book_author " +
+                    "JOIN author ON author.author_id = book_author.author_id " +
+                    "WHERE isbn13 = ?;";
+            row = jdbcTemplate.queryForRowSet(sql, isbn);
+            if (row.next()) {
+                book.setAuthor(row.getString("author_name"));
+            }
+            book.setGenres(mapGenres(isbn));
+            book.setTags(mapTags(isbn));
+        }
+        return book;
+    }
+
+    private List<String> mapTags(long isbn) {
+        List<String> tags = new ArrayList<>();
+
+        String sql = "SELECT isbn13, tag_word FROM book_tag " +
+                "JOIN tag ON tag.tag_id = book_tag.tag_id " +
+                "WHERE isbn13 = ?;";
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, isbn);
+
+        while (rows.next()) {
+            tags.add(rows.getString("tag_word"));
+        }
+
+        return tags;
+    }
+
+    private List<String> mapGenres(long isbn) {
+        List<String> genres = new ArrayList<>();
+
+        String sql = "SELECT isbn13, genre_name FROM book_genre " +
+                "JOIN genre ON genre.genre_id = book_genre.genre_id " +
+                "WHERE isbn13 = ?;";
+
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, isbn);
+
+        while (rows.next()) {
+            genres.add(rows.getString("genre_name"));
+        }
+
+        return genres;
 
     }
 
