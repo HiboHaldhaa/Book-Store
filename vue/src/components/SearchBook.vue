@@ -1,18 +1,19 @@
 <template>
 
-  <form @submit.prevent="submitForm">
+  <form @submit.prevent="searchBooks()">
     <h1> Search a Book in our Library</h1>
     <div class="form-control">
       <label for="title">Title</label>
-      <input id="title" name="title" type="text" v-model.trim="title" />
+      <input id="title" name="title" type="text" v-model.trim="book.title" />
     </div>
     <div class="form-control">
       <label for="author">Author</label>
-      <input id="author" name="author" type="text" v-model.trim="author" />
+      <input id="author" name="author" type="text" v-model.trim="book.author" />
     </div>
     <div class="form-control">
       <label for="genre">Select Genre</label>
-      <select id="genre" name="genre" v-model="genre">
+      <select id="genre" name="genre" v-model="book.genre">
+        <option value=""></option>
         <option value="action">Action</option>
         <option value="adventure">Adventure</option>
         <option value="sci-fi">Science Fiction/Fantasy</option>
@@ -20,11 +21,11 @@
     </div>
     <div class="form-control">
       <label for="keyword">Keyword(s)</label>
-      <input id="keyword" name="keyword" type="text" v-model.trim="keyword" />
+      <input id="keyword" name="keyword" type="text" v-model.trim="book.keyword" />
     </div>
     <div class="form-control">
       <label for="isbn">ISBN </label>
-      <input id="isbn" name="isbn" type="text" v-model.trim="isbn" />
+      <input id="isbn" name="isbn" type="text" v-model.trim="book.isbn" />
     </div>
     
     
@@ -44,11 +45,13 @@ export default{
 
   data () {
     return {
-      title: '',
-      author: '',
-      genre: 'action',
-      keyword: '',
-      isbn: '',
+      book: {
+        title: '',
+        author: '',
+        genre: '',
+        keyword: '',
+        isbn: '',
+      }
     };
   },
   methods: {
@@ -67,8 +70,9 @@ export default{
     },
 
     searchBooks() {
-      bookServices.searchBooks().then(response => {
-        this.bookServices(response.data)
+      bookServices.searchBooks(this.book).then((response) => {
+        
+        this.$store.commit('SET_CURRENT_SEARCH', response.data);
       })
       .catch(error => {
         if(error.response.status == 404) {

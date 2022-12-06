@@ -5,8 +5,8 @@ const http = axios.create({
 })
 
 export default {
-    searchBooks() {
-      return http.get('/search', "search");  
+    searchBooks(book) {
+      return http.get(`/search?title=${book.title}&author=${book.author}&genre=${book.genre}&keyword=${book.keyword}&isbn=${book.isbn}`);
     },
 
     addBooks(books) {

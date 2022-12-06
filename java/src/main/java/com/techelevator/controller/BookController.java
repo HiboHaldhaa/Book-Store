@@ -38,6 +38,7 @@ public class BookController {
 
     }
 
+    @CrossOrigin
     @GetMapping(path = "/search")
     public Set<Book> searchBooks(@RequestParam(defaultValue = "") String title,
                                   @RequestParam(defaultValue = "") String author,
