@@ -1,19 +1,20 @@
 <template>
 
-  <form @submit.prevent="submitForm">
+  <form @submit.prevent="searchBooks()">
     <h1> Search a Book in our Library</h1>
     <div class="form-control">
       <label for="title">Title</label>
-      <input id="title" name="title" type="text" v-model.trim="title" />
+      <input id="title" name="title" type="text" v-model.trim="book.title" />
     </div>
     <div class="form-control">
       <label for="author">Author</label>
-      <input id="author" name="author" type="text" v-model.trim="author" />
+      <input id="author" name="author" type="text" v-model.trim="book.author" />
     </div>
     <div class="form-control">
       <label for="genre">Select Genre</label>
-      <select id="genre" name="genre" v-model="genre">
-         <option value="action">Action</option>
+      <select id="genre" name="genre" v-model="book.genre">
+        <option value=""></option>
+        <option value="action">Action</option>
         <option value="adventure">Adventure</option>
         <option value="autobiography">Autobiography</option>
         <option value="children's">Children's Literature</option>
@@ -28,11 +29,11 @@
     </div>
     <div class="form-control">
       <label for="keyword">Keyword(s)</label>
-      <input id="keyword" name="keyword" type="text" v-model.trim="keyword" />
+      <input id="keyword" name="keyword" type="text" v-model.trim="book.keyword" />
     </div>
     <div class="form-control">
       <label for="isbn">ISBN </label>
-      <input id="isbn" name="isbn" type="text" v-model.trim="isbn" />
+      <input id="isbn" name="isbn" type="text" v-model.trim="book.isbn" />
     </div>
     
     
@@ -45,35 +46,48 @@
 
 <script>
 
+import bookServices from "@/services/BookServices.js"
 export default{
-    name: "search",
+    // name: "search",
+
+
   data () {
     return {
-      title: '',
-      author: '',
-      genre: '',
-      keyword: '',
-      isbn: '',
+      book: {
+        title: '',
+        author: '',
+        genre: '',
+        keyword: '',
+        isbn: '',
+      }
     };
   },
   methods: {
     submitForm() {
       // console.log('title: ' + this.title);
-      // this.title = '';
+      this.title = '';
       // console.log('author: ' + this.author);
-      // this.author = '';
+      this.author = '';
       // console.log('genre: ' + this.genre);
-      // this.genre = 'action';
+      this.genre = 'action';
       // console.log('keyword: ' + this.keyword);
-      // this.keyword = '';
+      this.keyword = '';
       // console.log('isbn: ' + this.isbn);
-      // this.isbn = '';
-
-      // let searchTerm = `/search?isbn=${this.isbn}&title=${this.title}&author=${this.author}&genre=${this.genre}&keyword=${this.keyword}`;
-      //  axios.search(searchTerm);
-
+      this.isbn = '';
       
     },
+
+    searchBooks() {
+      bookServices.searchBooks(this.book).then((response) => {
+        
+        this.$store.commit('SET_CURRENT_SEARCH', response.data);
+      })
+      .catch(error => {
+        if(error.response.status == 404) {
+          this.$router.push({name:"NotFound"})
+        }
+      })
+    }
   },
 };
 

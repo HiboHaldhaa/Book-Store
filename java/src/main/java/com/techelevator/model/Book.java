@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public class Book {
 
@@ -18,6 +19,19 @@ public class Book {
     private String coverLink;
 
     public Book () {}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return isbn == book.isbn;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
+    }
 
     public Book(long isbn, String title, String author, LocalDate publicationDate, String language,
                 List<String> genres, List<String> tags, int pages, String publisher, String overview,
