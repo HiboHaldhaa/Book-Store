@@ -59,6 +59,52 @@ public class JdbcBookDao implements BookDao{
         return book;
     }
 
+    @Override
+    public List<Book> getBooksByTitle(String title) {
+        List<Book> books = new ArrayList<>();
+
+        String sql = "SELECT isbn13, title FROM book WHERE title ILIKE ?;";
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, "%"+title+"%");
+
+        List<Long> isbnList = new ArrayList<>();
+
+        while(rows.next()){
+            isbnList.add(rows.getLong("isbn13"));
+        }
+
+        for (Long isbn : isbnList) {
+            books.add(getBookByIsbn(isbn));
+        }
+
+        return books;
+    }
+
+    @Override
+    public List<Book> getBooksByAuthor(String author) {
+
+        List<Book> books = new ArrayList<>();
+
+        String sql = "SELECT book.isbn13 FROM author " +
+                "JOIN book_author ON book_author.author_id = author.author_id " +
+                "JOIN book ON book.isbn13 = book_author.isbn13 " +
+                "WHERE author_name ILIKE ?;";
+
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, "%"+author+"%");
+
+        List<Long> isbnList = new ArrayList<>();
+
+        while(rows.next()){
+            isbnList.add(rows.getLong("isbn13"));
+        }
+
+        for (Long isbn : isbnList) {
+            books.add(getBookByIsbn(isbn));
+        }
+
+        return books;
+    }
+
+
     private Book mapBook(long isbn) {
 
         Book book = new Book();

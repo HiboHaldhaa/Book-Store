@@ -3,11 +3,14 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BookDao;
 import com.techelevator.model.Book;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.function.EntityResponse;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class BookController {
@@ -18,6 +21,7 @@ public class BookController {
         this.bookDao = bookDao;
     }
 
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "/books", method = RequestMethod.POST)
     public void addBook(@RequestBody Book book) {
 
@@ -34,15 +38,26 @@ public class BookController {
     }
 
     @GetMapping(path = "/search")
-    public List<Book> searchBooks(@RequestParam(required = false) String title,
-                                  @RequestParam(required = false) String author,
-                                  @RequestParam(required = false) List<String> genre,
-                                  @RequestParam(required = false) List<String> keywords,
-                                  @RequestParam(required = false) String isbn) {
+    public Set<Book> searchBooks(@RequestParam(defaultValue = "") String title,
+                                  @RequestParam(defaultValue = "") String author,
+                                  @RequestParam(defaultValue = "") List<String> genre,
+                                  @RequestParam(defaultValue = "") List<String> keywords,
+                                  @RequestParam(defaultValue = "") String isbn) {
 
-        List<Book> results = new ArrayList<>();
-        
-        results.add(bookDao.getBookByIsbn(Long.parseLong(isbn)));
+        Set<Book> results = new HashSet<>();
+
+        if (!isbn.equals("")) {
+            Book isbnBook = bookDao.getBookByIsbn(Long.parseLong(isbn));
+            if (isbnBook != null ) {
+                results.add(isbnBook);
+            }
+        }
+        if (!title.equals("")) {
+            results.addAll(bookDao.getBooksByTitle(title));
+        }
+        if (!author.equals("")) {
+            results.addAll(bookDao.getBooksByAuthor(author));
+        }
 
         return results;
 
