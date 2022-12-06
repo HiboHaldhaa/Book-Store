@@ -1,26 +1,27 @@
 <template>
-  <div>
+  <div id="app">
+    <main>
+    </main>
+    
     <router-view />
+    
+    
   </div>
-  
 </template>
 
 <script>
 
-
-export default {};
+export default {
+  name: "app",
+ components: {
+   
+  
+ }
+};
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: sans-serif;
-}
-
-body {
-  margin: 0;
+div{
+   overflow-x: hidden;
 }
 </style>

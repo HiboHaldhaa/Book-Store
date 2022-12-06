@@ -7,7 +7,8 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Search from '@/views/Search'
 import BookAdded from '@/views/BookAdded'
-import Navigation from '../components/nav/Navigation'
+import Dash from '../views/Dash'
+
 //import { search } from 'core-js/fn/symbol'
 
 Vue.use(Router)
@@ -21,63 +22,66 @@ Vue.use(Router)
  * If they have (or don't need to) they're allowed to go about their way.
  */
 
+ const routes = [
+  {
+    path: '',
+    component: Dash,
+    children: [
+     
+     {
+       path: '/',
+       name: 'home',
+       component: Home,
+     },
+     {
+       path: "/login",
+       name: "login",
+       component: Login,
+       meta: {
+         requiresAuth: false
+       }
+     },
+     {
+       path: "/logout",
+       name: "logout",
+       component: Logout,
+       meta: {
+         requiresAuth: false
+       }
+     },
+     {
+       path: "/register",
+       name: "register",
+       component: Register,
+       meta: {
+         requiresAuth: false
+       }
+     },
+ 
+     {
+       path:"/search",
+       name:"search-books",
+       component: Search
+     },
+ 
+     {
+      path: "/book",
+      name: "add-books",
+      component:BookAdded,
+     //  meta: {
+     //   requiresAuth: true
+     // }
+ 
+     },
+     
+    ]
+  }
+]
+
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-      meta: {
-        requiresAuth: true
-      }
-    },
-
-    {
-      path: '/navigation',
-      name: 'nav',
-      component: Navigation
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/logout",
-      name: "logout",
-      component: Logout,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
-      meta: {
-        requiresAuth: false
-      }
-    },
-
-    {
-      path:"/search",
-      name:"search-books",
-      component: Search
-    },
-
-    {
-     path: "/addbook",
-     name: "book-added",
-     component:BookAdded
-
-    },
-  
-  ]
+  routes
 })
 
 router.beforeEach((to, from, next) => {
