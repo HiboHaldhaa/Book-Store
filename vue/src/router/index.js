@@ -9,7 +9,7 @@ import Search from '@/views/Search'
 import BookAdded from '@/views/BookAdded'
 import Dash from '../views/Dash'
 
-//import { search } from 'core-js/fn/symbol'
+// import { search } from 'core-js/fn/symbol'
 
 Vue.use(Router)
 
@@ -72,7 +72,7 @@ Vue.use(Router)
      //   requiresAuth: true
      // }
  
-     },
+     }
      
     ]
   }

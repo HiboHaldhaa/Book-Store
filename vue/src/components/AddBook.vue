@@ -15,7 +15,15 @@
       <select id="genre" name="genre" v-model="genre">
         <option value="action">Action</option>
         <option value="adventure">Adventure</option>
+        <option value="autobiography">Autobiography</option>
+        <option value="children's">Children's Literature</option>
+        <option value="fiction">Fiction</option>
+        <option value="Horror">Horror</option>
+        <option value="literary fiction">Literary Fiction</option>
+        <option value="non-fiction">Non-Fiction</option>
         <option value="sci-fi">Science Fiction/Fantasy</option>
+        <option value="true-crime">True Crime</option>
+        <option value="young-adult">Young Adult</option>
       </select>
     </div>
     <div class="form-control">
@@ -43,24 +51,31 @@ export default{
     return {
       title: '',
       author: '',
-      genre: 'action',
+      genre: '',
       keyword: '',
       isbn: '',
     };
   },
   methods: {
     submitForm() {
-      console.log('title: ' + this.title);
-      this.title = '';
-      console.log('author: ' + this.author);
-      this.author = '';
-      console.log('genre: ' + this.genre);
-      this.genre = 'action';
-      console.log('keyword: ' + this.keyword);
-      this.keyword = '';
-      console.log('isbn: ' + this.isbn);
-      this.isbn = '';
-      
+      // console.log('title: ' + this.title);
+      // // this.title = '';
+      // console.log('author: ' + this.author);
+      // this.author = '';
+      // console.log('genre: ' + this.genre);
+      // this.genre = 'action';
+      // console.log('keyword: ' + this.keyword);
+      // this.keyword = '';
+      // console.log('isbn: ' + this.isbn);
+      // this.isbn = '';
+    //   let book = {
+    //     title: this.title,
+    //     author: this.author,
+    //     genre: this.genre,
+    //     keyword: this.keyword,
+    //     isbn: this.isbn,
+    //   }
+    //   BookService.addBook(book)
     },
   },
 };
@@ -93,7 +108,7 @@ h2 {
 input,
 select {
   display: block;
-  width: 100%;
+  width: 95%;
   font: inherit;
   margin-top: 0.5rem;
 }
