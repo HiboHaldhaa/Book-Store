@@ -21,7 +21,9 @@ export default {
 
 <style>
 body {background-color:#250D4B;}
-
+div{
+   overflow: hidden;
+}
 .dash {
     display:grid;
     grid-template-columns: .3fr 2fr;
@@ -29,10 +31,6 @@ body {background-color:#250D4B;}
     height: 100vw;
     width: 100vw;
 }
-/* Rectangle 18 */
-
-
-
 
 .content {
     background-color: white;
