@@ -6,7 +6,8 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Search from '@/views/Search'
-import Book from '@/views/Book'
+import BookAdded from '@/views/BookAdded'
+import Navigation from '../components/nav/Navigation'
 //import { search } from 'core-js/fn/symbol'
 
 Vue.use(Router)
@@ -31,6 +32,12 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+
+    {
+      path: '/navigation',
+      name: 'nav',
+      component: Navigation
     },
     {
       path: "/login",
@@ -64,9 +71,9 @@ const router = new Router({
     },
 
     {
-     path: "/book",
-     name: "add-books",
-     component:Book
+     path: "/addbook",
+     name: "book-added",
+     component:BookAdded
 
     },
   

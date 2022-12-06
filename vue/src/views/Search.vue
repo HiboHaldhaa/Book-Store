@@ -1,16 +1,19 @@
 <template>
   <div class="search">
-  <h1>Search</h1>
-
+   
+  <SearchBook/> 
   </div>
 </template>
 
 <script>
-//import { component } from 'vue/types/umd';
-export default {
-name: "search-books"
-};
 
+import SearchBook from '../components/SearchBook.vue'
+export default {
+  components: {
+    SearchBook
+  }
+
+}
 </script>
 
 <style>
