@@ -8,6 +8,7 @@ import store from '../store/index'
 import Search from '@/views/Search'
 import BookAdded from '@/views/BookAdded'
 import Dash from '../views/Dash'
+import NotFound from '../views/NotFound'
 
 //import { search } from 'core-js/fn/symbol'
 
@@ -23,6 +24,12 @@ Vue.use(Router)
  */
 
  const routes = [
+
+  {
+    path: "/not-found",
+    name: "NotFound",
+    component: NotFound
+  },
   {
     path: '',
     component: Dash,

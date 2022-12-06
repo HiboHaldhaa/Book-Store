@@ -37,8 +37,11 @@
 
 <script>
 
+import bookServices from "@/services/BookServices.js"
 export default{
-    name: "search",
+    // name: "search",
+
+
   data () {
     return {
       title: '',
@@ -50,18 +53,29 @@ export default{
   },
   methods: {
     submitForm() {
-      console.log('title: ' + this.title);
+      // console.log('title: ' + this.title);
       this.title = '';
-      console.log('author: ' + this.author);
+      // console.log('author: ' + this.author);
       this.author = '';
-      console.log('genre: ' + this.genre);
+      // console.log('genre: ' + this.genre);
       this.genre = 'action';
-      console.log('keyword: ' + this.keyword);
+      // console.log('keyword: ' + this.keyword);
       this.keyword = '';
-      console.log('isbn: ' + this.isbn);
+      // console.log('isbn: ' + this.isbn);
       this.isbn = '';
       
     },
+
+    searchBooks() {
+      bookServices.searchBooks().then(response => {
+        this.bookServices(response.data)
+      })
+      .catch(error => {
+        if(error.response.status == 404) {
+          this.$router.push({name:"NotFound"})
+        }
+      })
+    }
   },
 };
 

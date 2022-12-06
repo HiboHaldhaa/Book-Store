@@ -22,6 +22,7 @@ public class BookController {
     }
 
     //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @CrossOrigin
     @RequestMapping(path = "/books", method = RequestMethod.POST)
     public void addBook(@RequestBody Book book) {
 
