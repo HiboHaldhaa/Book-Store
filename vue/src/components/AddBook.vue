@@ -12,8 +12,9 @@
     </div>
     <div class="form-control">
       <label for="genre">Select Genre</label>
-      <select id="genre" name="genre" v-model="book.genre">
+      <select id="genre" name="genre" v-model="genre">
         <option value="action">Action</option>
+        <option value="drama">Drama</option>
         <option value="adventure">Adventure</option>
         <option value="autobiography">Autobiography</option>
         <option value="children's">Children's Literature</option>
@@ -28,7 +29,7 @@
     </div>
     <div class="form-control">
       <label for="keyword">Keyword(s)</label>
-      <input id="keyword" name="keyword" type="text" v-model.trim="book.keyword" />
+      <input id="keyword" name="keyword" type="text" v-model.trim="keyword" />
     </div>
     <div class="form-control">
       <label for="isbn">ISBN </label>
@@ -55,11 +56,13 @@ export default{
      name: "addbook",
   data () {
     return {
+      genre: '',
+      keyword: '',
       book: {
         title: '',
         author: '',
-        genre: '',
-        keyword: '',
+        genres: [],
+        tags: [],
         isbn: '',
         coverLink: ''
       }
@@ -78,14 +81,17 @@ export default{
  
 
     addBooks() {
-      if (this.isAdmin)
-     { bookServices.addBooks(this.book).then((response) => {
+      this.book.genres.push(this.genre);
+      this.book.tags.push(this.keyword);
+      
+      if (this.isAdmin) { 
+      bookServices.addBooks(this.book).then((response) => {
         if(response.status === 200) {
           alert("Book added successfully");
           this.book.title = "";
           this.book.author = "";
-          this.book.genre = "";
-          this.book.keyword = "";
+          this.book.genre = [];
+          this.book.keyword = [];
           this.book.isbn = "";
           this.book.coverLink = "";
         

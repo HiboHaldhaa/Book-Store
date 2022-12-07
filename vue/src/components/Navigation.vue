@@ -77,7 +77,7 @@ export default {
 
 <style >
 div{
-   overflow-x: hidden;
+   overflow: hidden;
 }
 .menu-icon{
     position: relative;
@@ -164,7 +164,7 @@ width:150px;
     content: "";
     right: 0px;
     height: 60px;
-    width: 60px;
+    width: 50px;
     border-radius: 50%;
     background-color: #250D4B;
 }

@@ -21,20 +21,20 @@ export default {
 
 <style>
 body {background-color:#250D4B;}
-div{
-   overflow: hidden;
-}
+
 .dash {
     display:grid;
     grid-template-columns: .3fr 2fr;
     background-color: #250D4B;
-    height: 100vw;
+    height: 49vw;
     width: 100vw;
+     overflow-y: hidden;
 }
 
 .content {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 50px;
-    margin: 40px 90px 30px 0px;
+    margin: 20px 90px 0px 0px;
+    overflow-y: scroll;
 }
 </style>

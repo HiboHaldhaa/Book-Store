@@ -15,6 +15,7 @@
       <select id="genre" name="genre" v-model="book.genre">
         <option value=""></option>
         <option value="action">Action</option>
+         <option value="drama">Drama</option>
         <option value="adventure">Adventure</option>
         <option value="autobiography">Autobiography</option>
         <option value="children's">Children's Literature</option>
