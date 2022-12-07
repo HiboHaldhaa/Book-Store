@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Book;
 import com.techelevator.model.User;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface UserDao {
     int findIdByUsername(String username);
 
     boolean create(String username, String password, String role);
+
+    boolean addToReadingList(int id, Book book);
 }

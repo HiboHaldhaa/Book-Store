@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Book;
 import com.techelevator.model.User;
 import com.techelevator.model.UserNotFoundException;
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class JdbcUserDaoTests extends BaseDaoTests {
@@ -16,13 +18,29 @@ public class JdbcUserDaoTests extends BaseDaoTests {
     protected static final User USER_2 = new User(2L, "user2", "user2", "ROLE_USER");
     private static final User USER_3 = new User(3L, "user3", "user3", "ROLE_USER");
 
+    private static final Book BOOK_1 = new Book(9780345339713L, "The Two Towers", "J.R.R. Tolkien", LocalDate.now(),
+            "English", List.of("Fantasy"), List.of("Epic"), 432, "Harper Collins", "The one ring", "coverlink.jpeg");
+    private static final Book BOOK_2 = new Book(9780345339616L, "The Return of the King", "J.R.R. Tolkien", LocalDate.now(), "English",
+            List.of("Fantasy"), List.of("Epic"), 500, "Harper Collins", "The End", "coverlink.png");
+
     private JdbcUserDao sut;
+    private JdbcBookDao bookDao;
+
 
     @Before
     public void setup() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         sut = new JdbcUserDao(jdbcTemplate);
+        bookDao = new JdbcBookDao(jdbcTemplate);
     }
+
+    @Test
+    public void readingListCreated(){
+       bookDao.addBook(BOOK_1);
+        Assert.assertTrue (sut.addToReadingList(1,BOOK_1));
+        Assert.assertFalse(sut.addToReadingList(1, BOOK_1));
+    }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void findIdByUsername_given_null_throws_exception() {
