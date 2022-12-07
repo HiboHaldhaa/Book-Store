@@ -1,8 +1,10 @@
 <template>
+
   <div class="returningValue" >
     <h2 class="book-title">{{book.title}} </h2>
     <h3 class="book-author"> {{book.author}} </h3>
     <img class="CoverImg" v-bind:src="book.coverLink">
+
   </div>
 </template>
 

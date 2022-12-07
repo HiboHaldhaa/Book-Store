@@ -9,6 +9,8 @@ import Search from '@/views/Search'
 import BookAdded from '@/views/BookAdded'
 import Dash from '../views/Dash'
 import NotFound from '../views/NotFound'
+import ReadingList from '../views/ReadingList'
+
 
 // import { search } from 'core-js/fn/symbol'
 
@@ -77,8 +79,15 @@ Vue.use(Router)
       component:BookAdded,
      meta: {
       isAdmin: true
+     } 
      },
- 
+     {
+      path: "/reading_list",
+      name: "reading-list",
+      component:ReadingList,
+     meta: {
+      isUser: true
+     }, 
      }
      
     ]
