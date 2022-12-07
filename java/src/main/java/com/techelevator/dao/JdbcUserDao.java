@@ -4,7 +4,9 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.techelevator.model.Book;
 import com.techelevator.model.UserNotFoundException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -102,6 +104,19 @@ public class JdbcUserDao implements UserDao {
 
         return userCreated;
     }
+
+    @Override
+    public boolean addToReadingList(int id, Book book) {
+        String readingList = "insert INTO user_book (user_id, isbn13) VALUES (?,?)";
+
+        try {
+            jdbcTemplate.update(readingList,id , book.getIsbn());
+        } catch (DuplicateKeyException e){
+            return false;
+        }
+        return true;
+    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

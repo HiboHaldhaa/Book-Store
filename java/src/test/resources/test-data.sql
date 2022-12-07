@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS user_book, users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 DROP TABLE IF EXISTS book_genre, book_author, book, tag, book_tag, author, genre, publisher,book_language, book_publisher CASCADE;
@@ -48,7 +48,6 @@ CREATE TABLE publisher (
   CONSTRAINT pk_publisher PRIMARY KEY (publisher_id)
 );
 
-
 CREATE SEQUENCE language_serial;
 CREATE TABLE book_language (
     language_id INT NOT NULL DEFAULT nextval('language_serial'),
@@ -65,6 +64,14 @@ CREATE TABLE book (
 	overview text NULL,
     CoverLink varchar(500) NULL,
 	CONSTRAINT PK_book PRIMARY KEY(isbn13)
+);
+
+CREATE TABLE user_book (
+user_id int NOT NULL,
+isbn13 BIGINT NOT NULL,
+CONSTRAINT PK_user_book PRIMARY KEY (user_id, isbn13),
+CONSTRAINT FK_user_book_user FOREIGN KEY (user_id) REFERENCES users (user_id),
+CONSTRAINT FK_user_book_book FOREIGN KEY (isbn13) REFERENCES book (isbn13)
 );
 
 CREATE TABLE book_tag (
