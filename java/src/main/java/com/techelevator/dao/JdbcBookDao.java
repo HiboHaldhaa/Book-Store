@@ -39,8 +39,13 @@ public class JdbcBookDao implements BookDao{
            jdbcTemplate.update(sql, isbn, title, publicationDate, pages, languageId, overview, coverLink);
 
            authorRelation(book.getAuthor(), isbn);
-           genresRelation(book.getGenres(), isbn);
-           tagRelation(book.getTags(), isbn);
+           if (book.getGenres() != null) {
+               genresRelation(book.getGenres(), isbn);
+
+           }
+           if (book.getTags() != null) {
+               tagRelation(book.getTags(), isbn);
+           }
            publisherRelation(book.getPublisher(), isbn);
        }
 
