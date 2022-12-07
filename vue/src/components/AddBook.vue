@@ -52,7 +52,7 @@
 import bookServices from "@/services/BookServices.js"
 
 export default{
-    // name: "addbook",
+     name: "addbook",
   data () {
     return {
       book: {
