@@ -20,6 +20,12 @@
                     <img class="menu-icon" src="../assets/open-book.png"> Book
                 </div>
             </router-link>
+            <router-link v-if="isUser" to="/reading_list" active-class="active" tag="button" exact class="side-btn">
+                <!--  v-if="$store.state.user.authorities[0].name == 'ROLE_ADMIN'" -->
+                <div class="link-container">
+                    <img class="menu-icon" src="../assets/reading.png"> Reading List
+                </div>
+            </router-link>
             <router-link to="/search" active-class="active" tag="button" exact class="side-btn">
                 <div class="link-container">
                     <img class="menu-icon" src="../assets/book.png"> Search
@@ -47,6 +53,13 @@ export default {
         isAdmin() {
             if (Object.keys(this.$store.state.user).length > 0 ) {
                 return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
+
+            }
+            return false;
+        },
+        isUser() {
+            if (Object.keys(this.$store.state.user).length > 0 ) {
+                return this.$store.state.user.authorities[0].name == 'ROLE_USER';
 
             }
             return false;

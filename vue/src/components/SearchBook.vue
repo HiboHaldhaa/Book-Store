@@ -36,8 +36,6 @@
       <input id="isbn" name="isbn" type="text" v-model.trim="book.isbn" />
     </div>
     
-    
-    
     <div>
       <button>Search Books</button>
     </div>

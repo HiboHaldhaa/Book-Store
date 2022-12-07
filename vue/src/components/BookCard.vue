@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="container">
     <h2 class="book-title">{{book.title}} </h2>
     <h3 class="book-author"> {{book.author}} </h3>
-    <img v-bind:src="book.coverLink">
+    <img class="cover" v-bind:src="book.coverLink">
   </div>
 </template>
 
