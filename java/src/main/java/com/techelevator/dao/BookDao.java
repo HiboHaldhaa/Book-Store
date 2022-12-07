@@ -13,4 +13,8 @@ public interface BookDao {
     public List<Book> getBooksByTitle(String title);
 
     public List<Book> getBooksByAuthor(String author);
+
+    public List<Book> getBooksByGenre(String genre);
+
+    public List<Book> getBooksByKeyword(String keyword);
 }

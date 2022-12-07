@@ -61,6 +61,18 @@ public class BookController {
             results.addAll(bookDao.getBooksByAuthor(author));
         }
 
+        if (!genre.isEmpty()) {
+            for (String elem : genre) {
+                results.addAll(bookDao.getBooksByGenre(elem));
+            }
+        }
+
+        if (!keywords.isEmpty()) {
+            for (String elem : keywords) {
+                results.addAll(bookDao.getBooksByKeyword(elem));
+            }
+        }
+
         return results;
 
     }

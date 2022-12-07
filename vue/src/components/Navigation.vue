@@ -35,6 +35,12 @@
 
 <script>
 export default {
+
+    computed: {
+        isAdmin() {
+            return this.$store.state.user.authorities[0].name == "ROLE_ADMIN";
+        }
+    }
     
 }
 </script>
