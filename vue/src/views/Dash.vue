@@ -21,9 +21,7 @@ export default {
 
 <style>
 body {background-color:#250D4B;}
-div{
-   overflow: hidden;
-}
+
 .dash {
     display:grid;
     grid-template-columns: .3fr 2fr;
@@ -33,7 +31,7 @@ div{
 }
 
 .content {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 50px;
     margin: 40px 90px 30px 0px;
 }

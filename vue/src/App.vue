@@ -22,6 +22,6 @@ export default {
 
 <style>
 div{
-   overflow-x: hidden;
+   overflow: hidden;
 }
 </style>
