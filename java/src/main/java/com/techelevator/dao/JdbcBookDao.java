@@ -232,7 +232,7 @@ public class JdbcBookDao implements BookDao{
     }
 
     public int bookLanguage(String language) {
-        if (language == "") {
+        if (language == "" || language == null) {
             return 0;
         }
 
