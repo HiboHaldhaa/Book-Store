@@ -53,43 +53,34 @@
 import bookServices from "@/services/BookServices.js"
 
 export default{
-    name: "addbook",
+     name: "addbook",
   data () {
     return {
       book: {
         title: '',
         author: '',
-        genre: 'action',
+        genre: '',
         keyword: '',
         isbn: '',
         coverLink: ''
       }
     };
   },
+  computed: {
+     isAdmin() {
+            if (Object.keys(this.$store.state.user).length > 0 ) {
+                return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
+
+            }
+            return false;
+     }
+  },
   methods: {
-    submitForm() {
-      // console.log('title: ' + this.title);
-      // // this.title = '';
-      // console.log('author: ' + this.authohisr);
-      // this.author = '';
-      // console.log('genre: ' + this.genre);
-      // this.genre = 'action';
-      // console.log('keyword: ' + this.keyword);
-      // this.keyword = '';
-      // console.log('isbn: ' + this.isbn);
-      // this.isbn = '';
-    //   let book = {
-    //     title: this.title,
-    //     author: this.author,
-    //     genre: this.genre,
-    //     keyword: this.keyword,
-    //     isbn: this.isbn,
-    //   }
-    //   BookService.addBook(book)
-    },
+ 
 
     addBooks() {
-      bookServices.addBooks(this.book).then((response) => {
+      if (this.isAdmin)
+     { bookServices.addBooks(this.book).then((response) => {
         if(response.status === 200) {
           alert("Book added successfully");
           this.book.title = "";
@@ -98,9 +89,10 @@ export default{
           this.book.keyword = "";
           this.book.isbn = "";
           this.book.coverLink = "";
+        
         }
 
-      })
+      })}
     
 
     

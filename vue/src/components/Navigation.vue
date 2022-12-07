@@ -14,7 +14,8 @@
                    <img class="menu-icon" src="../assets/house.png"> Home
                 </div>
             </router-link>
-            <router-link to="/book" active-class="active" tag="button" exact class="side-btn">
+            <router-link v-if="isAdmin" to="/book" active-class="active" tag="button" exact class="side-btn">
+                <!--  v-if="$store.state.user.authorities[0].name == 'ROLE_ADMIN'" -->
                 <div class="link-container">
                     <img class="menu-icon" src="../assets/open-book.png"> Book
                 </div>
@@ -24,9 +25,14 @@
                     <img class="menu-icon" src="../assets/book.png"> Search
                 </div>
             </router-link>
-            <router-link to="/login" active-class="active" tag="button" exact class="side-btn">
+            <router-link v-if="!isLoggedIn" to="/login" active-class="active" tag="button" exact class="side-btn">
                 <div class="link-container">
                      <img class="menu-icon" src="../assets/login.png"> Sign In | Sign Up
+                </div>
+            </router-link>
+            <router-link v-if="isLoggedIn" to="/logout" active-class="active" tag="button" exact class="side-btn">
+                <div class="link-container">
+                     <img class="menu-icon" src="../assets/login.png"> Log Out
                 </div>
             </router-link>
         </div>
@@ -36,7 +42,24 @@
 <script>
 export default {
     
+
+    computed: {
+        isAdmin() {
+            if (Object.keys(this.$store.state.user).length > 0 ) {
+                return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
+
+            }
+            return false;
+        },
+        isLoggedIn(){
+        return this.$store.state.token != '';
+    }
+    }
+    
+
 }
+    
+
 </script>
 
 <style >

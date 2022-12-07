@@ -39,8 +39,13 @@ public class JdbcBookDao implements BookDao{
            jdbcTemplate.update(sql, isbn, title, publicationDate, pages, languageId, overview, coverLink);
 
            authorRelation(book.getAuthor(), isbn);
-           genresRelation(book.getGenres(), isbn);
-           tagRelation(book.getTags(), isbn);
+           if (book.getGenres() != null) {
+               genresRelation(book.getGenres(), isbn);
+
+           }
+           if (book.getTags() != null) {
+               tagRelation(book.getTags(), isbn);
+           }
            publisherRelation(book.getPublisher(), isbn);
        }
 
@@ -90,6 +95,55 @@ public class JdbcBookDao implements BookDao{
                 "WHERE author_name ILIKE ?;";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, "%"+author+"%");
+
+        List<Long> isbnList = new ArrayList<>();
+
+        while(rows.next()){
+            isbnList.add(rows.getLong("isbn13"));
+        }
+
+        for (Long isbn : isbnList) {
+            books.add(getBookByIsbn(isbn));
+        }
+
+        return books;
+    }
+
+    @Override
+    public List<Book> getBooksByGenre(String genre) {
+
+        List<Book> books = new ArrayList<>();
+
+        String sql = "SELECT book.isbn13, genre_name FROM book " +
+                "JOIN book_genre ON book_genre.isbn13 = book.isbn13 " +
+                "JOIN genre ON genre.genre_id = book_genre.genre_id " +
+                "WHERE genre_name ILIKE ?;";
+
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, "%"+genre+"%");
+
+        List<Long> isbnList = new ArrayList<>();
+
+        while(rows.next()){
+            isbnList.add(rows.getLong("isbn13"));
+        }
+
+        for (Long isbn : isbnList) {
+            books.add(getBookByIsbn(isbn));
+        }
+
+        return books;
+    }
+
+    @Override
+    public List<Book> getBooksByKeyword(String keyword) {
+        List<Book> books = new ArrayList<>();
+
+        String sql = "SELECT book.isbn13, tag_word FROM book " +
+                "JOIN book_tag ON book_tag.isbn13 = book.isbn13 " +
+                "JOIN tag ON tag.tag_id = book_tag.tag_id " +
+                "WHERE tag_word ILIKE ?;";
+
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, "%"+keyword+"%");
 
         List<Long> isbnList = new ArrayList<>();
 
@@ -178,7 +232,7 @@ public class JdbcBookDao implements BookDao{
     }
 
     public int bookLanguage(String language) {
-        if (language == "") {
+        if (language == "" || language == null) {
             return 0;
         }
 
