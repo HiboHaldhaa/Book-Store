@@ -25,12 +25,12 @@
                     <img class="menu-icon" src="../assets/book.png"> Search
                 </div>
             </router-link>
-            <router-link v-if="isLoggedIn" to="/login" active-class="active" tag="button" exact class="side-btn">
+            <router-link v-if="!isLoggedIn" to="/login" active-class="active" tag="button" exact class="side-btn">
                 <div class="link-container">
                      <img class="menu-icon" src="../assets/login.png"> Sign In | Sign Up
                 </div>
             </router-link>
-            <router-link v-if="!isLoggedIn" to="/logout" active-class="active" tag="button" exact class="side-btn">
+            <router-link v-if="isLoggedIn" to="/logout" active-class="active" tag="button" exact class="side-btn">
                 <div class="link-container">
                      <img class="menu-icon" src="../assets/login.png"> Log Out
                 </div>
@@ -41,11 +41,7 @@
 
 <script>
 export default {
-    data() {
-        return {
-            isLoggedIn: false
-        }
-    },
+    
 
     computed: {
         isAdmin() {
@@ -54,8 +50,13 @@ export default {
 
             }
             return false;
-        }
+        },
+        isLoggedIn(){
+        return this.$store.state.token != '';
     }
+    }
+    
+
 }
     
 

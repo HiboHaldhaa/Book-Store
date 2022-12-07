@@ -65,11 +65,21 @@ export default{
       }
     };
   },
+  computed: {
+     isAdmin() {
+            if (Object.keys(this.$store.state.user).length > 0 ) {
+                return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
+
+            }
+            return false;
+     }
+  },
   methods: {
  
 
     addBooks() {
-      bookServices.addBooks(this.book).then((response) => {
+      if (this.isAdmin)
+     { bookServices.addBooks(this.book).then((response) => {
         if(response.status === 200) {
           alert("Book added successfully");
           this.book.title = "";
@@ -78,9 +88,10 @@ export default{
           this.book.keyword = "";
           this.book.isbn = "";
           this.book.coverLink = "";
+        
         }
 
-      })
+      })}
     
 
     
