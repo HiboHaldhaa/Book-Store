@@ -43,7 +43,7 @@ public class BookController {
     public Set<Book> searchBooks(@RequestParam(defaultValue = "") String title,
                                   @RequestParam(defaultValue = "") String author,
                                   @RequestParam(defaultValue = "") List<String> genre,
-                                  @RequestParam(defaultValue = "") List<String> keywords,
+                                  @RequestParam(defaultValue = "") List<String> keyword,
                                   @RequestParam(defaultValue = "") String isbn) {
 
         Set<Book> results = new HashSet<>();
@@ -67,8 +67,8 @@ public class BookController {
             }
         }
 
-        if (!keywords.isEmpty()) {
-            for (String elem : keywords) {
+        if (!keyword.isEmpty()) {
+            for (String elem : keyword) {
                 results.addAll(bookDao.getBooksByKeyword(elem));
             }
         }
