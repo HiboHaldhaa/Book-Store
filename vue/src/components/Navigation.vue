@@ -25,9 +25,14 @@
                     <img class="menu-icon" src="../assets/book.png"> Search
                 </div>
             </router-link>
-            <router-link to="/login" active-class="active" tag="button" exact class="side-btn">
+            <router-link v-if="!isLoggedIn" to="/login" active-class="active" tag="button" exact class="side-btn">
                 <div class="link-container">
                      <img class="menu-icon" src="../assets/login.png"> Sign In | Sign Up
+                </div>
+            </router-link>
+            <router-link v-if="isLoggedIn" to="/logout" active-class="active" tag="button" exact class="side-btn">
+                <div class="link-container">
+                     <img class="menu-icon" src="../assets/login.png"> Log Out
                 </div>
             </router-link>
         </div>
@@ -36,6 +41,7 @@
 
 <script>
 export default {
+    
 
     computed: {
         isAdmin() {
@@ -44,8 +50,13 @@ export default {
 
             }
             return false;
-        }
+        },
+        isLoggedIn(){
+        return this.$store.state.token != '';
     }
+    }
+    
+
 }
     
 
@@ -53,7 +64,7 @@ export default {
 
 <style >
 div{
-   overflow-x: hidden;
+   overflow: hidden;
 }
 .menu-icon{
     position: relative;
@@ -140,7 +151,7 @@ width:150px;
     content: "";
     right: 0px;
     height: 60px;
-    width: 60px;
+    width: 50px;
     border-radius: 50%;
     background-color: #250D4B;
 }

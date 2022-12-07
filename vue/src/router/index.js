@@ -75,9 +75,9 @@ Vue.use(Router)
       path: "/book",
       name: "add-books",
       component:BookAdded,
-     //  meta: {
-     //   requiresAuth: true
-     // }
+     meta: {
+      isAdmin: true
+     },
  
      }
      
@@ -102,6 +102,7 @@ router.beforeEach((to, from, next) => {
     // Else let them go to their next destination
     next();
   }
+
 });
 
 export default router;

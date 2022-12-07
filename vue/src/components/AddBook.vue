@@ -14,6 +14,7 @@
       <label for="genre">Select Genre</label>
       <select id="genre" name="genre" v-model="genre">
         <option value="action">Action</option>
+        <option value="drama">Drama</option>
         <option value="adventure">Adventure</option>
         <option value="autobiography">Autobiography</option>
         <option value="children's">Children's Literature</option>
@@ -52,7 +53,7 @@
 import bookServices from "@/services/BookServices.js"
 
 export default{
-    name: "addbook",
+     name: "addbook",
   data () {
     return {
       genre: '',
@@ -67,12 +68,23 @@ export default{
       }
     };
   },
+  computed: {
+     isAdmin() {
+            if (Object.keys(this.$store.state.user).length > 0 ) {
+                return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
+
+            }
+            return false;
+     }
+  },
   methods: {
  
 
     addBooks() {
       this.book.genres.push(this.genre);
       this.book.tags.push(this.keyword);
+      
+      if (this.isAdmin) { 
       bookServices.addBooks(this.book).then((response) => {
         if(response.status === 200) {
           alert("Book added successfully");
@@ -82,9 +94,10 @@ export default{
           this.book.keyword = [];
           this.book.isbn = "";
           this.book.coverLink = "";
+        
         }
 
-      })
+      })}
     
 
     
