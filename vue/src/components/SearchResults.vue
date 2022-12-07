@@ -16,8 +16,10 @@ components: {
 computed: {
     booklist() {
         return this.$store.state.currentSearch;
-    }
-
+    },
+},
+mounted() {
+    this.$store.commit('SET_CURRENT_SEARCH', []);
 }
 }
 </script>
