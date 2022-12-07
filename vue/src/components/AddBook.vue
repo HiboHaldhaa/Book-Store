@@ -58,7 +58,7 @@ export default{
       book: {
         title: '',
         author: '',
-        genre: 'action',
+        genre: '',
         keyword: '',
         isbn: '',
         coverLink: ''
@@ -66,26 +66,7 @@ export default{
     };
   },
   methods: {
-    submitForm() {
-      // console.log('title: ' + this.title);
-      // // this.title = '';
-      // console.log('author: ' + this.authohisr);
-      // this.author = '';
-      // console.log('genre: ' + this.genre);
-      // this.genre = 'action';
-      // console.log('keyword: ' + this.keyword);
-      // this.keyword = '';
-      // console.log('isbn: ' + this.isbn);
-      // this.isbn = '';
-    //   let book = {
-    //     title: this.title,
-    //     author: this.author,
-    //     genre: this.genre,
-    //     keyword: this.keyword,
-    //     isbn: this.isbn,
-    //   }
-    //   BookService.addBook(book)
-    },
+ 
 
     addBooks() {
       bookServices.addBooks(this.book).then((response) => {
