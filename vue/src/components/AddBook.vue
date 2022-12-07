@@ -34,6 +34,11 @@
       <label for="isbn">ISBN </label>
       <input id="isbn" name="isbn" type="text" v-model.trim="book.isbn" />
     </div>
+    <div class = "form-control">
+      <label for="cover">Cover Image </label>
+      <input id="cover" name="cover" type="text" v-model.trim="book.coverLink" />
+
+    </div>
     
     
     
@@ -55,25 +60,43 @@ export default{
         author: '',
         genre: '',
         keyword: '',
-        isbn: ''
+        isbn: '',
+        coverLink: ''
       }
     };
   },
   methods: {
-    
-    
+    submitForm() {
+      // console.log('title: ' + this.title);
+      // // this.title = '';
+      // console.log('author: ' + this.author);
+      // this.author = '';
+      // console.log('genre: ' + this.genre);
+      // this.genre = 'action';
+      // console.log('keyword: ' + this.keyword);
+      // this.keyword = '';
+      // console.log('isbn: ' + this.isbn);
+      // this.isbn = '';
+    //   let book = {
+    //     title: this.title,
+    //     author: this.author,
+    //     genre: this.genre,
+    //     keyword: this.keyword,
+    //     isbn: this.isbn,
+    //   }
+    //   BookService.addBook(book)
+    },
 
     addBooks() {
       bookServices.addBooks(this.book).then((response) => {
         if(response.status === 200) {
           alert("Book added successfully");
-          this.book.title = '';
-          this.book.author='';
-          this.book.genre='';
-          this.book.keyword='';
-          this.book.isbn='';
-
-
+          this.book.title = "";
+          this.book.author = "";
+          this.book.genre = "";
+          this.book.keyword = "";
+          this.book.isbn = "";
+          this.book.coverLink = "";
         }
 
       })

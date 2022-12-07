@@ -106,4 +106,20 @@ public class JdbcBookDaoTests extends BaseDaoTests{
 
     }
 
+    @Test
+    public void finds_book_by_author() {
+        sut.addBook(BOOK_1);
+        Book book = sut.getBooksByAuthor("J.R.R. Tolkien").get(0);
+
+        Assert.assertEquals(BOOK_1, book);
+
+    }
+
+    @Test public void finds_book_by_title() {
+        sut.addBook(BOOK_3);
+        Book book = sut.getBooksByTitle("The Expanse").get(0);
+
+        Assert.assertEquals(book, BOOK_3);
+    }
+
 }
