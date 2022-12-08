@@ -117,6 +117,12 @@ public class JdbcUserDao implements UserDao {
         return true;
     }
 
+    @Override
+    public void deleteFromReadingList(int id, long isbn) {
+        String sql = "DELETE FROM user_book WHERE user_id = ? AND isbn13 = ?;";
+        jdbcTemplate.update(sql, id, isbn);
+    }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

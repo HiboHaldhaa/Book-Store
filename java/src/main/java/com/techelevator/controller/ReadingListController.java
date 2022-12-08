@@ -40,4 +40,11 @@ public class ReadingListController {
 
         return readingList;
     }
+
+    @DeleteMapping (path = "/reading-list/{id}")
+    public void deleteFromReadingList(@PathVariable int id, long isbn) {
+
+        userDao.deleteFromReadingList(id, isbn);
+
+    }
 }
