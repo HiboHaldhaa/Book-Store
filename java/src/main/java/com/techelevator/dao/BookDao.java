@@ -17,4 +17,6 @@ public interface BookDao {
     public List<Book> getBooksByGenre(String genre);
 
     public List<Book> getBooksByKeyword(String keyword);
+
+    public List<Book> getReadingList(int id);
 }

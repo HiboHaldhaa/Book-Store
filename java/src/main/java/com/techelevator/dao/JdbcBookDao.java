@@ -158,6 +158,25 @@ public class JdbcBookDao implements BookDao{
         return books;
     }
 
+    public List<Book> getReadingList(int id) {
+        List<Book> results = new ArrayList<>();
+
+        String sql = "SELECT isbn13 FROM user_book WHERE user_id = ?;";
+
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, id);
+
+        List<Long> longs = new ArrayList<>();
+
+        while (rows.next()) {
+            longs.add(rows.getLong("isbn13"));
+        }
+
+        for (Long lon : longs) {
+            results.add(getBookByIsbn(lon));
+        }
+
+        return results;
+    }
 
     private Book mapBook(long isbn) {
 
