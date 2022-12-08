@@ -1,11 +1,16 @@
 <template>
   <div class="cards-list">
+  <!-- <NewBooks/> -->
   
+
 <div class="card 1">
   <!-- <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div> -->
   <div class="card_title title-white">
     <p>Card Title</p>
   </div>
+
+
+  
 </div>
 
   <div class="card 2">
@@ -35,19 +40,49 @@
   </div>
   </div>
 
+  <!-- <div class="new" v-bind:class="{}" >
+    <div class="badge">New</div>
+  </div>   -->
+
 </div>
 </template>
 
 <script>
-
+// import NewBooks from '../components/NewBooks.vue'
 export default {
-  components: {
-    
+ 
+  name: "home",
+  newBooks: [ {
+    newBadge: false
+  }
+  ],
+
+   components: {
+    // NewBooks
   },
-  name: "home"
 };
 </script>
 <style >
+
+/* .badge {
+    position: absolute;
+    left:57px;
+    top:33px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(3, 3, 243, 0.795);
+    color: #fff;
+    padding: 3px 20px;
+
+} */
+/* 
+.badge:hover {
+    transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+} */
+
 .cards-list {
   position:relative;
 left:2px;
@@ -92,6 +127,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   height: 40px;
 }
 
+
 .card:hover {
   transform: scale(0.9, 0.9);
   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
@@ -114,7 +150,7 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   width: 300px;
   height: 300px;
   border-radius: 40px;
-  background-image: url('https://github.com/appgamedev/book-Library/blob/main/wepik-the-blade-in-the-sea-wattpad-book-cover-2022117-12356.png?raw=true');
+  /* background-image: url('https://github.com/appgamedev/book-Library/blob/main/wepik-the-blade-in-the-sea-wattpad-book-cover-2022117-12356.png?raw=true'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

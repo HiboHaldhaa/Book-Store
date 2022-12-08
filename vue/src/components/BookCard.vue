@@ -1,11 +1,12 @@
 <template>
-
+<!-- <div class="returningValue"> -->
   <div class="returningValue" >
     <h2 class="book-title">{{book.title}} </h2>
     <h3 class="book-author"> {{book.author}} </h3>
-    <img class="CoverImg" v-bind:src="book.coverLink">
-
+    <img class="CoverImg " v-bind:src="book.coverLink">
+<div class="badge" >New</div>
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -18,6 +19,18 @@ export default {
 
 <style>
 
+.badge {
+    position: absolute;
+left:21px;
+top:7px;    
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(3, 3, 243, 0.795);
+    color: #fff;
+    padding: 3px 20px;
+}
+
 /* 
 .returningValue{
     flex: 1;
@@ -25,6 +38,18 @@ export default {
     height: 70vh;
     position: relative;
 }
+
+/* .badge {
+    position: absolute;
+    left:138px;
+    top:33px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(3, 3, 243, 0.795);
+    color: #fff;
+    padding: 3px 20px;
+} */
 
 .book-title {
     margin-bottom: 20px;
