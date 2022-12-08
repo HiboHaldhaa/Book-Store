@@ -7,7 +7,7 @@
       :get-child-payload="getChildPayload1"
       group-name="1"
       @drop="onDrop('listOne', $event)">
-      <Draggable v-for="book in listOne"  v-bind:key="book.isbn">
+      <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
         <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
