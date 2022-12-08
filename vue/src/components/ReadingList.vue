@@ -33,6 +33,7 @@
 import { Container, Draggable } from "vue-smooth-dnd";
 import { applyDrag } from "../utils/applyDrag";
 import BookCard from '../components/BookCard.vue';
+import ReadingListService from '../services/ReadingListService'
 
 export default {
   name: "CardList",
@@ -47,7 +48,8 @@ export default {
 
     },
     readingList() {
-        return this.listTwo;
+
+        return ReadingListService.getReadingList(this.$store.state.user.id);
 
     }
   },
@@ -71,6 +73,7 @@ export default {
   methods: {
     onDrop(collection, dropResult) {
       this[collection] = applyDrag(this[collection], dropResult);
+      ReadingListService.addBookToReadingList(this.$store.state.user.id, dropResult.payload);
   },
   getChildPayload1(index) {
       return this.$store.state.currentSearch[index];
