@@ -162,7 +162,7 @@ public class JdbcBookDao implements BookDao{
     private Book mapBook(long isbn) {
 
         Book book = new Book();
-        String sql = "SELECT isbn13, title, pub_date, num_pages, language_id, overview, coverlink FROM book " +
+        String sql = "SELECT isbn13, title, date_added, num_pages, language_id, overview, coverlink FROM book " +
                 "WHERE isbn13 = ?;";
         SqlRowSet row = jdbcTemplate.queryForRowSet(sql, isbn);
         if (row.next()) {
