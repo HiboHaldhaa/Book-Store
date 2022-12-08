@@ -1,6 +1,6 @@
 <template>
-  <div class="card-list-container">
-    <Container 
+<div class="card-list-container">
+    <Container
       drag-class="card-ghost"
       drop-class="card-ghost-drop"
       :drop-placeholder="dropPlaceholderOptions"
@@ -21,7 +21,7 @@
       @drop="onDrop('listTwo', $event)"
     >
       <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
-        <Card v-bind:book="book" />
+        <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
   </div>
@@ -32,11 +32,10 @@
 import { Container, Draggable } from "vue-smooth-dnd";
 import { applyDrag } from "../utils/applyDrag";
 import BookCard from '../components/BookCard.vue';
-import Card from './Card.vue'
+
 export default {
   name: "CardList",
   components: {
-    Card,
     BookCard,
     Container,
     Draggable,
@@ -44,12 +43,8 @@ export default {
   computed: {
     bookList() {
         return this.$store.state.currentSearch;
-    },
-    
-},
-mounted() {
-    this.$store.commit('SET_CURRENT_SEARCH', []);
-},
+    }
+  },
   data() {
     return {
       dropPlaceholderOptions: {
@@ -62,20 +57,15 @@ mounted() {
       ],
       listTwo: [
         
-      ]
+        
+      ],
     };
   },
   methods: {
     onDrop(collection, dropResult) {
       this[collection] = applyDrag(this[collection], dropResult);
-    },
-    getChildPayload1(index) {
-      return this.listOne[index];
-    },
-    getChildPayload2(index) {
-      return this.listTwo[index];
-    },
-  },
+  }
+  }
 };
 </script>
 
