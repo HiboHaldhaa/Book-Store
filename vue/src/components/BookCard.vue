@@ -4,7 +4,7 @@
     <h2 class="book-title">{{book.title}} </h2>
     <h3 class="book-author"> {{book.author}} </h3>
     <img class="CoverImg " v-bind:src="book.coverLink">
-<div class="badge" >New</div>
+<div v-if="isNew" class="badge">New</div>
   </div>
   <!-- </div> -->
 </template>
@@ -14,9 +14,9 @@ export default {
   name : 'book-card',
   props : ['book'],
   computed: {
-    isNew(d1) {
+    isNew() {
       const today = new Date();
-      const day = new Date(d1);
+      const day = new Date(this.book.dateAdded);
       const diff = today - day;
 
       if (diff < 604800000) {
