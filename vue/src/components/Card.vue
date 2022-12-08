@@ -1,19 +1,15 @@
 <template>
   <div class="card-container">
-    <div class="card-body">
-      <p>
-        {{ item.text }}
-      </p>
-    </div>
+    <h2 class="book-title">{{book.title}} </h2>
+    <h3 class="book-author"> {{book.author}} </h3>
+    <img class="CoverImg" v-bind:src="book.coverLink">
   </div>
 </template>
 
 <script>
 export default {
   name: "Card",
-  props: {
-    item: Object,
-  },
+  props: ['readingList'],
 };
 </script>
 

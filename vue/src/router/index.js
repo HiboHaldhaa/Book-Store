@@ -10,6 +10,7 @@ import BookAdded from '@/views/BookAdded'
 import Dash from '../views/Dash'
 import NotFound from '../views/NotFound'
 import ReadingList from '../views/ReadingList'
+import NotFoundPage from '../components/NotFoundPage'
 
 
 // import { search } from 'core-js/fn/symbol'
@@ -26,7 +27,10 @@ Vue.use(Router)
  */
 
  const routes = [
-
+  {
+    path: '*',
+    component: NotFoundPage
+  },
   {
     path: "/not-found",
     name: "NotFound",

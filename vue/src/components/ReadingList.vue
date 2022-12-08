@@ -8,11 +8,11 @@
       group-name="1"
       @drop="onDrop('listOne', $event)"
     >
-      <Draggable v-for="(item, $index) in listOne" :key="$index">
-        <BookCard v-bind:book="book" v-for="book in booklist" v-bind:key="book.isbn" />
+      <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
+        <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
-    <Container 
+    <Container
       drag-class="card-ghost"
       drop-class="card-ghost-drop"
       :drop-placeholder="dropPlaceholderOptions"
@@ -20,8 +20,8 @@
       group-name="1"
       @drop="onDrop('listTwo', $event)"
     >
-      <Draggable v-for="(item, $index) in listTwo" :key="$index">
-        <Card :item="item" />
+      <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
+        <Card v-bind:book="book" />
       </Draggable>
     </Container>
   </div>
@@ -31,20 +31,21 @@
 <script>
 import { Container, Draggable } from "vue-smooth-dnd";
 import { applyDrag } from "../utils/applyDrag";
-import Card from "./Card.vue";
 import BookCard from '../components/BookCard.vue';
+import Card from './Card.vue'
 export default {
   name: "CardList",
   components: {
-    BookCard,
     Card,
+    BookCard,
     Container,
     Draggable,
   },
   computed: {
-    booklist() {
+    bookList() {
         return this.$store.state.currentSearch;
     },
+    
 },
 mounted() {
     this.$store.commit('SET_CURRENT_SEARCH', []);
@@ -57,22 +58,7 @@ mounted() {
         showOnTop: false,
       },
       listOne: [
-        {
-          id: 0,
-          text: `List 1 Text 0`,
-        },
-        {
-          id: 1,
-          text: `List 1 Text 1`,
-        },
-        {
-          id: 2,
-          text: `List 1 Text 2`,
-        },
-        {
-          id: 3,
-          text: `List 1 Text 3`,
-        },
+        
       ],
       listTwo: [
         

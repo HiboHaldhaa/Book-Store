@@ -99,9 +99,6 @@ export default{
 
       })}
     
-
-    
-
     }
   },
 };
@@ -142,10 +139,6 @@ select {
 select {
   width: auto;
 }
-
-
-
-
 
 button {
   font: inherit;
