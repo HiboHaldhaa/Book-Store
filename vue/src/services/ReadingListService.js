@@ -14,5 +14,9 @@ export default {
 
     getReadingList(id) {
         return http.get(`/reading-list/${id}`);
+    },
+
+    deleteFromReadingList(id, isbn) {
+        return http.delete(`/reading-list/${id}`, isbn);
     }
 }

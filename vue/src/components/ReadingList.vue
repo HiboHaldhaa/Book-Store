@@ -1,19 +1,19 @@
 <template>
 <div class="card-list-container">
-    <Container
+    <Container id="from"
       drag-class="card-ghost"
       drop-class="card-ghost-drop"
       :drop-placeholder="dropPlaceholderOptions"
       :get-child-payload="getChildPayload1"
       group-name="1"
-      @drop="onDrop('listOne', $event)">
+      @drop="onDelete('listOne', $event)">
       <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
         <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
 
 
-    <Container
+    <Container id="to"
       drag-class="card-ghost"
       drop-class="card-ghost-drop"
       :drop-placeholder="dropPlaceholderOptions"
@@ -21,7 +21,7 @@
       group-name="1"
       @drop="onDrop('listTwo', $event)"
     >
-      <Draggable v-for="book in readingList"  v-bind:key="book.isbn">
+      <Draggable v-for="book in listTwo"  v-bind:key="book.isbn">
         <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
@@ -42,16 +42,18 @@ export default {
     Container,
     Draggable,
   },
+  created() {
+      ReadingListService.getReadingList(this.$store.state.user.id).then((response) => {
+        this.listTwo = response.data;
+      });
+        
+        
+  },
   computed: {
     bookList() {
         return this.$store.state.currentSearch;
 
     },
-    readingList() {
-
-        return ReadingListService.getReadingList(this.$store.state.user.id);
-
-    }
   },
 
   data() {
@@ -74,6 +76,11 @@ export default {
     onDrop(collection, dropResult) {
       this[collection] = applyDrag(this[collection], dropResult);
       ReadingListService.addBookToReadingList(this.$store.state.user.id, dropResult.payload);
+  },
+  onDelete(collection, dropResult) {
+      this[collection] = applyDrag(this[collection], dropResult);
+      ReadingListService.deleteFromReadingList(this.$store.state.user.id, dropResult.payload.isbn);
+
   },
   getChildPayload1(index) {
       return this.$store.state.currentSearch[index];
