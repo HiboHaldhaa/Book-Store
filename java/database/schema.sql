@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS user_book, users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 DROP TABLE IF EXISTS book_genre, book_author, book, tag, book_tag, author, genre, publisher,book_language, book_publisher CASCADE;
@@ -11,8 +11,7 @@ CREATE SEQUENCE seq_user_id
   NO MAXVALUE
   NO MINVALUE
   CACHE 1;
-
-
+  
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
 	username varchar(50) NOT NULL UNIQUE,
@@ -20,9 +19,7 @@ CREATE TABLE users (
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
-
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-
 CREATE SEQUENCE genre_serial;
 CREATE TABLE genre (
     genre_id INT NOT NULL DEFAULT nextval('genre_serial'),
@@ -59,18 +56,24 @@ CREATE TABLE book_language (
     CONSTRAINT pk_language PRIMARY KEY (language_id)
 );
 
-
-
 CREATE TABLE book (
     isbn13 BIGINT NOT NULL,
     title varchar(200) NOT NULL,
-    pub_date date NULL,
+    date_added date NULL,
     num_pages INT NULL,
 	language_id INT NULL,
 	overview text NULL,
     CoverLink varchar(500) NULL,
 	CONSTRAINT PK_book PRIMARY KEY(isbn13)
 );
+
+CREATE TABLE user_book (
+user_id int NOT NULL,
+isbn13 BIGINT NOT NULL,
+CONSTRAINT PK_user_book PRIMARY KEY (user_id, isbn13),
+CONSTRAINT FK_user_book_user FOREIGN KEY (user_id) REFERENCES users (user_id), 
+CONSTRAINT FK_user_book_book FOREIGN KEY (isbn13) REFERENCES book (isbn13)
+); 
 
 CREATE TABLE book_tag (
 	isbn13 BIGINT NOT NULL,
@@ -107,6 +110,5 @@ CREATE TABLE book_genre (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
-
 
 COMMIT TRANSACTION;

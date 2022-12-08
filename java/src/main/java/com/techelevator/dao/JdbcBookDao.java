@@ -28,15 +28,15 @@ public class JdbcBookDao implements BookDao{
 
            long isbn = book.getIsbn();
            String title = book.getTitle();
-           LocalDate publicationDate = book.getPublicationDate();
+           LocalDate dateAdded = LocalDate.now();
            int pages = book.getPages();
            String overview = book.getOverview();
            String coverLink = book.getCoverLink();
            int languageId = bookLanguage(book.getLanguage());
 
-           String sql = "INSERT INTO book (isbn13, title, pub_date, num_pages, language_id, overview, CoverLink) " +
+           String sql = "INSERT INTO book (isbn13, title, date_added, num_pages, language_id, overview, CoverLink) " +
                    "VALUES(?,?,?,?,?,?,?);";
-           jdbcTemplate.update(sql, isbn, title, publicationDate, pages, languageId, overview, coverLink);
+           jdbcTemplate.update(sql, isbn, title, dateAdded, pages, languageId, overview, coverLink);
 
            authorRelation(book.getAuthor(), isbn);
            if (book.getGenres() != null) {
@@ -171,11 +171,7 @@ public class JdbcBookDao implements BookDao{
             book.setPages(row.getInt("num_pages"));
             book.setOverview(row.getString("overview"));
             book.setCoverLink(row.getString("coverlink"));
-            if (row.getDate("pub_date") == null) {
-                book.setPublicationDate(LocalDate.MIN);
-            } else {
-                book.setPublicationDate(row.getDate("pub_date").toLocalDate());
-            }
+            book.setDateAdded(row.getDate("date_added").toLocalDate());
             int languageId = row.getInt("language_id");
             if (languageId == 0) {
                 book.setLanguage("Not Available");

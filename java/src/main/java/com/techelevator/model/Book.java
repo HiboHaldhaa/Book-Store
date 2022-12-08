@@ -9,7 +9,7 @@ public class Book {
     private long isbn;
     private String title;
     private String author;
-    private LocalDate publicationDate;
+    private LocalDate dateAdded;
     private String language;
     private List<String> genres;
     private List<String> tags;
@@ -36,13 +36,13 @@ public class Book {
         return Objects.hash(isbn);
     }
 
-    public Book(long isbn, String title, String author, LocalDate publicationDate, String language,
+    public Book(long isbn, String title, String author, LocalDate dateAdded, String language,
                 List<String> genres, List<String> tags, int pages, String publisher, String overview,
                 String coverLink) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-        this.publicationDate = publicationDate;
+        this.dateAdded = dateAdded;
         this.language = language;
         this.genres = genres;
         this.tags = tags;
@@ -76,12 +76,12 @@ public class Book {
         this.author = author;
     }
 
-    public LocalDate getPublicationDate() {
-        return publicationDate;
+    public LocalDate getDateAdded() {
+        return dateAdded;
     }
 
-    public void setPublicationDate(LocalDate publicationDate) {
-        this.publicationDate = publicationDate;
+    public void setDateAdded(LocalDate dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public String getLanguage() {
