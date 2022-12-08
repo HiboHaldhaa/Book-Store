@@ -1,103 +1,43 @@
 <template>
-<div class="card-list-container">
-    <Container
-      drag-class="card-ghost"
-      drop-class="card-ghost-drop"
-      :drop-placeholder="dropPlaceholderOptions"
-      :get-child-payload="getChildPayload1"
-      group-name="1"
-      @drop="onDrop('listOne', $event)">
-      <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
-        <BookCard v-bind:book="book" />
-      </Draggable>
-    </Container>
-    <Container
-      drag-class="card-ghost"
-      drop-class="card-ghost-drop"
-      :drop-placeholder="dropPlaceholderOptions"
-      :get-child-payload="getChildPayload2"
-      group-name="1"
-      @drop="onDrop('listTwo', $event)"
-    >
-      <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
-        <BookCard v-bind:book="book" />
+  <body>
 
+<div id="div1" drop="onDrop(event)" ondragover="allowDrop(event)">
 
-      </Draggable>
-    </Container>
-  </div>
+  <img src="img_w3slogo.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
 
+<div id="div2" drop="onDrop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
 </template>
 
 <script>
-import { Container, Draggable } from "vue-smooth-dnd";
-import { applyDrag } from "../utils/applyDrag";
-import BookCard from '../components/BookCard.vue';
-
 export default {
-  name: "CardList",
-  components: {
-    BookCard,
-    Container,
-    Draggable,
-  },
-  computed: {
-    bookList() {
-        return this.$store.state.currentSearch;
+  methods:{
+allowDrop(ev) {
+  ev.preventDefault();
+},
 
-    }
-  },
+drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+},
 
-  data() {
-    return {
-      dropPlaceholderOptions: {
-        className: "drop-preview",
-        animationDuration: "150",
-        showOnTop: false,
-      },
-      listOne: [
-        
-      ],
-      listTwo: [
-        
-        
-      ],
-    };
-  },
-  methods: {
-    onDrop(collection, dropResult) {
-      this[collection] = applyDrag(this[collection], dropResult);
-  }
-  }
-};
+onDrop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+},
+}
+}
 </script>
 
-<style scoped>
-.card-list-container {
-  display: flex;
-  justify-content: space-evenly;
-}
-.smooth-dnd-container {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  max-width: 40%;
-  flex: 0 0 40%;
-  height: 100%;
-  border: 1px solid #dcebf4;
-  border-radius: 6px;
-  padding: 1rem 1rem 0 1rem;
-  margin-top: 5rem;
-  margin-right: 2.5rem;
-  margin-left: 1rem;
-  
-}
-.card-ghost {
-  transition: transform 0.18s ease;
-  transform: rotateZ(5deg);
-}
-.card-ghost-drop {
-  transition: transform 0.18s ease-in-out;
-  transform: rotateZ(0deg);
+<style>
+#div1, #div2 {
+  float: left;
+  width: 100px;
+  height: 35px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
 }
 </style>
