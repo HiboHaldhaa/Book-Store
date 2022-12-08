@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.BookDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Book;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +42,7 @@ public class ReadingListController {
         return readingList;
     }
 
-    @DeleteMapping (path = "/reading-list/{id}")
+    @RequestMapping (path = "/reading-list/{id}?isbn=", method = RequestMethod.DELETE)
     public void deleteFromReadingList(@PathVariable int id, long isbn) {
 
         userDao.deleteFromReadingList(id, isbn);
