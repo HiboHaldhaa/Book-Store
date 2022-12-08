@@ -6,9 +6,8 @@
       :drop-placeholder="dropPlaceholderOptions"
       :get-child-payload="getChildPayload1"
       group-name="1"
-      @drop="onDrop('listOne', $event)"
-    >
-      <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
+      @drop="onDrop('listOne', $event)">
+      <Draggable v-for="book in listOne"  v-bind:key="book.isbn">
         <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
@@ -20,7 +19,7 @@
       group-name="1"
       @drop="onDrop('listTwo', $event)"
     >
-      <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
+      <Draggable v-for="book in readingList"  v-bind:key="book.isbn">
         <Card v-bind:book="book" />
       </Draggable>
     </Container>
@@ -45,7 +44,7 @@ export default {
     bookList() {
         return this.$store.state.currentSearch;
     },
-    
+
 },
 mounted() {
     this.$store.commit('SET_CURRENT_SEARCH', []);

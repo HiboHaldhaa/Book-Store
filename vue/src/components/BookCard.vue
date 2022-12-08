@@ -13,6 +13,18 @@
 export default {
   name : 'book-card',
   props : ['book'],
+  computed: {
+    isNew(d1) {
+      const today = new Date();
+      const day = new Date(d1);
+      const diff = today - day;
+
+      if (diff < 604800000) {
+        return true;
+      }
+      return false;
+  }
+}
 
 }
 </script>
