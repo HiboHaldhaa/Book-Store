@@ -6,7 +6,7 @@
       :drop-placeholder="dropPlaceholderOptions"
       :get-child-payload="getChildPayload1"
       group-name="1"
-      @drop="onDelete('listOne', $event)">
+      @drop="onDrop('listOne', $event)">
       <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
         <BookCard v-bind:book="book" />
       </Draggable>
@@ -75,12 +75,11 @@ export default {
   methods: {
     onDrop(collection, dropResult) {
       this[collection] = applyDrag(this[collection], dropResult);
-      ReadingListService.addBookToReadingList(this.$store.state.user.id, dropResult.payload);
-  },
-  onDelete(collection, dropResult) {
-      this[collection] = applyDrag(this[collection], dropResult);
-      ReadingListService.deleteFromReadingList(this.$store.state.user.id, dropResult.payload.isbn);
-
+      if (dropResult.removedIndex != null && dropResult.addedIndex == null && collection != "listTwo") {
+        ReadingListService.addBookToReadingList(this.$store.state.user.id, dropResult.payload);
+      } else {
+        ReadingListService.deleteFromReadingList(this.$store.state.user.id, dropResult.payload.isbn)
+      }
   },
   getChildPayload1(index) {
       return this.$store.state.currentSearch[index];

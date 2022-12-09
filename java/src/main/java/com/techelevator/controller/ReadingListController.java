@@ -42,8 +42,8 @@ public class ReadingListController {
         return readingList;
     }
 
-    @RequestMapping (path = "/reading-list/{id}?isbn=", method = RequestMethod.DELETE)
-    public void deleteFromReadingList(@PathVariable int id, long isbn) {
+    @RequestMapping (path = "/reading-list/{id}/{isbn}", method = RequestMethod.DELETE)
+    public void deleteFromReadingList(@PathVariable int id, @PathVariable long isbn) {
 
         userDao.deleteFromReadingList(id, isbn);
 

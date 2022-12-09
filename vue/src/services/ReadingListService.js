@@ -17,6 +17,6 @@ export default {
     },
 
     deleteFromReadingList(id, isbn) {
-        return http.delete(`/reading-list/${id}`, { data: { isbn } });
+        return http.delete(`/reading-list/${id}/${isbn}`);
     }
 }
