@@ -13,14 +13,8 @@
         <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
-<<<<<<< HEAD
     <div class="eleven">
     <h1>Add to your Reading List</h1> </div>
-=======
-
-    
-    <h1 class="h3 mb-3 font-weight-normal">Add to your Reading List =>></h1>
->>>>>>> a13b72fdd3882e06fe2ae65d7b9b9a2029097b6d
     <Container id="to"
       drag-class="card-ghost"
       drop-class="card-ghost-drop"
