@@ -6,13 +6,15 @@
       :drop-placeholder="dropPlaceholderOptions"
       :get-child-payload="getChildPayload1"
       group-name="1"
-      @drop="onDrop('listOne', $event)">
+      @drop="onDrop('listOne', $event)"> <div class="one">
+  <h1>Search Result</h1>
+</div>
       <Draggable v-for="book in bookList"  v-bind:key="book.isbn">
         <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
-
-
+    <div class="eleven">
+    <h1>Add to your Reading List</h1> </div>
     <Container id="to"
       drag-class="card-ghost"
       drop-class="card-ghost-drop"
@@ -20,7 +22,9 @@
       :get-child-payload="getChildPayload2"
       group-name="1"
       @drop="onDrop('listTwo', $event)"
-    >
+    > <div class="one">
+  <h1>Reading List</h1>
+</div>
       <Draggable v-for="book in listTwo"  v-bind:key="book.isbn">
         <BookCard v-bind:book="book" />
       </Draggable>
@@ -126,4 +130,74 @@ export default {
   transition: transform 0.18s ease-in-out;
   transform: rotateZ(0deg);
 }
+
+.eleven {
+left:-19px;
+position:relative;
+bottom:0px;
+height:100px;
+}
+.eleven h1 {
+  font-size:35px;
+  text-align:center; 
+  line-height:1.5em; 
+  padding-bottom:50px; 
+  font-family:"Playfair Display", serif; 
+  text-transform:uppercase;
+  letter-spacing: 2px; 
+  color:#111;
+}
+
+
+.eleven h1:before {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 60%;
+  left:50%; 
+  margin-left:-30%;
+  height: 2px;
+  content: "";
+  background-color: #777; z-index: 4;
+}
+.eleven h1:after {
+  position:absolute;
+  width:40px; 
+  height:40px; 
+  left:50%; margin-left:-20px; bottom:0px;
+  content: '\00a7'; font-size:30px; line-height:40px; color:#c50000;
+  font-weight:400; z-index: 5;
+  display:block;
+  background-color:#ffffff;
+}
+
+/* === HEADING STYLE #1 === */
+.one h1 {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+.one h1:before {
+  width: 28px;
+  height: 5px;
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -14px;
+  background-color: #b80000;
+}
+.one h1:after {
+  width: 100px;
+  height: 1px;
+  display: block;
+  content: "";
+  position: relative;
+  margin-top: 25px;
+  left: 50%;
+  margin-left: -50px;
+  background-color: #b80000;
+}
+
 </style>
