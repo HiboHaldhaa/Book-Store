@@ -33,7 +33,7 @@
   
   <div class="card 4">
   <div class="card_image">
-    <img src="https://m.media-amazon.com/images/I/41LmPEurOOL._SY346_.jpg" /> -->
+    <!-- <img src="https://m.media-amazon.com/images/I/41LmPEurOOL._SY346_.jpg" /> --> -->
     </div>
   <div class="card_title title-black">
     
@@ -145,18 +145,18 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
 
 
 
-/* .card {
+.card {
   margin: 30px auto;
   width: 300px;
   height: 300px;
-  border-radius: 40px; */
-  /* background-image: url('https://github.com/appgamedev/book-Library/blob/main/wepik-the-blade-in-the-sea-wattpad-book-cover-2022117-12356.png?raw=true'); */
-  /* background-size: cover;
+  border-radius: 40px; 
+   background-image: url('https://github.com/appgamedev/book-Library/blob/main/wepik-the-blade-in-the-sea-wattpad-book-cover-2022117-12356.png?raw=true'); 
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-repeat: no-repeat;
 box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   transition: 0.4s;
-} */
+} 
 
 </style>
