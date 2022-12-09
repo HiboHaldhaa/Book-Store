@@ -44,15 +44,15 @@ export default {
     transform: rotate(-45deg) translate(-37%, 0);
 }
 
-/* 
-.returningValue{
+ 
+/* .returningValue{
     flex: 1;
     margin: 3px;
     height: 70vh;
     position: relative;
-}
+} */
 
-/* .badge {
+ /* .badge {
     position: absolute;
     left:138px;
     top:33px;
@@ -62,13 +62,13 @@ export default {
     background: rgba(3, 3, 243, 0.795);
     color: #fff;
     padding: 3px 20px;
-} */
+}  */
 
 .book-title {
     margin-bottom: 20px;
 }
 
-/* .book-author {
+ .book-author {
     position: absolute;
     top: 0;
     left: 0;
@@ -78,34 +78,34 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-} */
+} 
 
-/* .CoverImg {
-    /* width: 100%;
-    height: 100%; */
-    /* object-fit: cover; */
-    /* display: flex;
+.CoverImg {
+    width: 100%;
+    height: 100%; 
+     object-fit: cover;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     height: 75%;
-}  */ 
+}  
 
 .returningValue  { 
     width: 95%; 
     font: inherit;
-    /* margin-top:1.5rem; */
+     margin-top:1.5rem; 
     position:relative;
     width: 399px; 
     height: 511px;
     max-width: 350px; 
-    /* object-fit: cover;
+    object-fit: cover;
     flex: 1;
      display: flex; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; */
+    justify-content: center; 
     float:left; 
     display: inline;
     white-space: inherit;
@@ -127,14 +127,14 @@ export default {
 
 .book-title {
  position:relative;
-/* left:38px;
-top:405px; */
+left:38px;
+top:405px; 
 left:38px;
 top:408px;
-/* max-width: 500px; */
-/* width:275px; */
-/* white-space: initial; */
-/* word-wrap:break-word; */
+max-width: 500px;
+width:275px; 
+white-space: initial; 
+word-wrap:break-word; 
 } 
 
  .book-author {
@@ -153,17 +153,17 @@ top:-121px;
 height: 400px;
 }
 
-/* .book-title {
+ .book-title {
 left:57px;
 top:410px;
 position:relative;
-}
+} 
 
-.book-author {
+ .book-author {
 left:91px;
 top:398px;
 background-color:#ffffff;
-} */
+}  
 
 
 
