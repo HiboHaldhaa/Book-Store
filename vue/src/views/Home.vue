@@ -6,7 +6,7 @@
 <div class="card 1">
   <!-- <div class="card_image"> <img src="https://i.redd.it/b3esnz5ra34y.jpg" /> </div> -->
   <div class="card_title title-white">
-    <p>Card Title</p>
+    
   </div>
 
 
@@ -18,7 +18,7 @@
     <img src="https://cdn.blackmilkclothing.com/media/wysiwyg/Wallpapers/PhoneWallpapers_FloralCoral.jpg" />
     </div> -->
   <div class="card_title title-white">
-    <p>Card Title</p>
+    
   </div>
 </div>
 
@@ -27,16 +27,16 @@
     <!-- <img src="https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif" /> -->
   </div>
   <div class="card_title">
-    <p>Card Title</p>
+    
   </div>
 </div>
   
   <div class="card 4">
   <div class="card_image">
-    <!-- <img src="https://media.giphy.com/media/LwIyvaNcnzsD6/giphy.gif" /> -->
+    <!-- <img src="https://m.media-amazon.com/images/I/41LmPEurOOL._SY346_.jpg" /> --> -->
     </div>
   <div class="card_title title-black">
-    <p>Card Title</p>
+    
   </div>
   </div>
 
@@ -149,14 +149,14 @@ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.2
   margin: 30px auto;
   width: 300px;
   height: 300px;
-  border-radius: 40px;
-  /* background-image: url('https://github.com/appgamedev/book-Library/blob/main/wepik-the-blade-in-the-sea-wattpad-book-cover-2022117-12356.png?raw=true'); */
+  border-radius: 40px; 
+   background-image: url('https://github.com/appgamedev/book-Library/blob/main/wepik-the-blade-in-the-sea-wattpad-book-cover-2022117-12356.png?raw=true'); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-repeat: no-repeat;
 box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   transition: 0.4s;
-}
+} 
 
 </style>
