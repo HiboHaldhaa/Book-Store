@@ -33,14 +33,15 @@ export default {
 
 .badge {
     position: absolute;
-left:21px;
-top:7px;    
+    left:20px;
+    top:-12px;    
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     background: rgba(3, 3, 243, 0.795);
     color: #fff;
     padding: 3px 20px;
+    transform: rotate(-45deg) translate(-37%, 0);
 }
 
 /* 
@@ -115,7 +116,7 @@ top:7px;
     border-radius: 10px;
     width: 250px;
     height: 550px;
-    margin: 20px;
+    margin: 2px;
 }
 
 .card.read {
