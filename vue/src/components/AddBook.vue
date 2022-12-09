@@ -51,23 +51,21 @@
 
 <script>
 import bookServices from "@/services/BookServices.js"
-import { uploadBytes } from "firebase/storage";
-import { initializeApp } from "firebase/app";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { v4 as uuidv4 } from "uuid";
+import {initializeApp} from 'firebase/app'
+import {getStorage, ref, uploadBytes, getDownloadURL} from 'firebase/storage'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBCsabXM3rKBPvpn_Q6HV2TQvVlKAX4Xi8",
-    authDomain: "book-library-81961.firebaseapp.com",
-    projectId: "book-library-81961",
-    storageBucket: "book-library-81961.appspot.com",
-    messagingSenderId: "512610618843",
-    appId: "1:512610618843:web:8e4aa1c47ecca0e3ec6bfe"
-  };
+  apiKey: "AIzaSyBCsabXM3rKBPvpn_Q6HV2TQvVlKAX4Xi8",
+  authDomain: "book-library-81961.firebaseapp.com",
+  projectId: "book-library-81961",
+  storageBucket: "book-library-81961.appspot.com",
+  messagingSenderId: "512610618843",
+  appId: "1:512610618843:web:967cf38a5fb46f03ec6bfe"
+};
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const storage = getStorage(app);
+  initializeApp(firebaseConfig);
+  
 
 export default{
      name: "addbook",
@@ -81,8 +79,6 @@ export default{
         genres: [],
         tags: [],
         isbn: '',
-        previewUrl: "",
-        imageData: null,
         coverLink: ""
       }
     };
@@ -124,15 +120,19 @@ export default{
       })}
     },
     previewImage(event) {
-      this.imageData = event.target.files[0];
-      this.previewUrl = URL.createObjectURL(this.imageData);
-      this.book.coverLink = this.previewUrl;
+      let imageData = event.target.files[0];
+      this.previewUrl = URL.createObjectURL(imageData);
+      this.uploadImage(imageData);
     },
-    uploadImage() {
-      const storageRef = ref(storage, "images/" + uuidv4());
-      return uploadBytes(storageRef, this.imageData).then((snapshot) => {
-        return getDownloadURL(snapshot.ref);
-      });
+    uploadImage(img) {
+      
+      const storage = getStorage();
+      let storageRef = ref(storage, '/Books/' + img.name);
+      uploadBytes(storageRef, img).then(() => {
+        getDownloadURL(storageRef).then(downloadURL => {
+          this.book.coverLink = downloadURL;
+        });
+      })
     },
   }
 };
