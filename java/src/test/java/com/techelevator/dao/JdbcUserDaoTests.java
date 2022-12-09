@@ -41,6 +41,19 @@ public class JdbcUserDaoTests extends BaseDaoTests {
         Assert.assertFalse(sut.addToReadingList(1, BOOK_1));
     }
 
+    @Test
+    public void reading_list_retrieved_successfully() {
+        bookDao.addBook(BOOK_1);
+        bookDao.addBook(BOOK_2);
+
+        sut.addToReadingList(1, BOOK_1);
+        sut.addToReadingList(1, BOOK_2);
+
+        List<Book> list = bookDao.getReadingList(1);
+
+        Assert.assertEquals(2, list.size());
+    }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void findIdByUsername_given_null_throws_exception() {

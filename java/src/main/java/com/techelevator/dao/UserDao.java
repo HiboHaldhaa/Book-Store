@@ -18,4 +18,6 @@ public interface UserDao {
     boolean create(String username, String password, String role);
 
     boolean addToReadingList(int id, Book book);
+
+    public void deleteFromReadingList(int id, long isbn);
 }

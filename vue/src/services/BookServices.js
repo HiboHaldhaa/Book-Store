@@ -13,7 +13,7 @@ export default {
         return http.post('/books', books)
     },
 
-    readingList(readingList) {
-        return http.post(`/search?title=${readingList.title}&author=${readingList.author}&genre=${readingList.genre}&keyword=${readingList.keyword}&isbn=${readingList.isbn}`);
-      },
+    // readingList(readingList) {
+    //     return http.post(`/search?title=${readingList.title}&author=${readingList.author}&genre=${readingList.genre}&keyword=${readingList.keyword}&isbn=${readingList.isbn}`);
+    //   },
 }
