@@ -36,17 +36,17 @@ export default {
     left:21px;
     top:7px;    
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
     background: rgba(3, 3, 243, 0.795);
     color: #fff;
     padding: 3px 20px;
-    transform: rotate(-45deg) translate(-37%, 0);
 }
 
 .book-title {
     margin-bottom: 20px;
 }
+
 
 
 .returningValue  { 
@@ -66,7 +66,7 @@ export default {
     border-radius: 10px;
     width: 250px;
     height: 550px;
-    margin: 2px;
+    margin: 20px;
 }
 
 .card.read {
@@ -97,5 +97,10 @@ left:21px;
 top:-121px;
 height: 400px;
 }
+
+
+
+
+
 
 </style>
