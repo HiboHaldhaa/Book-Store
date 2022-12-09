@@ -94,6 +94,7 @@ export default {
 </script>
 
 <style scoped>
+
 .card-list-container {
   display: flex;
   justify-content: space-evenly;
@@ -101,13 +102,14 @@ export default {
 .smooth-dnd-container {
   display: flex;
   flex-direction: column;
-  width: 40%;
-  max-width: 40%;
-  flex: 0 0 40%;
+  align-items: center;
+  width: 30%;
+  max-width: 30%;
+  flex: 0 0 30%;
   height: 100%;
-  border: 1px solid #dcebf4;
+  border: 9px solid #a5a9ac;
   border-radius: 6px;
-  padding: 1rem 1rem 0 1rem;
+  padding: 9rem 1rem 0 1rem;
   margin-top: 5rem;
   margin-right: 2.5rem;
   margin-left: 1rem;
