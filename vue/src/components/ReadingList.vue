@@ -12,7 +12,8 @@
       </Draggable>
     </Container>
 
-
+    
+    <h1 class="h3 mb-3 font-weight-normal">Add to your Reading List =>></h1>
     <Container id="to"
       drag-class="card-ghost"
       drop-class="card-ghost-drop"
@@ -28,6 +29,8 @@
   </div>
 
 </template>
+
+
 
 <script>
 import { Container, Draggable } from "vue-smooth-dnd";
