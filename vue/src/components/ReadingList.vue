@@ -75,6 +75,9 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.$store.commit('SET_CURRENT_SEARCH', []);
+},
   methods: {
     onDrop(collection, dropResult) {
       this[collection] = applyDrag(this[collection], dropResult);
