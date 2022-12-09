@@ -36,12 +36,12 @@
       <input id="isbn" name="isbn" type="text" v-model.trim="book.isbn" />
     </div>
     <div class = "form-control">
-      <label for="cover">Cover Image </label>
-      <input id="cover" name="cover" type="text" v-model.trim="book.coverLink" />
-
+      <label for="coverImage">Cover Image </label>
+      <input id="coverImage" name="coverImage" type="file" @change="previewImage($event)" accept="image/*" />
     </div>
-    
-    
+    <div v-if="previewUrl">
+        <img class="post_image" :src="previewUrl" alt="" />
+      </div>
     
     <div>
       <button>Save Book</button>
@@ -51,6 +51,23 @@
 
 <script>
 import bookServices from "@/services/BookServices.js"
+import { uploadBytes } from "firebase/storage";
+import { initializeApp } from "firebase/app";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { v4 as uuidv4 } from "uuid";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBCsabXM3rKBPvpn_Q6HV2TQvVlKAX4Xi8",
+    authDomain: "book-library-81961.firebaseapp.com",
+    projectId: "book-library-81961",
+    storageBucket: "book-library-81961.appspot.com",
+    messagingSenderId: "512610618843",
+    appId: "1:512610618843:web:8e4aa1c47ecca0e3ec6bfe"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const storage = getStorage(app);
 
 export default{
      name: "addbook",
@@ -64,7 +81,9 @@ export default{
         genres: [],
         tags: [],
         isbn: '',
-        coverLink: ''
+        previewUrl: "",
+        imageData: null,
+        coverLink: ""
       }
     };
   },
@@ -78,8 +97,15 @@ export default{
      }
   },
   methods: {
- 
 
+    handleSave() {
+      if (this.imageData) {
+        this.uploadImage().then((URL) => {
+          this.bookCover.coverLink = URL;
+          this.addBooks();
+        });
+      } 
+    },
     addBooks() {
       this.book.genres.push(this.genre);
       this.book.tags.push(this.keyword);
@@ -94,13 +120,21 @@ export default{
           this.book.keyword = [];
           this.book.isbn = "";
           this.book.coverLink = "";
-        
         }
-
       })}
-    
-    }
-  },
+    },
+    previewImage(event) {
+      this.imageData = event.target.files[0];
+      this.previewUrl = URL.createObjectURL(this.imageData);
+      this.book.coverLink = this.previewUrl;
+    },
+    uploadImage() {
+      const storageRef = ref(storage, "images/" + uuidv4());
+      return uploadBytes(storageRef, this.imageData).then((snapshot) => {
+        return getDownloadURL(snapshot.ref);
+      });
+    },
+  }
 };
 
 </script>
