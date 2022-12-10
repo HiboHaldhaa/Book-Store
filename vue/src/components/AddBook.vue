@@ -1,5 +1,5 @@
 <template>
-
+<div>
   <form @submit.prevent="addBooks()">
     <h1> Add Book to Library</h1>
     <div class="form-control">
@@ -47,6 +47,15 @@
       <button>Save Book</button>
     </div>
   </form>
+
+  <modal v-show="isCreateBookModalVisible" @close="closeCreateBookModal();">
+        <h3 slot="body">
+          <h2 class="book-title">{{book.title}} </h2>
+          <h3 class="book-author"> {{book.author}} </h3>
+          <img class="CoverImg " v-bind:src="book.coverLink">
+          </h3>
+          </modal>
+          </div>
 </template>
 
 <script>
@@ -80,14 +89,14 @@ export default{
         tags: [],
         isbn: '',
         coverLink: ""
-      }
+      },
+      isCreateBookModalVisible: false,
     };
   },
   computed: {
      isAdmin() {
             if (Object.keys(this.$store.state.user).length > 0 ) {
                 return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
-
             }
             return false;
      }
@@ -110,6 +119,8 @@ export default{
       bookServices.addBooks(this.book).then((response) => {
         if(response.status === 200) {
           alert("Book added successfully");
+          this.showCreateBookModal();
+          this.$store.commit("SAVE_BOOK", response.data);
           this.book.title = "";
           this.book.author = "";
           this.book.genre = [];
@@ -119,13 +130,15 @@ export default{
         }
       })}
     },
+    showCreateBookModal() {
+      this.isCreateBookModalVisible = true;
+      },
     previewImage(event) {
       let imageData = event.target.files[0];
       this.previewUrl = URL.createObjectURL(imageData);
       this.uploadImage(imageData);
     },
     uploadImage(img) {
-      
       const storage = getStorage();
       let storageRef = ref(storage, '/Books/' + img.name);
       uploadBytes(storageRef, img).then(() => {
@@ -134,6 +147,7 @@ export default{
         });
       })
     },
+
   }
 };
 

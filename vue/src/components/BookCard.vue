@@ -8,7 +8,6 @@
   </div>
   <!-- </div> -->
 </template>
-
 <script>
 export default {
   name : 'book-card',
@@ -18,19 +17,15 @@ export default {
       const today = new Date();
       const day = new Date(this.book.dateAdded);
       const diff = today - day;
-
       if (diff < 604800000) {
         return true;
       }
       return false;
   }
 }
-
 }
 </script>
-
 <style>
-
 .badge {
     position: absolute;
     left:21px;
@@ -42,13 +37,9 @@ export default {
     color: #fff;
     padding: 3px 20px;
 }
-
 .book-title {
     margin-bottom: 20px;
 }
-
-
-
 .returningValue  { 
     width: 95%; 
     font: inherit;
@@ -59,7 +50,6 @@ export default {
     float:left; 
     display: inline;
     white-space: inherit;
-
  }
  .card {
     border: 2px solid black;
@@ -68,39 +58,24 @@ export default {
     height: 550px;
     margin: 20px;
 }
-
 .card.read {
     background-color: lightgray;
 } 
-
-
-
 .book-title {
  position:relative;
 left:38px;
 top:408px;
-
 } 
-
  .book-author {
 position:relative;
 left:79px;
 top:387px;
-
-
  background-color:#ffffff;
 }
-
 .CoverImg {
 position:relative;
 left:21px;
 top:-121px;
 height: 400px;
 }
-
-
-
-
-
-
 </style>
