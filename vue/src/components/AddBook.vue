@@ -1,5 +1,4 @@
 <template>
-<div>
   <form @submit.prevent="addBooks()">
     <h1> Add Book to Library</h1>
     <div class="form-control">
@@ -39,23 +38,14 @@
       <label for="coverImage">Cover Image </label>
       <input id="coverImage" name="coverImage" type="file" @change="previewImage($event)" accept="image/*" />
     </div>
-    <div v-if="previewUrl">
-        <img class="post_image" :src="previewUrl" alt="" />
+    <div class = "form-control" v-if="previewUrl">
+        <img class="post_image" :src="previewUrl" />
       </div>
     
     <div>
       <button>Save Book</button>
     </div>
   </form>
-
-  <modal v-show="isCreateBookModalVisible" @close="closeCreateBookModal();">
-        <h3 slot="body">
-          <h2 class="book-title">{{book.title}} </h2>
-          <h3 class="book-author"> {{book.author}} </h3>
-          <img class="CoverImg " v-bind:src="book.coverLink">
-          </h3>
-          </modal>
-          </div>
 </template>
 
 <script>
@@ -89,8 +79,7 @@ export default{
         tags: [],
         isbn: '',
         coverLink: ""
-      },
-      isCreateBookModalVisible: false,
+      }
     };
   },
   computed: {
@@ -119,20 +108,16 @@ export default{
       bookServices.addBooks(this.book).then((response) => {
         if(response.status === 200) {
           alert("Book added successfully");
-          this.showCreateBookModal();
-          this.$store.commit("SAVE_BOOK", response.data);
           this.book.title = "";
           this.book.author = "";
-          this.book.genre = [];
-          this.book.keyword = [];
+          this.genre = [];
+          this.keyword = [];
           this.book.isbn = "";
           this.book.coverLink = "";
+          this.previewUrl="";
         }
       })}
     },
-    showCreateBookModal() {
-      this.isCreateBookModalVisible = true;
-      },
     previewImage(event) {
       let imageData = event.target.files[0];
       this.previewUrl = URL.createObjectURL(imageData);
