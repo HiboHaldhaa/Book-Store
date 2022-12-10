@@ -61,13 +61,13 @@ export default {
     white-space: inherit;
 
  }
- .card {
+  .card {
     border: 2px solid black;
     border-radius: 10px;
     width: 250px;
     height: 550px;
     margin: 20px;
-}
+} 
 
 .card.read {
     background-color: lightgray;
