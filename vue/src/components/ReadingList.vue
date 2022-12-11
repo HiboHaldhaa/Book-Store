@@ -11,8 +11,6 @@
         <BookCard v-bind:book="book" />
       </Draggable>
     </Container>
-
-
     <Container id="to"
       drag-class="card-ghost"
       drop-class="card-ghost-drop"
@@ -26,15 +24,12 @@
       </Draggable>
     </Container>
   </div>
-
 </template>
-
 <script>
 import { Container, Draggable } from "vue-smooth-dnd";
 import { applyDrag } from "../utils/applyDrag";
 import BookCard from '../components/BookCard.vue';
 import ReadingListService from '../services/ReadingListService'
-
 export default {
   name: "CardList",
   components: {
@@ -52,10 +47,8 @@ export default {
   computed: {
     bookList() {
         return this.$store.state.currentSearch;
-
     },
   },
-
   data() {
     return {
       dropPlaceholderOptions: {
@@ -95,9 +88,7 @@ export default {
   
 };
 </script>
-
 <style scoped>
-
 .card-list-container {
   display: flex;
   justify-content: space-evenly;
@@ -127,3 +118,12 @@ export default {
   transform: rotateZ(0deg);
 }
 </style>
+
+
+
+
+
+
+
+
+
