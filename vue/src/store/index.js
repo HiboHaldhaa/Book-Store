@@ -21,7 +21,8 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     currentSearch: [],
-    readingList:[]
+    readingList:[],
+    addedBookList:[]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -45,6 +46,9 @@ export default new Vuex.Store({
     },
     SAVE_BOOK(state, books) {
       this.state.books.push(books);
+  },
+  SET_ADDED_BOOK(state, books) {
+    this.state.addedBookList = books;
   },
     
   }
