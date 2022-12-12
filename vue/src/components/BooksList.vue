@@ -109,9 +109,6 @@ export default {
       },
       
     
-    
-
-    
     search() {
       
       let book;
@@ -123,12 +120,6 @@ export default {
     
 }}}
     
-
-
-
-
-
-
 
 </script>
 

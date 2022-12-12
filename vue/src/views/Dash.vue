@@ -28,7 +28,7 @@ body {background-color:#250D4B;}
     background-color: #250D4B;
     height: 49vw;
     width: 100vw;
-     overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .content {
