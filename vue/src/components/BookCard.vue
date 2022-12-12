@@ -38,30 +38,33 @@ export default {
 </script>
 <style>
 .badge {
-  position: absolute;
-  left: 21px;
-  top: 7px;
-  text-transform: uppercase;
-  font-size: 13px;
-  font-weight: 700;
-  background: rgba(3, 3, 243, 0.795);
-  color: #fff;
-  padding: 3px 20px;
+    position: absolute;
+    left:30px;
+    top:30px;    
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    background: rgb(243, 7, 7);
+    color: #fff;
+    padding: 3px 20px;
+    
+    
 }
 .book-title {
   margin-bottom: 20px;
 }
 .returningValue {
-  width: 95%;
-  font: inherit;
-  position: relative;
-  width: 399px;
-  height: 511px;
-  max-width: 350px;
-  float: left;
-  display: inline;
-  white-space: inherit;
-}
+   position: relative;
+   width: var(--mobile-width);
+  height: var(--mobile-height);
+  margin: 30px 0;
+  border-radius: var(--mobile-radius);
+  perspective: 500px;
+  overflow: hidden;
+  color: var(--font-color);
+  background-color:#e09f3e;;
+  box-shadow: 36px 36px 50px 15px #eed7d1d1;
+ }
 .card {
   border: 2px solid black;
   border-radius: 10px;
@@ -73,20 +76,20 @@ export default {
   background-color: lightgray;
 }
 .book-title {
-  position: relative;
-  left: 38px;
-  top: 408px;
-}
+  position:relative;
+left:60px;
+top:500px;
+} 
 .book-author {
-  position: relative;
-  left: 79px;
-  top: 387px;
-  background-color: #ffffff;
+  position:relative;
+left:79px;
+top:500px;
+ 
 }
 .CoverImg {
-  position: relative;
-  left: 21px;
-  top: -121px;
-  height: 400px;
+  position:relative;
+left:50px;
+
+height: 400px;
 }
 </style>
