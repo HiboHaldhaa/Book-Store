@@ -19,4 +19,6 @@ public interface BookDao {
     public List<Book> getBooksByKeyword(String keyword);
 
     public List<Book> getReadingList(int id);
+
+    public List<Book> getAllBooks();
 }

@@ -12,6 +12,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+//@PreAuthorize("isAuthenticated")
+//@CrossOrigin("http://localhost:8081/")
 @RestController
 public class BookController {
 
@@ -28,6 +30,14 @@ public class BookController {
 
         bookDao.addBook(book);
 
+    }
+
+    //Getiing all books
+
+    @CrossOrigin
+    @RequestMapping(path = "/getAllBooks", method = RequestMethod.GET)
+    public List<Book> bookList() {
+        return bookDao.getAllBooks();
     }
 
     @RequestMapping(path = "/books/{isbn}", method = RequestMethod.GET)

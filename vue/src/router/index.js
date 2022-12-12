@@ -11,6 +11,8 @@ import Dash from '../views/Dash'
 import NotFound from '../views/NotFound'
 import ReadingList from '../views/ReadingList'
 import NotFoundPage from '../components/NotFoundPage'
+import BookList from '../components/BooksList.vue'
+
 
 
 // import { search } from 'core-js/fn/symbol'
@@ -92,6 +94,12 @@ Vue.use(Router)
      meta: {
       isUser: true
      }, 
+     },
+
+     {
+      path:"/get_Books",
+      name:"get-books",
+      component: BookList
      }
      
     ]
