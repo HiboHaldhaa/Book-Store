@@ -6,8 +6,9 @@ const newInstanceOfAxios = axios.create();
 
 export default {
     search(isbn) {
-        return newInstanceOfAxios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${ApiKey}`)
+        return newInstanceOfAxios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${ApiKey}`);
     }
+    
 
 
 

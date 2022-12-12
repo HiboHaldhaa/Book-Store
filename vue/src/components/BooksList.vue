@@ -70,6 +70,11 @@
 
 export default {
     name: 'book-list',
+    computed: {
+      bookList() {
+        return this.books;
+      }
+    },
     data() {
         return{
             // books:
@@ -108,24 +113,23 @@ export default {
 
     
     search() {
-      ApiService.search(this.book.isbn).then((response) => response.json()).then((data) =>{
-        let book = data.items[0].volumeInfo;
+      
+      let book;
+      ApiService.search(this.book.isbn).then(response => {
+        book = response.data.items[0].volumeInfo;
         this.books.push(book);
 
-      })
-
-    },
+    });
     
-},
-
-components: {
-      
-    }
+}}}
+    
 
 
 
 
-}
+
+
+
 </script>
 
 <style scoped>
