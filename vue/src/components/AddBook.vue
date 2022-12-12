@@ -1,4 +1,5 @@
 <template>
+<div>
   <form @submit.prevent="addBooks()">
     <h1> Add Book to Library</h1>
     <div class="form-control">
@@ -46,9 +47,12 @@
       <button>Save Book</button>
     </div>
   </form>
+  <addedBookList/>
+  </div>
 </template>
 
 <script>
+import addedBookList from '../components/AddedBookList.vue'
 import bookServices from "@/services/BookServices.js"
 import {initializeApp} from 'firebase/app'
 import {getStorage, ref, uploadBytes, getDownloadURL} from 'firebase/storage'
@@ -67,7 +71,10 @@ const firebaseConfig = {
   
 
 export default{
-     name: "addbook",
+  components: {
+    addedBookList
+  },
+     name: "addBook",
   data () {
     return {
       genre: '',
@@ -115,6 +122,9 @@ export default{
           this.book.isbn = "";
           this.book.coverLink = "";
           this.previewUrl="";
+          this.$router.go();
+          
+
         }
       })}
     },

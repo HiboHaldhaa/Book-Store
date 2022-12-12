@@ -193,13 +193,30 @@ public class JdbcBookDao implements BookDao{
        return books;
     }
 
+    //NEW added Books
+    @Override
+    public List<Book> getAddedBooks() {
+        List<Book> books = new ArrayList<>();
+
+        String sql = "SELECT isbn13, title, date_added, num_pages, language_id, overview, coverlink " +
+                "FROM book " +
+                "ORDER BY date_added ASC " +
+                "LIMIT 5";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        while (results.next()) {
+            books.add(mapRowToBook(results));
+        }
+
+        return books;
+    }
     //Getting all data
     private Book mapRowToBook(SqlRowSet rowSet) {
         Book book = new Book();
 
         book.setIsbn(rowSet.getLong("isbn13"));
         book.setTitle(rowSet.getString("title"));
-//        book.setDateAdded(rowSet.getDate("date_added"));
+        //book.setDateAdded(rowSet.getDate("date_added"));
         book.setPages(rowSet.getInt("num_pages"));
         book.setLanguage(rowSet.getString("language_id"));
         book.setOverview(rowSet.getString("overview"));

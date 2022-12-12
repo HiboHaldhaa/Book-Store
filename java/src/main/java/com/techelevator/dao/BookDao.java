@@ -21,4 +21,5 @@ public interface BookDao {
     public List<Book> getReadingList(int id);
 
     public List<Book> getAllBooks();
+    public List<Book> getAddedBooks();
 }
