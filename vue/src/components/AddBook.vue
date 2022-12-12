@@ -1,5 +1,4 @@
 <template>
-
   <form @submit.prevent="addBooks()">
     <h1> Add Book to Library</h1>
     <div class="form-control">
@@ -39,8 +38,8 @@
       <label for="coverImage">Cover Image </label>
       <input id="coverImage" name="coverImage" type="file" @change="previewImage($event)" accept="image/*" />
     </div>
-    <div v-if="previewUrl">
-        <img class="post_image" :src="previewUrl" alt="" />
+    <div class = "form-control" v-if="previewUrl">
+        <img class="post_image" :src="previewUrl" />
       </div>
     
     <div>
@@ -87,7 +86,6 @@ export default{
      isAdmin() {
             if (Object.keys(this.$store.state.user).length > 0 ) {
                 return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
-
             }
             return false;
      }
@@ -112,10 +110,11 @@ export default{
           alert("Book added successfully");
           this.book.title = "";
           this.book.author = "";
-          this.book.genre = [];
-          this.book.keyword = [];
+          this.genre = [];
+          this.keyword = [];
           this.book.isbn = "";
           this.book.coverLink = "";
+          this.previewUrl="";
         }
       })}
     },
@@ -125,7 +124,6 @@ export default{
       this.uploadImage(imageData);
     },
     uploadImage(img) {
-      
       const storage = getStorage();
       let storageRef = ref(storage, '/Books/' + img.name);
       uploadBytes(storageRef, img).then(() => {
@@ -134,6 +132,7 @@ export default{
         });
       })
     },
+
   }
 };
 

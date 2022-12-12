@@ -43,6 +43,9 @@ export default new Vuex.Store({
     SET_CURRENT_SEARCH(state, books) {
       this.state.currentSearch=books;
     },
+    SAVE_BOOK(state, books) {
+      this.state.books.push(books);
+  },
     
   }
 })
