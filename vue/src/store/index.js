@@ -21,7 +21,9 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     currentSearch: [],
-    readingList:[]
+    readingList:[],
+    featuredBooks :["9780812988529",  "9780385334204" , "9780385333481"]
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

@@ -14,7 +14,7 @@
       <i class="fas fa-bookmark"></i>
     </div>  
     <div class="book-cover">
-        <img class="book-top" src="https://m.media-amazon.com/images/I/71QcX1DbklL._AC_UL320_.jpg" alt="book-top" />
+        <img class="book-top" src="book.imageLinks.thumbnail" alt="book-top" />
        
     </div>
     <div class="preface">
@@ -25,91 +25,19 @@
             <i class="fas fa-chevron-down"></i>
           </div>
         </div>
-        <div class="author">insert api AUTHOR name here...</div>
+        <div class="author">{{book.title}}</div>
+        <div class="author">{{book.authors[0]}}</div>
         <div class="body">
           <p>
-            insert api DESCRIPTION OF BOOK here...
+            {{book.description}}
           </p>
-          <p>
-            insert api REVIEWS, QUOTES,  etc. about the book here...
-          </p>
+          
         </div>
       
         </div>
         </div>
 </div>
         
-<div class="book-2">
-  <div class="mobile-layout">
-    <div class="notification-header">
-      
-      
-    </div>
-    <div class="actions">
-      <i class="fas fa-chevron-left"></i>
-      <i class="fas fa-bookmark"></i>
-    </div>  
-    <div class="book-cover">
-        <img class="book-top" src="https://m.media-amazon.com/images/I/81NIfUlv2DL._AC_UL320_.jpg" alt="book-top" />
-       
-    </div>
-    <div class="preface">
-     
-        <div class="header">
-          
-          <div class="icon">
-            <i class="fas fa-chevron-down"></i>
-          </div>
-        </div>
-        <div class="author">insert api AUTHOR name here...</div>
-        <div class="body">
-          <p>
-            insert api DESCRIPTION OF BOOK here...
-          </p>
-          <p>
-            insert api REVIEWS, QUOTES,  etc. about the book here...
-          </p>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-<div class="book-3">
-  <div class="mobile-layout">
-    <div class="notification-header">
-      
-      
-    </div>
-    <div class="actions">
-      <i class="fas fa-chevron-left"></i>
-      <i class="fas fa-bookmark"></i>
-    </div>  
-    <div class="book-cover">
-        <img class="book-top" src="https://m.media-amazon.com/images/I/71YxzPUlH4L._AC_UL320_.jpg" alt="book-top" />
-       
-    </div>
-    <div class="preface">
-     
-        <div class="header">
-          
-          <div class="icon">
-            <i class="fas fa-chevron-down"></i>
-          </div>
-        </div>
-        <div class="author">insert api AUTHOR name here...</div>
-        <div class="body">
-          <p>
-            insert api DESCRIPTION OF BOOK here...
-          </p>
-          <p>
-            insert api REVIEWS, QUOTES,  etc. about the book here...
-          </p>
-        </div>
-      
-    </div>
-  </div>
-</div>
 
 
 </div>
@@ -117,6 +45,7 @@
 
 <script>
 export default {
+  props: ["book"]
 
 }
 </script>
