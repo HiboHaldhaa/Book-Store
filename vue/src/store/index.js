@@ -22,12 +22,9 @@ export default new Vuex.Store({
     user: currentUser || {},
     currentSearch: [],
     readingList:[],
-<<<<<<< HEAD
-    addedBookList:[]
-=======
+    addedBookList:[],
     featuredBooks :["9780812988529",  "9780385334204" , "9780385333481", "9780385333498"]
 
->>>>>>> 8f0f22bfde30abef4261a3791874d25a9a689fe2
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
