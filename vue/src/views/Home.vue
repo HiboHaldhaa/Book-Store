@@ -1,6 +1,6 @@
 <template>
   <div class="display-book">
-    
+     <Login/>
     <DisplayBook v-bind:book="book" v-for="book in featuredBooks" v-bind:key="book.industryIdentifiers[1].identifier"/>
     <!-- <DiffBookDisplay/> -->
   
@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import Login from '../views/Login.vue'
+
 import ApiService from '../services/ApiService'
 import DisplayBook from '../components/DisplayBook.vue'
 // import DiffBookDisplay from '../components/DiffBookDisplay.vue'
@@ -31,7 +33,8 @@ export default {
   ],
 
    components: {
-    DisplayBook
+    DisplayBook,
+    Login,
     //  DiffBookDisplay
     
   },
@@ -57,10 +60,11 @@ export default {
 </script>
 <style >
 
-.display-book {
-  display: flex;
-  justify-content: space-evenly;
-}
+ 
+ 
+
+
+
 
 
 

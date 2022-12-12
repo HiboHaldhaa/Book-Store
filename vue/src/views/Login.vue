@@ -76,6 +76,34 @@ export default {
 };
 </script>
 <style >
+#login.text-center{
+  display: flex;
+  
+  justify-content: space-around;
+  
+  
+  }
+  #username {
+position:relative;
+left:-43px;
+top:1px;
+}
+   
+#password {
+position:relative;
+left:-23px;
+}
+
+.notRegister {
+position:relative;
+left:-8px;
+}
+
+.h3 {
+left:-43px;
+top:1px;
+position:relative;
+}
 
 
 </style>
