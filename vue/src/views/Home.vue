@@ -59,6 +59,21 @@ export default {
 }
 </script>
 <style >
+.display-book{
+     position:relative;
+left:1px;
+top:43px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF3B0;
+}
+
 
  
  
