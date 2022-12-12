@@ -94,7 +94,7 @@ div{
 
 }
 .title {
-    color: white;
+    color: #fff3b0;
     font-size: 24px;
     margin-top: 10px;
     text-align: center;
@@ -103,8 +103,10 @@ div{
 display: flex;
 flex-direction: column;
 margin-top: 30px;
-margin-left:40px;
-width:150px;
+margin-left:30px;
+width:200px;
+
+
 }
 
 .menu-items {
@@ -124,18 +126,13 @@ width:150px;
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-    color: rgb(251, 250, 250);
-    background-color: transparent;
-}
-
-.side-btn:focus {
-    outline: none;
+    color:#335C67
 }
 
 .side-btn.active {
     position: relative;
-    background-color: rgb(255, 255, 255);
-    color: rgb(6, 75, 139);
+    background-color: #fff3b0;
+    color: #335C67;
     font-weight: 600;
     margin-left: 10px;
     border-radius: 30px 0 0 30px;
@@ -143,10 +140,14 @@ width:150px;
 
 .side-btn.active::before {
     top: -30px;
+    color: #fff3b0;
+    
 }
 
 .side-btn.active::after {
     bottom: -30px;
+    color: #fff3b0;
+    
 }
 
 .side-btn.active::before, .side-btn.active::after {
@@ -155,16 +156,18 @@ width:150px;
     right: 0;
     height: 30px;
     width: 30px;
-    background-color: rgb(255, 255, 255);
+    background-color: #335C67;
 }
 
 .side-btn.active .link-container::before {
     top: -60px;
+    color: #fff3b0;
 }
 
 .side-btn.active .link-container::after {
     bottom: -60px;
     z-index: 99;
+    color: #fff3b0;
 }
 
 .side-btn.active .link-container::before, .side-btn.active .link-container::after {
@@ -174,6 +177,6 @@ width:150px;
     height: 60px;
     width: 50px;
     border-radius: 50%;
-    background-color: #250D4B;
+    background-color: #335C67;
 }
 </style>

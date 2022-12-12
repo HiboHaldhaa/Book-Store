@@ -2,7 +2,7 @@
 
 <div class="container">
    
-        <div class="book-1">
+  <div class="book-1">
 
         <div class="mobile-layout">
         <div class="notification-header">
@@ -14,7 +14,7 @@
       <i class="fas fa-bookmark"></i>
     </div>  
     <div class="book-cover">
-        <img class="book-top" src="https://m.media-amazon.com/images/I/71QcX1DbklL._AC_UL320_.jpg" alt="book-top" />
+        <img class="book-top" v-bind:src="book.imageLinks.thumbnail" alt="book-top" />
        
     </div>
     <div class="preface">
@@ -25,98 +25,33 @@
             <i class="fas fa-chevron-down"></i>
           </div>
         </div>
-        <div class="author">insert api AUTHOR name here...</div>
+        <div class="author">{{book.title}}</div>
+        <div class="author">{{book.authors[0]}}</div>
         <div class="body">
           <p>
-            insert api DESCRIPTION OF BOOK here...
+            {{book.description}}
           </p>
-          <p>
-            insert api REVIEWS, QUOTES,  etc. about the book here...
-          </p>
+          
         </div>
       
         </div>
         </div>
-</div>
+  </div>
+  
+   
+  <div class="book-2">
+    
+    
+
         
-<div class="book-2">
-  <div class="mobile-layout">
-    <div class="notification-header">
-      
-      
-    </div>
-    <div class="actions">
-      <i class="fas fa-chevron-left"></i>
-      <i class="fas fa-bookmark"></i>
-    </div>  
-    <div class="book-cover">
-        <img class="book-top" src="https://m.media-amazon.com/images/I/81NIfUlv2DL._AC_UL320_.jpg" alt="book-top" />
-       
-    </div>
-    <div class="preface">
-     
-        <div class="header">
-          
-          <div class="icon">
-            <i class="fas fa-chevron-down"></i>
-          </div>
-        </div>
-        <div class="author">insert api AUTHOR name here...</div>
-        <div class="body">
-          <p>
-            insert api DESCRIPTION OF BOOK here...
-          </p>
-          <p>
-            insert api REVIEWS, QUOTES,  etc. about the book here...
-          </p>
-        </div>
-      
-    </div>
   </div>
-</div>
-
-<div class="book-3">
-  <div class="mobile-layout">
-    <div class="notification-header">
-      
-      
-    </div>
-    <div class="actions">
-      <i class="fas fa-chevron-left"></i>
-      <i class="fas fa-bookmark"></i>
-    </div>  
-    <div class="book-cover">
-        <img class="book-top" src="https://m.media-amazon.com/images/I/71YxzPUlH4L._AC_UL320_.jpg" alt="book-top" />
-       
-    </div>
-    <div class="preface">
-     
-        <div class="header">
-          
-          <div class="icon">
-            <i class="fas fa-chevron-down"></i>
-          </div>
-        </div>
-        <div class="author">insert api AUTHOR name here...</div>
-        <div class="body">
-          <p>
-            insert api DESCRIPTION OF BOOK here...
-          </p>
-          <p>
-            insert api REVIEWS, QUOTES,  etc. about the book here...
-          </p>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-
-</div>
+        
+ </div>
 </template>
 
 <script>
 export default {
+  props: ["book"]
 
 }
 </script>
@@ -131,29 +66,37 @@ export default {
 
 
 :root {
-  --mobile-width: 325px;
+   --mobile-width: 325px;
   --mobile-height: 670px;
   --mobile-radius: 25px;
   --separator-height: 500px;
   
-  --bg: #f4f1f5f8;
-  --mobile-bg: #fdeae6;
-  --intro-bg: #eed7d1;
-  --font-color: #474040;
+  --bg: #d7e8ba;
+  --mobile-bg:  hsla(208, 90%, 88%, 1);
+
+background: linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C3E1FC", endColorstr="#E09F3E", GradientType=1 );;
+  --intro-bg: hsla(208, 90%, 88%, 1);
+
+background: linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C3E1FC", endColorstr="#E09F3E", GradientType=1 );;
+  --font-color: #540B0E;
   
   --transition: transform 0.7s ease-in-out;
 }
 
 .container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row; 
-  flex-wrap: wrap;
-  row-gap: 10px;
-  column-gap: 20px;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg);
+
 }
 
 .info {
@@ -166,7 +109,7 @@ export default {
 }
 
 .mobile-layout {
-  width: var(--mobile-width);
+   width: var(--mobile-width);
   height: var(--mobile-height);
   margin: 30px 0;
   border-radius: var(--mobile-radius);
@@ -174,7 +117,7 @@ export default {
   overflow: hidden;
   color: var(--font-color);
   background-color: var(--mobile-bg);
-  box-shadow: 36px 36px 50px 15px #eed7d1d1;
+  box-shadow: 36px 36px 50px 15px #FFF3B0;
 }
   
   .notification-header {
@@ -208,7 +151,7 @@ export default {
     left: -52.5%;
     border-top-left-radius: var(--mobile-radius);
     border-top-right-radius: var(--mobile-radius);
-    background-color: rgb(245, 141, 44);
+    background-color:#ffa630;
     transform-style: preserve-3d;
     transform-origin: 50% 40%;
     transition: var(--transition);
@@ -249,7 +192,15 @@ export default {
     height: var(--separator-height);
     padding: 50px;
     transition: var(--transition);
-    background: rgba(245, 141, 44, 0.15);
+    background:hsla(208, 90%, 88%, 1);
+
+background: linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(208, 90%, 88%, 1) 0%, hsla(36, 72%, 56%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C3E1FC", endColorstr="#E09F3E", GradientType=1 );;
   }
 
       .header {

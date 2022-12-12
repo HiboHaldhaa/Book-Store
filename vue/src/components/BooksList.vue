@@ -1,19 +1,13 @@
 <template>
-  <!-- <div class="container"> 
-      <h1 class="bookList">Books</h1>
-
+   <div class="container"> 
+      
       <div class="classList">
-          <div class="booksCards" v-for="book in books" v-bind:key="book.isbn">
-              <book-details v-bind:book="book" />
 
 
-
-          </div>
+    <DisplayBook v-bind:book="book" v-for="book in bookList" v-bind:key="book.isbn"/>
+    <h2 class="book-title" v-bind:book="book" v-for="book in bookList" v-bind:key="book.title"></h2>
+    <h3 class="book-author" v-bind:book="book" v-for="book in bookList" v-bind:key="book.author"></h3>
       </div>
-
-
-  </div> -->
-
 
   <form @submit.prevent="search()">
     <h1> Search a Book in our Library</h1>
@@ -26,28 +20,6 @@
       <input id="author" name="author" type="text" v-model.trim="book.author" />
     </div>
     <div class="form-control">
-      <label for="genre">Select Genre</label>
-      <select id="genre" name="genre" v-model="book.genre">
-        <option value=""></option>
-        <option value="action">Action</option>
-         <option value="drama">Drama</option>
-        <option value="adventure">Adventure</option>
-        <option value="autobiography">Autobiography</option>
-        <option value="children's">Children's Literature</option>
-        <option value="fiction">Fiction</option>
-        <option value="Horror">Horror</option>
-        <option value="literary fiction">Literary Fiction</option>
-        <option value="non-fiction">Non-Fiction</option>
-        <option value="sci-fi">Science Fiction/Fantasy</option>
-        <option value="true-crime">True Crime</option>
-        <option value="young-adult">Young Adult</option>
-      </select>
-    </div>
-    <div class="form-control">
-      <label for="keyword">Keyword(s)</label>
-      <input id="keyword" name="keyword" type="text" v-model.trim="book.keyword" />
-    </div>
-    <div class="form-control">
       <label for="isbn">ISBN </label>
       <input id="isbn" name="isbn" type="text" v-model.trim="book.isbn" />
     </div>
@@ -58,6 +30,7 @@
       <button>Search Books</button>
     </div>
   </form>
+  </div>
 </template>
 
 <script>
@@ -67,9 +40,14 @@
 
  import ApiService from '../services/ApiService'
 // const instanceOfAxios = axios.create();
-
+import DisplayBook from '../components/DisplayBook.vue'
 export default {
     name: 'book-list',
+    computed: {
+      bookList() {
+        return this.books;
+      }
+    },
     data() {
         return{
             // books:
@@ -108,24 +86,43 @@ export default {
 
     
     search() {
-      ApiService.search(this.book.isbn).then((response) => response.json()).then((data) =>{
-        let book = data.items[0].volumeInfo;
+      
+      let book;
+      ApiService.search(this.book.isbn, this.book.author, this.book.title).then(response => {
+        book = response.data.items[0].volumeInfo;
         this.books.push(book);
 
-      })
+    }).catch(error => {
+      if(error.response.data.status == 401) {
 
-    },
+        console.log(error)
+      }
+    });
+
+  
     
-},
+}},
 
-components: {
-      
-    }
+  components: {
+      DisplayBook
+    },
 
 
-
+mounted() {
+  this.books=[]
+}
+  
 
 }
+
+    
+
+
+
+
+
+
+
 </script>
 
 <style scoped>
@@ -135,7 +132,7 @@ form {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: #e09f3e;
 }
 
 .form-control {

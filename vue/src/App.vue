@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <main>
-    </main>
-    
-    <router-view />
+   <headerComponent></headerComponent>
+
+<router-view></router-view>
+
+<footerComponent></footerComponent>
     
     
   </div>

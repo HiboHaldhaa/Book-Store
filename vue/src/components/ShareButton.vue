@@ -74,11 +74,9 @@ export default {
   background-color: white;
 }
 
-.shareBtn {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
 
+ .shareBtn {
+  position: absolute;
+  left: 40px;
 }
 </style>
