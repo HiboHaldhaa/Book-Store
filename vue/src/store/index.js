@@ -21,6 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     currentSearch: [],
+    readingList:[],
     addedBookList:[],
     featuredBooks :["9780812988529",  "9780385334204" , "9780385333481", "9780385333498"]
   },
