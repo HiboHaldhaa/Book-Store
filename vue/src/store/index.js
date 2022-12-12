@@ -22,7 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     currentSearch: [],
     readingList:[],
-    featuredBooks :["9780812988529",  "9780385334204" , "9780385333481"]
+    featuredBooks :["9780812988529",  "9780385334204" , "9780385333481", "9780385333498"]
 
   },
   mutations: {

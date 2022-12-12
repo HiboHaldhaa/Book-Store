@@ -14,7 +14,7 @@
       <i class="fas fa-bookmark"></i>
     </div>  
     <div class="book-cover">
-        <img class="book-top" src="book.imageLinks.thumbnail" alt="book-top" />
+        <img class="book-top" v-bind:src="book.imageLinks.thumbnail" alt="book-top" />
        
     </div>
     <div class="preface">
