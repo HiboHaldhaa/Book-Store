@@ -1,8 +1,8 @@
 <template>
 
-  <li class="returningValue" >
-    <img class="CoverImg " v-bind:src="book.coverLink">
-  </li>
+  <div >
+    <img class="CoverImgCard" v-bind:src="book.coverLink">
+  </div>
 </template>
 
 <script>
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style>
-.CoverImg {
+.CoverImgCard {
       display: block;
       box-shadow: 0px -5px 20px 2px rgba(black, 0.3);
       width: 200px;
