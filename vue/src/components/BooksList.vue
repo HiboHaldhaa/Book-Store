@@ -16,10 +16,6 @@
       <input id="title" name="title" type="text" v-model.trim="book.title" />
     </div>
     <div class="form-control">
-      <label for="author">Author</label>
-      <input id="author" name="author" type="text" v-model.trim="book.author" />
-    </div>
-    <div class="form-control">
       <label for="isbn">ISBN </label>
       <input id="isbn" name="isbn" type="text" v-model.trim="book.isbn" />
     </div>
@@ -82,9 +78,6 @@ export default {
       },
       
     
-    
-
-    
     search() {
       
       let book;
@@ -116,12 +109,6 @@ mounted() {
 }
 
     
-
-
-
-
-
-
 
 </script>
 

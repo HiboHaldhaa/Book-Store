@@ -31,11 +31,7 @@
                     <img class="menu-icon" src="../assets/book.png"> Search
                 </div>
             </router-link>
-            <router-link to="/get_Books" active-class="active" tag="button" exact class="side-btn">
-                <div class="link-container">
-                    <img class="menu-icon" src="../assets/book.png"> Search All Books
-                </div>
-            </router-link>
+           
 
             <router-link v-if="!isLoggedIn" to="/login" active-class="active" tag="button" exact class="side-btn">
                 <div class="link-container">
