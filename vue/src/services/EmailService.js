@@ -13,9 +13,6 @@ export default {
             image: book.coverLink
 
         };
-
         emailjs.send('service_m9jff4d', 'template_kuahfns', details);
-
-
         }
 }
