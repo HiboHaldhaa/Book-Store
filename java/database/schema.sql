@@ -103,7 +103,7 @@ CREATE TABLE book_author (
 CREATE TABLE book_genre (
     isbn13 BIGINT NOT NULL,
     genre_id INT NOT NULL,
-	CONSTRAINT PK_book_genre PRIMARY KEY(genre_id),
+	CONSTRAINT PK_book_genre PRIMARY KEY(isbn13, genre_id),
     CONSTRAINT FK_book_genre_book FOREIGN KEY(isbn13) REFERENCES book(isbn13),
     CONSTRAINT FK_book_genre_genre FOREIGN KEY(genre_id) REFERENCES genre(genre_id)
 );

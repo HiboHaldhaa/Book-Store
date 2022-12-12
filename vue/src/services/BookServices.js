@@ -11,5 +11,9 @@ export default {
 
     addBooks(books) {
         return http.post('/books', books)
-    }
+    },
+    addedBookList() {
+        return http.get('/getAddedBooks');
+      },
+
 }

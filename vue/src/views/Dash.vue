@@ -29,7 +29,7 @@ body {background-color:#335c67;
     background-color: 335c67;
     height: 49vw;
     width: 100vw;
-     overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .content {

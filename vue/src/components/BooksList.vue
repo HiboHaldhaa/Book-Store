@@ -78,9 +78,6 @@ export default {
       },
       
     
-    
-
-    
     search() {
       
       let book;
@@ -112,12 +109,6 @@ mounted() {
 }
 
     
-
-
-
-
-
-
 
 </script>
 
