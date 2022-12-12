@@ -96,18 +96,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C3E1FC", en
 }
 
 .container {
-   position:relative;
-left:1px;
-top:43px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row; 
-  flex-wrap: wrap;
-  row-gap: 10px;
-  column-gap: 20px;
-  align-items: center;
-  justify-content: center;
-  background-color: #FFF3B0;
+
 }
 
 .info {
@@ -162,7 +151,7 @@ top:43px;
     left: -52.5%;
     border-top-left-radius: var(--mobile-radius);
     border-top-right-radius: var(--mobile-radius);
-    background-color:#E09F3E;
+    background-color:#ffa630;
     transform-style: preserve-3d;
     transform-origin: 50% 40%;
     transition: var(--transition);
