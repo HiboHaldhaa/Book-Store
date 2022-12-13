@@ -1,7 +1,7 @@
 <template>
   <div class="display-book">
     
-    <h2> Featured Author of the month: Kurt Vonnegut </h2>
+    <h2> Featured Author of the month: {{$store.state.featuredAuthor}} </h2>
     
      
     <DisplayBook v-bind:book="book" v-for="book in featuredBooks" v-bind:key="book.industryIdentifiers[1].identifier"/>
@@ -13,7 +13,8 @@
 <script>
 
 
-import ApiService from '../services/ApiService'
+//import ApiService from '../services/ApiService'
+import BookServices from '../services/BookServices'
 import DisplayBook from '../components/DisplayBook.vue'
 
 
@@ -49,8 +50,8 @@ export default {
     for (let i = 0; i < this.$store.state.featuredBooks.length; i++) {
     
     let book;
-      ApiService.search(this.$store.state.featuredBooks[i]).then(response => {
-        book = response.data.items[0].volumeInfo;
+      BookServices.searchByIsbn(this.$store.state.featuredBooks[i]).then(response => {
+        book = response.data;
         this.featuredBooks.push(book);
         })
       

@@ -48,6 +48,7 @@ public class BookController {
         return bookDao.getAddedBooks();
     }
 
+    @CrossOrigin
     @RequestMapping(path = "/books/{isbn}", method = RequestMethod.GET)
     public Book getBookByIsbn(@PathVariable String isbn) {
         long longIsbn = Long.parseLong(isbn);

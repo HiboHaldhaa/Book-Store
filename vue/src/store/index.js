@@ -23,6 +23,7 @@ export default new Vuex.Store({
     currentSearch: [],
     readingList:[],
     addedBookList:[],
+    featuredAuthor: "Kurt Vonnegut",
     featuredBooks :["9780812988529",  "9780385334204" , "9780385333481", "9780385333498"]
 
   },
