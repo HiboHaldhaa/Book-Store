@@ -29,7 +29,7 @@ export default {
 h3{
 font-size: 25px;
 position:relative;
-left:277px;
+left:325px;
 top:565px;
 }
 
