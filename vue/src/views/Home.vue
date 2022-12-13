@@ -1,18 +1,21 @@
 <template>
   <div class="display-book">
-     <Login/>
+    
+    <h2> Featured Author of the month: Kurt Vonnegut </h2>
+    
+     
     <DisplayBook v-bind:book="book" v-for="book in featuredBooks" v-bind:key="book.industryIdentifiers[1].identifier"/>
-    <!-- <DiffBookDisplay/> -->
+   
   
 </div>
 </template>
 
 <script>
-import Login from '../views/Login.vue'
+
 
 import ApiService from '../services/ApiService'
 import DisplayBook from '../components/DisplayBook.vue'
-// import DiffBookDisplay from '../components/DiffBookDisplay.vue'
+
 
 export default {
   data(){
@@ -34,8 +37,8 @@ export default {
 
    components: {
     DisplayBook,
-    Login,
-    //  DiffBookDisplay
+    
+    
     
   },
   methods:{
@@ -60,9 +63,9 @@ export default {
 </script>
 <style >
 .display-book{
-     position:relative;
-left:1px;
-top:43px;
+  position:relative;
+  right:300px;
+  top:43px;
   min-height: 100vh;
   display: flex;
   flex-direction: row; 
@@ -77,7 +80,11 @@ top:43px;
 
  
  
-
+h2 {
+position:relative;
+left:800px;
+top:-425px;
+}
 
 
 

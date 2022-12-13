@@ -76,10 +76,11 @@ export default {
 };
 </script>
 <style >
+
 .text-center{
   display: flex;
   justify-content: center;
-  }
+}
 
 
 </style>

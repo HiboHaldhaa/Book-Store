@@ -39,7 +39,7 @@ export default {
 <style>
 .badge {
     position: absolute;
-    left:30px;
+    left:50px;
     top:30px;    
     text-transform: uppercase;
     font-size: 20px;
@@ -88,7 +88,7 @@ top:500px;
 }
 .CoverImg {
   position:relative;
-left:50px;
+left:60px;
 
 height: 400px;
 }
