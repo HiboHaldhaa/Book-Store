@@ -40,53 +40,36 @@ export default {
 </script>
 <style>
 
-.book-title {
-  margin-bottom: 20px;
-}
+
 .returningValue {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
    position: relative;
    width: var(--mobile-width);
   height: var(--mobile-height);
-  margin: 30px 0;
+  
   border-radius: var(--mobile-radius);
   perspective: 500px;
   overflow: hidden;
   color: var(--font-color);
-  background-color:#e09f3e;;
+  background-color:#71e03e;;
   box-shadow: 36px 36px 50px 15px #eed7d1d1;
-  float:left;
-  
-  
-  
- 
- }
-.card {
-  border: 2px solid black;
-  border-radius: 10px;
-  width: 250px;
-  height: 550px;
-  margin: 20px;
-}
+  }
+
+  .book-title{
+    display: flex;
+    ;
+
+
+    
+
+  }
+
 .card.read {
   background-color: lightgray;
 }
-.book-title {
-  position:relative;
-left:60px;
-top:500px;
-} 
-.book-author {
-  position:relative;
-left:79px;
-top:500px;
- 
-}
-.CoverImg {
-  position:relative;
-left:60px;
 
-height: 400px;
-}
 
  
 </style>

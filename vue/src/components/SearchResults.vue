@@ -5,7 +5,7 @@
     
     </div>
     <div id="recommendations" >
-        <h1 style= "text-align: center" v-if="booklist.length > 0"> Recommendations for {{$store.state.user.username}} based on your search</h1>   
+        <h1 style= "text-align: center" v-if="booklist.length > 0"> Recommendations for {{$store.state.user.username}} based on your search . . .</h1>   
         <ApiBookSearch v-if="booklist.length > 0" />
     </div>
     </div>
