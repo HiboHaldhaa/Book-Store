@@ -4,7 +4,7 @@
     <h2> Featured Author of the month: {{$store.state.featuredAuthor}} </h2>
     
      
-    <DisplayBook v-bind:book="book" v-for="book in featuredBooks" v-bind:key="book.industryIdentifiers[1].identifier"/>
+    <BookCard v-bind:book="book" v-for="book in featuredList" v-bind:key="book.isbn"/>
    
   
 </div>
@@ -15,7 +15,7 @@
 
 //import ApiService from '../services/ApiService'
 import BookServices from '../services/BookServices'
-import DisplayBook from '../components/DisplayBook.vue'
+import BookCard from '../components/BookCard.vue'
 
 
 export default {
@@ -37,10 +37,7 @@ export default {
   ],
 
    components: {
-    DisplayBook,
-    
-    
-    
+    BookCard
   },
   methods:{
    
