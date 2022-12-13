@@ -7,8 +7,8 @@
       <div>
         <label for="email">Email: </label>
         <input
-          id="email"
-          type="text"
+          id="email" 
+          type="email" required
           v-model.trim="email"
           placeholder="Recipient email"
         />
@@ -16,8 +16,8 @@
       <div>
         <label for="name">From: </label>
         <input
-          id="name"
-          type="text"
+          id="name" 
+          type="text" required
           v-model.trim="name"
           placeholder="Your Name"
         />
@@ -47,7 +47,7 @@ export default {
   sendemail() {
     EmailService.sendEmail(this.email, this.name, this.book);
     this.hideShareForm();
-    this.clearShareForm;
+    this.clearShareForm();
   },
   cancel() {
     this.hideShareForm();
