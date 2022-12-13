@@ -26,11 +26,12 @@ export default {
 </script>
 
 <style>
+
+
 .CoverImg {
-      display: block;
-      box-shadow: 0px -5px 20px 2px rgba(black, 0.3);
-      width: 200px;
-      height: 300px;
-      object-fit: cover;
-		}
+position:relative;
+left:50px;
+
+height: 400px;
+}
 </style>

@@ -77,6 +77,7 @@ export default {
 
  .shareBtn {
   position: absolute;
-  left: 40px;
+  left: 50px;
+  
 }
 </style>
