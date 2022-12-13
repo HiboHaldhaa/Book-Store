@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar">
         <div>
-          <img class="logo" src="..\assets\LogoBrown.png" alt="Bravo Books">
+          <img class="logo" src="../assets/LogoBrown.png" alt="Bravo Books">
           <h1 class="title"> </h1>
         </div>
         <!-- <div class="search-bar">
