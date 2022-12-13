@@ -26,11 +26,23 @@ export default {
 </script>
 
 <style>
-
+.badge {
+    position: absolute;
+    left:50px;
+    top:30px;    
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    background: red;
+    color: #fff;
+    padding: 3px 20px;
+    
+    
+}
 
 .CoverImg {
 position:relative;
-left:50px;
+left:25px;
 
 height: 400px;
 }

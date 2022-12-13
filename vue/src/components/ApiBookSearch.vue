@@ -1,5 +1,5 @@
 <template>
-  <div>
+    <div id="displayBookDiv">
     <DisplayBook v-bind:book="book" v-for="book in bookList" v-bind:key="book.isbn"/>
   </div>
 </template>
@@ -55,5 +55,10 @@ created() {
 </script>
 
 <style>
-
+#displayBookDiv {
+    display: flex;
+  justify-content:space-evenly;
+  align-content:flex-start;
+  flex-wrap: wrap;
+}
 </style>
