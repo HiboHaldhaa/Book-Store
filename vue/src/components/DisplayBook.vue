@@ -95,9 +95,6 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#C3E1FC", en
   --transition: transform 0.7s ease-in-out;
 }
 
-.container {
-
-}
 
 .info {
   font-family: 'Quicksand', sans-serif;
