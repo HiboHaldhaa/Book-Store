@@ -31,6 +31,14 @@ public class BookController {
         bookDao.addBook(book);
 
     }
+    @CrossOrigin
+    @GetMapping(path = "/books/library/{libraryId}")
+    public Book getBookByLibraryId(@PathVariable String libraryId) {
+
+        int intLibraryId = Integer.parseInt(libraryId);
+
+        return bookDao.getBookByLibraryId(intLibraryId);
+    }
 
     //Getiing all books
 

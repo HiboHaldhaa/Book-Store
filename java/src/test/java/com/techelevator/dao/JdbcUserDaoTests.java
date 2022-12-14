@@ -19,9 +19,9 @@ public class JdbcUserDaoTests extends BaseDaoTests {
     private static final User USER_3 = new User(3L, "user3", "user3", "ROLE_USER");
 
     private static final Book BOOK_1 = new Book(9780345339713L, "The Two Towers", "J.R.R. Tolkien", LocalDate.now(),
-            "English", List.of("Fantasy"), List.of("Epic"), 432, "Harper Collins", "The one ring", "coverlink.jpeg");
+            "English", List.of("Fantasy"), List.of("Epic"), 432, "Harper Collins", "The one ring", "coverlink.jpeg", 1);
     private static final Book BOOK_2 = new Book(9780345339616L, "The Return of the King", "J.R.R. Tolkien", LocalDate.now(), "English",
-            List.of("Fantasy"), List.of("Epic"), 500, "Harper Collins", "The End", "coverlink.png");
+            List.of("Fantasy"), List.of("Epic"), 500, "Harper Collins", "The End", "coverlink.png", 1);
 
     private JdbcUserDao sut;
     private JdbcBookDao bookDao;

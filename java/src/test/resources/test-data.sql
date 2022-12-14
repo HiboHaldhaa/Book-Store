@@ -57,6 +57,7 @@ CREATE TABLE book_language (
 
 CREATE TABLE book (
     isbn13 BIGINT NOT NULL,
+    library_id int,
     title varchar(200) NOT NULL,
     date_added date NULL,
     num_pages INT,
