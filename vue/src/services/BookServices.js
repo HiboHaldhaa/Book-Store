@@ -17,6 +17,8 @@ export default {
       },
     searchByIsbn(isbn){
       return http.get(`/books/${isbn}`);
+    }, searchByLibraryId(libraryId) {
+      return http.get(`/books/library/${libraryId}`)
     }
 
 }
