@@ -16,7 +16,7 @@ export default {
         return http.get('/getAddedBooks');
       },
     searchByIsbn(isbn){
-      return http.get(`/books/${isbn}`)
+      return http.get(`/books/${isbn}`);
     }
 
 }

@@ -17,6 +17,7 @@ public class Book {
     private String publisher;
     private String overview;
     private String coverLink;
+    private int libraryId;
 
     public Book () {}
 
@@ -38,7 +39,7 @@ public class Book {
 
     public Book(long isbn, String title, String author, LocalDate dateAdded, String language,
                 List<String> genres, List<String> tags, int pages, String publisher, String overview,
-                String coverLink) {
+                String coverLink, int libraryId) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
@@ -50,6 +51,15 @@ public class Book {
         this.publisher = publisher;
         this.overview = overview;
         this.coverLink = coverLink;
+        this.libraryId = libraryId;
+    }
+
+    public int getLibraryId() {
+        return libraryId;
+    }
+
+    public void setLibraryId(int libraryId) {
+        this.libraryId = libraryId;
     }
 
     public long getIsbn() {
