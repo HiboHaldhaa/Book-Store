@@ -46,12 +46,14 @@
     <div>
       <button>Save Book</button>
     </div>
+    <BarcodeReader/>
   </form>
   <addedBookList/>
   </div>
 </template>
 
 <script>
+import BarcodeReader from '../components/Barcode.vue'
 import addedBookList from '../components/AddedBookList.vue'
 import bookServices from "@/services/BookServices.js"
 import {initializeApp} from 'firebase/app'
@@ -72,6 +74,7 @@ const firebaseConfig = {
 
 export default{
   components: {
+     BarcodeReader,
     addedBookList
   },
      name: "addBook",
