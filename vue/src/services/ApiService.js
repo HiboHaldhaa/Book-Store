@@ -29,10 +29,6 @@ export default {
     searchBySubject(subject) {
         return newInstanceOfAxios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${subject}&key=${ApiKey}`);
 
-    }, searchByIsbn(isbn) {
-
-        return newInstanceOfAxios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${ApiKey}`);
-
     }
     
 
