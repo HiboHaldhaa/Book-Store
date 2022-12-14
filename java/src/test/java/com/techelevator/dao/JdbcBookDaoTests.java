@@ -12,11 +12,11 @@ import java.util.List;
 public class JdbcBookDaoTests extends BaseDaoTests{
 
     private static final Book BOOK_1 = new Book(9780345339713L, "The Two Towers", "J.R.R. Tolkien", LocalDate.now(),
-    "English", List.of("Fantasy"), List.of("Epic"), 432, "Harper Collins", "The one ring", "coverlink.jpeg");
+    "English", List.of("Fantasy"), List.of("Epic"), 432, "Harper Collins", "The one ring", "coverlink.jpeg", 1  );
     private static final Book BOOK_2 = new Book(9780345339616L, "The Return of the King", "J.R.R. Tolkien", LocalDate.now(), "English",
-            List.of("Fantasy"), List.of("Epic"), 500, "Harper Collins", "The End", "coverlink.png");
+            List.of("Fantasy"), List.of("Epic"), 500, "Harper Collins", "The End", "coverlink.png", 2);
     private static final Book BOOK_3 = new Book(9780345339333L, "The Expanse", "James S.A. Corey", LocalDate.now(),
-            "Spanish", List.of("Science Fiction"), List.of("Space Opera"), 356, "Penguin", "Virus things", "spaceship.jpeg");
+            "Spanish", List.of("Science Fiction"), List.of("Space Opera"), 356, "Penguin", "Virus things", "spaceship.jpeg", 3);
 
     private JdbcBookDao sut;
 
@@ -27,10 +27,19 @@ public class JdbcBookDaoTests extends BaseDaoTests{
     }
 
     @Test
+    public void gets_book_by_library_id() {
+
+        sut.addBook(BOOK_1);
+        Assert.assertEquals(sut.getBookByLibraryId(1), BOOK_1);
+    }
+
+    @Test
     public void adds_book_correctly() {
 
         sut.addBook(BOOK_1);
         Assert.assertTrue(sut.findBookByIsbn(9780345339713L));
+        Book book = sut.getBookByIsbn(9780345339713L);
+        sut.addBook(BOOK_2);
 
     }
 

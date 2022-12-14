@@ -46,12 +46,37 @@
     <div>
       <button>Save Book</button>
     </div>
+    <BarcodeReader/>
   </form>
+  <div>
+     <form @submit.prevent="downloadBarCode()" class="form">
+  <h1>Type to view BarCode</h1>
+    <div ref="barCodeDiv">
+      <vue-barcode
+        ref="BarImg"
+        v-if="BarcodeValue"
+        tag="img"
+        :value="BarcodeValue"
+        :options="{ displayValue: true, 
+        height: 25, 
+        fontOptions: 'bold',
+        margin: 50
+       }"
+      />
+    </div>
+    <input type="text" v-model="BarcodeValue" />
+    <button v-if="BarcodeValue">Save BarCode</button>
+    
+  </form>
+  </div>
+  
   <addedBookList/>
   </div>
 </template>
 
 <script>
+import VueBarcode from "@chenfengyuan/vue-barcode";
+import BarcodeReader from '../components/Barcode.vue'
 import addedBookList from '../components/AddedBookList.vue'
 import bookServices from "@/services/BookServices.js"
 import {initializeApp} from 'firebase/app'
@@ -72,6 +97,8 @@ const firebaseConfig = {
 
 export default{
   components: {
+    "vue-barcode": VueBarcode,
+     BarcodeReader,
     addedBookList
   },
      name: "addBook",
@@ -79,13 +106,15 @@ export default{
     return {
       genre: '',
       keyword: '',
+      BarcodeValue: "",
       book: {
         title: '',
         author: '',
         genres: [],
         tags: [],
         isbn: '',
-        coverLink: ""
+        coverLink: "",
+        libraryId: ""
       }
     };
   },
@@ -98,7 +127,10 @@ export default{
      }
   },
   methods: {
-
+    randNum(){
+      let randomBarcode = Math.floor(Math.random() * 100000000);
+      return randomBarcode;
+    },
     handleSave() {
       if (this.imageData) {
         this.uploadImage().then((URL) => {
@@ -110,7 +142,9 @@ export default{
     addBooks() {
       this.book.genres.push(this.genre);
       this.book.tags.push(this.keyword);
-      
+      // random num generator for barcode
+      this.BarcodeValue = this.randNum()
+      this.book.libraryId = this.BarcodeValue;
       if (this.isAdmin) { 
       bookServices.addBooks(this.book).then((response) => {
         if(response.status === 200) {
@@ -122,7 +156,8 @@ export default{
           this.book.isbn = "";
           this.book.coverLink = "";
           this.previewUrl="";
-          this.$router.go();
+          // this.$router.go();
+          
           
 
         }
@@ -202,5 +237,40 @@ button:hover,
 button:active {
   border-color: #002350;
   background-color: #002350;
+}
+
+/* BARCODE */
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+.form {
+display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+button {
+  height: 40px;
+  width: 310px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: medium;
+  display: block;
+  margin-top: 1.3rem;
+}
+input {
+  height: 30px;
+  width: 300px;
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 7px;
 }
 </style>

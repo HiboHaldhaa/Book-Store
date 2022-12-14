@@ -31,6 +31,14 @@ public class BookController {
         bookDao.addBook(book);
 
     }
+    @CrossOrigin
+    @GetMapping(path = "/books/library/{libraryId}")
+    public Book getBookByLibraryId(@PathVariable String libraryId) {
+
+        int intLibraryId = Integer.parseInt(libraryId);
+
+        return bookDao.getBookByLibraryId(intLibraryId);
+    }
 
     //Getiing all books
 
@@ -48,6 +56,7 @@ public class BookController {
         return bookDao.getAddedBooks();
     }
 
+    @CrossOrigin
     @RequestMapping(path = "/books/{isbn}", method = RequestMethod.GET)
     public Book getBookByIsbn(@PathVariable String isbn) {
         long longIsbn = Long.parseLong(isbn);

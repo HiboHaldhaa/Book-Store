@@ -15,5 +15,11 @@ export default {
     addedBookList() {
         return http.get('/getAddedBooks');
       },
+    searchByIsbn(isbn){
+      return http.get(`/books/${isbn}`);
+    }, 
+    searchByLibraryId(libraryId) {
+      return http.get(`/books/library/${libraryId}`)
+    }
 
 }

@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 body {background-color:#335c67;
 }
 
@@ -34,24 +34,16 @@ body {background-color:#335c67;
 }
 
 .content {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-    background: url(../assets/bookshelf.jpg);
-    
-    
-    border-radius: 50px;
+    background-color: #FFF3B0;
+    border-radius: 20px;
     margin: 20px 90px 0px 0px;
     overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+    
 
-     width: 1550px;
-     height: 2500px;
-  
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
 }
 
 
