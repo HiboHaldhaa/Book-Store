@@ -57,10 +57,14 @@
         v-if="BarcodeValue"
         tag="img"
         :value="BarcodeValue"
-        :options="{ displayValue: true, lineColor: '#2B2B2C' }"
+        :options="{ displayValue: true, 
+        height: 25, 
+        fontOptions: 'bold',
+        margin: 50
+       }"
       />
     </div>
-    <!-- <input type="text" v-model="BarcodeValue" /> -->
+    <input type="text" v-model="BarcodeValue" />
     <button v-if="BarcodeValue">Save BarCode</button>
     
   </form>

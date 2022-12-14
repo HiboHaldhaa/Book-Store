@@ -1,50 +1,54 @@
 <template>
   <div class="hello">
     <StreamBarcodeReader
-      @decode="(a, b, c) => onDecode(a, b, c)"
-      @loaded="() => onLoaded()"
+     @decode="onDecode" @loaded="onLoaded"
     ></StreamBarcodeReader>
     Input Value: {{ text || "Nothing" }}
+    <book-card v-if="showBook" v-bind="book" />
   </div>
-  
+ 
 </template>
 
 <script>
 import { StreamBarcodeReader } from "vue-barcode-reader";
-import ApiService from '../services/ApiService';
+import BookServices from '../services/BookServices';
+import BookCard from './BookCard.vue';
+
 
 export default {
   name: "HelloWorld",
   components: {
     StreamBarcodeReader,
+    BookCard,
+    
     
   },
   data() {
     return {
       text: "",
       id: null,
-      books: []
+      book: ""
     };
   },
   props: {
     scanned_isbn: String,
   },
+  watch:{
+text:function(){
+BookServices.searchByLibraryId(this.text).then(response => {
+this.book = response.data
+})
+}
+  },
   computed: {
-        bookList() {
-            return this.books;
+        showBook() {
+            return this.book;
         }
         },
 
   created() {
     let book = this.$store.state.currentSearch[0];
     this.text = book.text;
-
-    ApiService.searchByIsbn(this.text).then(response => {
-        let random = Math.floor(Math.random() * 10);
-        let book = response.data.items[random].volumeInfo;
-        this.books.push(book);
-
-    }).catch(e => console.log(e))
   },
   methods: {
     onDecode(a, b, c) {
