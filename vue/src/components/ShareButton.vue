@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="shareBtn">
-      <button class="shareButton" v-on:click="showShareForm()">Share</button>
+      <button class="shareButton" v-on:click="showShareForm()"><span>Share</span></button>
     </div>
     <form id="shareForm" ref="shareFormRef" @submit.prevent="sendemail()">
       <div>
