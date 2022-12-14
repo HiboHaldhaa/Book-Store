@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 body {background-color:#335c67;
 }
 
@@ -34,9 +34,15 @@ body {background-color:#335c67;
 
 .content {
     background-color: #FFF3B0;
-    border-radius: 50px;
+    border-radius: 20px;
     margin: 20px 90px 0px 0px;
     overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+    
+
 }
 
 
