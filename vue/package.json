@@ -10,11 +10,12 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@chenfengyuan/vue-barcode": "^1.0.1",
     "@emailjs/browser": "^3.10.0",
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
     "firebase": "^9.15.0",
-    "vue": "^2.6.12",
+    "vue": "^2.7.14",
     "vue-barcode-reader": "^1.0.3",
     "vue-router": "^3.5.1",
     "vue-smooth-dnd": "^0.8.1",
