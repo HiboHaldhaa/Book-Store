@@ -31,6 +31,13 @@
                     <img class="menu-icon" src="../assets/book.png"> Search
                 </div>
             </router-link>
+
+
+             <router-link to="/about_us" active-class="active" tag="button" exact class="side-btn">
+                <div class="link-container">
+                    <img class="menu-icon" src="../assets/about.png"> About us
+                </div>
+            </router-link>
            
 
             <router-link v-if="!isLoggedIn" to="/login" active-class="active" tag="button" exact class="side-btn">

@@ -12,6 +12,7 @@ import NotFound from '../views/NotFound'
 import ReadingList from '../views/ReadingList'
 import NotFoundPage from '../components/NotFoundPage'
 import BookList from '../components/BooksList.vue'
+import AboutUs from '../components/AboutUs'
 
 
 
@@ -100,6 +101,12 @@ Vue.use(Router)
       path:"/get_Books",
       name:"get-books",
       component: BookList
+     },
+
+     {
+       path:"/about_us",
+       name:"about-us",
+       component: AboutUs
      }
      
     ]
