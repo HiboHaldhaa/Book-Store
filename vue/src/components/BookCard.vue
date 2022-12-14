@@ -53,7 +53,7 @@ export default {
   perspective: 500px;
   overflow: hidden;
   color: var(--font-color);
-  background-color:#71e03e;;
+  background-color:#335C67;
   box-shadow: 36px 36px 50px 15px #eed7d1d1;
   }
 

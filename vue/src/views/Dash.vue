@@ -2,6 +2,7 @@
     <div class="dash">
         <Sidebar/>
         <div class="content">
+            
             <router-view/>
         </div>
     </div>
@@ -29,14 +30,28 @@ body {background-color:#335c67;
     background-color: 335c67;
     height: 49vw;
     width: 100vw;
-    overflow-y: hidden;
+    
 }
 
 .content {
-    background-color: #FFF3B0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    background: url(../assets/bookshelf.jpg);
+    
+    
     border-radius: 50px;
     margin: 20px 90px 0px 0px;
     overflow-y: scroll;
+
+     width: 1550px;
+     height: 2500px;
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 

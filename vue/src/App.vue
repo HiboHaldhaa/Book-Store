@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+
+    
    <headerComponent></headerComponent>
 
 <router-view></router-view>
@@ -25,4 +27,6 @@ export default {
 div{
    overflow: hidden;
 }
+
+
 </style>

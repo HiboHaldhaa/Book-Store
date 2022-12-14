@@ -93,9 +93,12 @@ export default{
 </script>
 
 <style scoped>
+
+
 form {
   margin: 2rem auto;
   max-width: 40rem;
+  min-height: 25rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 2rem;
@@ -135,6 +138,10 @@ button {
   cursor: pointer;
   padding: 0.75rem 2rem;
   border-radius: 30px;
+
+  position:relative;
+left:243px;
+
 }
 
 button:hover,
@@ -142,4 +149,19 @@ button:active {
   border-color: #002350;
   background-color: #002350;
 }
+form.div{
+  position:relative;
+left:-2px;
+top:13px;
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+
+
+}
+
+
+
 </style>

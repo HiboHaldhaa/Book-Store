@@ -75,11 +75,70 @@ export default {
   }
 };
 </script>
-<style >
+<style>
 
 .text-center{
   display: flex;
   justify-content: center;
+}
+
+form {
+  margin: 2rem auto;
+  min-width: 30rem;
+  max-height: 15rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 2rem;
+  background-color: #e09f3e;
+}
+
+.form-control {
+  margin: 0.5rem 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+input,
+select {
+  display: block;
+  width: 95%;
+  font: inherit;
+  margin-top: 0.5rem;
+}
+
+select {
+  width: auto;
+}
+
+button {
+  font: inherit;
+  border: 1px solid #0076bb;
+  background-color: #0076bb;
+  color: white;
+  cursor: pointer;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  
+}
+
+button:hover,
+button:active {
+  border-color: #002350;
+  background-color: #002350;
+
+}
+
+.buttonLogin {
+position:relative;
+left:169px;
+top:35px;
 }
 
 

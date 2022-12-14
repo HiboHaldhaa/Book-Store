@@ -151,6 +151,7 @@ export default{
 <style scoped>
 form {
   margin: 2rem auto;
+  min-height: 30rem;
   max-width: 40rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -191,6 +192,10 @@ button {
   cursor: pointer;
   padding: 0.75rem 2rem;
   border-radius: 30px;
+
+  position:relative;
+left:411px;
+
 }
 
 button:hover,

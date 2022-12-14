@@ -33,6 +33,10 @@ mounted() {
 </script>
 
 <style>
+
+h1{
+  color:rgb(25, 112, 184);
+}
 #search-results{
      display: flex;
   justify-content:space-evenly;
