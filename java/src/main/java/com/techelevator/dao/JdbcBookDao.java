@@ -33,10 +33,11 @@ public class JdbcBookDao implements BookDao{
            String overview = book.getOverview();
            String coverLink = book.getCoverLink();
            int languageId = bookLanguage(book.getLanguage());
+           int libraryId = book.getLibraryId();
 
-           String sql = "INSERT INTO book (isbn13, title, date_added, num_pages, language_id, overview, CoverLink) " +
-                   "VALUES(?,?,?,?,?,?,?);";
-           jdbcTemplate.update(sql, isbn, title, dateAdded, pages, languageId, overview, coverLink);
+           String sql = "INSERT INTO book (isbn13, title, date_added, num_pages, language_id, overview, CoverLink, library_id) " +
+                   "VALUES(?,?,?,?,?,?,?,?);";
+           jdbcTemplate.update(sql, isbn, title, dateAdded, pages, languageId, overview, coverLink, libraryId);
 
            authorRelation(book.getAuthor(), isbn);
            if (book.getGenres() != null) {
@@ -210,6 +211,27 @@ public class JdbcBookDao implements BookDao{
 
         return books;
     }
+
+    @Override
+    public Book getBookByLibraryId(int libraryId) {
+        Book book = null;
+        String sql = "SELECT isbn13 FROM book WHERE library_id = ?;";
+
+        long isbn = 0;
+
+        SqlRowSet row = jdbcTemplate.queryForRowSet(sql, libraryId);
+
+        if (row.next()) {
+            isbn = row.getLong("isbn13");
+        }
+
+        if (isbn != 0) {
+            book = getBookByIsbn(isbn);
+        }
+
+    return book;
+    }
+
     //Getting all data
     private Book mapRowToBook(SqlRowSet rowSet) {
         Book book = new Book();
@@ -232,7 +254,7 @@ public class JdbcBookDao implements BookDao{
     private Book mapBook(long isbn) {
 
         Book book = new Book();
-        String sql = "SELECT isbn13, title, date_added, num_pages, language_id, overview, coverlink FROM book " +
+        String sql = "SELECT isbn13, title, date_added, num_pages, language_id, overview, coverlink, library_id FROM book " +
                 "WHERE isbn13 = ?;";
         SqlRowSet row = jdbcTemplate.queryForRowSet(sql, isbn);
         if (row.next()) {
@@ -242,6 +264,7 @@ public class JdbcBookDao implements BookDao{
             book.setOverview(row.getString("overview"));
             book.setCoverLink(row.getString("coverlink"));
             book.setDateAdded(row.getDate("date_added").toLocalDate());
+            book.setLibraryId(row.getInt("library_id"));
             int languageId = row.getInt("language_id");
             if (languageId == 0) {
                 book.setLanguage("Not Available");

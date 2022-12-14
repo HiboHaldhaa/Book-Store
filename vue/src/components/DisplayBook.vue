@@ -1,6 +1,4 @@
 <template>
-
-<div class="container">
    
   <div class="book-1">
 
@@ -37,16 +35,9 @@
         </div>
         </div>
   </div>
-  
-   
-  <div class="book-2">
-    
-    
 
         
-  </div>
-        
- </div>
+ 
 </template>
 
 <script>

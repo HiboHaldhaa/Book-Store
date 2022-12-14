@@ -1,12 +1,14 @@
 <template>
   <!-- <div class="returningValue"> -->
+  
   <div class="returningValue">
     <h2 class="book-title">{{ book.title }}</h2>
     <h3 class="book-author">{{ book.author }}</h3>
     <img class="CoverImg" v-bind:src="book.coverLink" />
     <div v-if="isNew" class="badge">New</div>
     <share-button :book="book"></share-button>
-  </div>
+   </div>
+    
   <!-- </div> -->
 </template>
 <script>
@@ -37,19 +39,7 @@ export default {
 };
 </script>
 <style>
-.badge {
-    position: absolute;
-    left:50px;
-    top:30px;    
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 700;
-    background: rgb(243, 7, 7);
-    color: #fff;
-    padding: 3px 20px;
-    
-    
-}
+
 .book-title {
   margin-bottom: 20px;
 }
@@ -64,6 +54,11 @@ export default {
   color: var(--font-color);
   background-color:#e09f3e;;
   box-shadow: 36px 36px 50px 15px #eed7d1d1;
+  float:left;
+  
+  
+  
+ 
  }
 .card {
   border: 2px solid black;
@@ -92,4 +87,6 @@ left:60px;
 
 height: 400px;
 }
+
+ 
 </style>
