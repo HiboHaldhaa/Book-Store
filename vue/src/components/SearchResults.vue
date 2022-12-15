@@ -38,10 +38,14 @@ h1{
   color:rgb(25, 112, 184);
 }
 #search-results{
-     display: flex;
+    display: flex;
   justify-content:space-evenly;
   align-content: flex-start;
   flex-wrap: wrap;
+  position:relative;
+    left:50px;
+top:7px;
+width: 80vw;
  }
 
 
