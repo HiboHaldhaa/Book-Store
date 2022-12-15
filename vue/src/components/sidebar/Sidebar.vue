@@ -66,7 +66,7 @@ export default {
 </script>
 <style>
 :root {
-  --sidebar-bg-color: #34495e;
+  --sidebar-bg-color: #5BBA6F;
   --sidebar-item-hover: #38a169;
   --sidebar-item-active: #276749;
 }

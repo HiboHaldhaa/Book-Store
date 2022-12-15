@@ -64,7 +64,7 @@ body {
 	background: #457fb4;
 	font-family: "Roboto", sans-serif;
 	display: flex;
-	height: 100vh;
+	height: auto;
 }
 .hero-container {
 position:relative;

@@ -230,7 +230,7 @@ top:100px;
   max-width: 40rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  background-color: #e09f3e;
+  background-color: #E1B07E;
 }
 
 .barcode-img{
@@ -256,7 +256,7 @@ top:60px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 2rem;
-  background-color: #e09f3e;
+  background-color: #E1B07E;
 }
 
 .form-control {

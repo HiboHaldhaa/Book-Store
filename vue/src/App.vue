@@ -22,6 +22,14 @@ export default {
 </script>
 
 <style>
+#app{
+  background-color:#005F66;
+}
+search form{
+  background-color:#E1B07E
+}
+
+
 
 
 </style>
