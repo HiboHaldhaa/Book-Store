@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ApiKey = "AIzaSyADNHzh2ftWxrpAlTbubnJxqNoH0Eq4agQ";
+const ApiKey = "AIzaSyDk2ihFqZ7JzWh2pnRhWv8WeCgNmT0Ofs0";
 
 const newInstanceOfAxios = axios.create();
 

@@ -12,7 +12,7 @@
     </h1>
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink v-if="isAdmin" to="/book" icon="fas fa-columns" >Dashboard</SidebarLink>
+    <SidebarLink v-if="isAdmin" to="/book" icon="fas fa-columns" >Add Book</SidebarLink>
     <SidebarLink v-if="isUser" to="/reading_list" icon="fas fa-chart-bar">Reading List</SidebarLink>
     <SidebarLink to="/search" icon="fas fa-users">Search</SidebarLink>
     <SidebarLink to="/about_us" icon="fas fa-image">About us</SidebarLink>

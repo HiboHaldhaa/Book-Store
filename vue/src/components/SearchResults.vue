@@ -37,12 +37,7 @@ mounted() {
 h1{
   color:rgb(25, 112, 184);
 }
-#search-results{
-     display: flex;
-  justify-content:space-evenly;
-  align-content: flex-start;
-  flex-wrap: wrap;
- }
+
 
 
 

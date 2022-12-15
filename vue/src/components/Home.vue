@@ -78,7 +78,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* CSS VARIABLES */
 :root {
   --primary: #141414;
