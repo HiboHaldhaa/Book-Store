@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Search from '@/views/Search'
 import BookAdded from '@/views/BookAdded'
-import Dash from '../views/Dash'
+import Dashboard from '../views/Dashboard'
 import NotFound from '../views/NotFound'
 import ReadingList from '../views/ReadingList'
 import NotFoundPage from '../components/NotFoundPage'
@@ -41,7 +41,7 @@ Vue.use(Router)
   },
   {
     path: '',
-    component: Dash,
+    component: Dashboard,
     children: [
      
      {

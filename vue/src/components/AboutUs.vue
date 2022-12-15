@@ -1,6 +1,7 @@
 <template>
 
 
+      <div>
 
   <div class="flex-container">
     <!-- <h1 class="title">Book Bravo's Team</h1> -->
@@ -27,7 +28,7 @@
         <img class="profile" src="../assets\Henos Efrem.jpg" />
       
       <h1 class="names">Henos Efrem</h1>
-          <h5 class="position">Software Developer</h5>
+          <h5 class="position">Junior Software Developer</h5>
 
        <a href="https://www.linkedin.com/in/henosefrem/" target=_blank>
               <img class="icon" src="../assets\icon.png" />
@@ -58,6 +59,8 @@
  </a>
 
           </div>
+        
+  </div>
 
     <div class="stack">
     <img class="languages" src="../assets\pm.png" />
@@ -65,6 +68,8 @@
     <img class="languages" src="../assets\Vue.png" />
     <img class="languages" src="../assets\Java.png" />
     <img class="languages" src="../assets\IntelliJ.png" />
+    <img class="agile" src="../assets\agile3.png" />
+
 
 
 
@@ -72,7 +77,7 @@
       </div>      
 
 
-  </div>
+      </div>
 </template>
 
 <script>
@@ -168,16 +173,24 @@ top:-388px;
   column-gap: 20px;
   align-items:center;
   justify-content: center; */
-left:190px;
-top:-3px;
+position:relative;
+left:690px;
+top:73px;
+
 }
 
 .languages{
   height:99px;
-  padding: 15px;
+  padding: 11px;
   left:121px;
 top:3px;  
 /* height:300px; */
+}
+.agile {
+    height:99px;
+  padding: -1px;
+  left:121px;
+top:3px;  
 }
 
 
@@ -247,6 +260,8 @@ top:-17px;
   position:relative;
 left:3px;
 top:-12px;
+color: rgb(6, 66, 114);
+
 }
 /* 
 div .page .title{
@@ -279,5 +294,7 @@ font-size: 2.5rem;
   position:relative;
 left:123px;
 top:-3px;
- transform: rotate(360deg)}
+ transform: rotate(360deg);
+
+}
 </style>

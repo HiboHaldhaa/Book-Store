@@ -1,6 +1,6 @@
 <template>
 <div>
-  <form @submit.prevent="addBooks()">
+  <form class="addbook-form" @submit.prevent="addBooks()">
     <h1> Add Book to Library</h1>
     <div class="form-control">
       <label for="title">Title</label>
@@ -42,16 +42,26 @@
     <div class = "form-control" v-if="previewUrl">
         <img class="post_image" :src="previewUrl" />
       </div>
-    
-    <div>
-      <button>Save Book</button>
+    <div id= "add-book-button">
+      <button>Add Book</button>
     </div>
+
+    
+    
+    <div class= "barcode-reader">
     <BarcodeReader/>
+    </div>
   </form>
-  <div>
-     <form @submit.prevent="downloadBarCode()" class="form">
-  <h1>Type to view BarCode</h1>
-    <div ref="barCodeDiv">
+
+  <!-- -------------------------------------------------------------------------------------------------------- -->
+
+
+  <div class="barcode-form">
+     <form @submit.prevent="downloadBarCode()" class="barcode-generator">
+  <!-- <h1>Type to view BarCode</h1> -->
+
+
+    <div class= "barcode-img" ref="barCodeDiv">
       <vue-barcode
         ref="BarImg"
         v-if="BarcodeValue"
@@ -64,13 +74,21 @@
        }"
       />
     </div>
-    <input type="text" v-model="BarcodeValue" />
-    <button v-if="BarcodeValue">Save BarCode</button>
-    
-  </form>
+
+
+      <div id="save-barcode-button">
+    <!-- <input type="text" v-model="BarcodeValue" /> -->
+    <button v-if="BarcodeValue">Save Barcode</button>
+      </div>
+    </form>
   </div>
-  
+
+
+  <div class= "book-list">
   <addedBookList/>
+  </div>
+
+
   </div>
 </template>
 
@@ -184,9 +202,49 @@ export default{
 </script>
 
 <style scoped>
-form {
+
+#add-book-button{
+  position:relative;
+left:-410px;
+top:500px;
+}
+
+
+#barCodeDiv{
+  position: absolute;
+left:100px;
+top:100px;
+
+}
+.barcode-reader{
+  position: relative;
+  
+}
+
+.barcode-form{
+  position:relative;
+  left: -1;
+  top: 3px;
   margin: 2rem auto;
-  min-height: 30rem;
+  min-height: 20rem;
+  max-width: 40rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background-color: #e09f3e;
+}
+
+.barcode-img{
+  position:relative;
+  top:-10px;
+}
+
+
+
+
+
+.addbook-form {
+  margin: 2rem auto;
+  min-height: 60rem;
   max-width: 40rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -229,7 +287,7 @@ button {
   border-radius: 30px;
 
   position:relative;
-left:411px;
+  left:411px;
 
 }
 
@@ -239,38 +297,10 @@ button:active {
   background-color: #002350;
 }
 
-/* BARCODE */
+#save-barcode-button{
+position:relative;
+left:-410px;
+top:-6px;
+}
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.form {
-display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-button {
-  height: 40px;
-  width: 310px;
-  background-color: green;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: medium;
-  display: block;
-  margin-top: 1.3rem;
-}
-input {
-  height: 30px;
-  width: 300px;
-  padding: 5px;
-  font-size: 1rem;
-  border-radius: 7px;
-}
 </style>

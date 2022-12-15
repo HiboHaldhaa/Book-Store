@@ -1,14 +1,12 @@
 <template>
   <div id="app">
 
-    
-   <headerComponent></headerComponent>
+ <Sidebar />
+  <div :style="{ 'margin-left': sidebarWidth }">
+    <router-view />
+  </div>
+ 
 
-<router-view></router-view>
-
-<footerComponent></footerComponent>
-    
-    
   </div>
 </template>
 
@@ -24,9 +22,6 @@ export default {
 </script>
 
 <style>
-div{
-   overflow: hidden;
-}
 
 
 </style>

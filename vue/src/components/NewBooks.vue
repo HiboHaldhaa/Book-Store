@@ -1,7 +1,7 @@
 <template>
   <div class="book-card">
-<div class="badge">New</div>
-		
+		<div v-if="isNew" class="ribbon ribbon__right-bottom"><span>NEW BOOK</span></div>
+    
  </div>    
 </template>
 
@@ -12,36 +12,65 @@ export default {
 </script>
 
 <style>
-/* .product-card {
-    width: 380px;
-    position: relative;
-    box-shadow: 0 2px 7px #dfdfdf;
-    margin: 50px auto;
-    background: #fafafa;
-} */
 
-.badge {
-    position: absolute;
-    left:138px;
-    top:33px;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 700;
-    background: rgba(3, 3, 243, 0.795);
-    color: #fff;
-    padding: 3px 20px;
+/* corner-ribbon base styles */
+.ribbon {
+  z-index: 1;
+  overflow: hidden;
+  position: absolute;
 }
-/* .book-card{
+.ribbon:before, .ribbon:after {
+  content: "";
+  display: block;
+  z-index: -1;
+  position: absolute;
+}
+.ribbon span {
+  display: block;
+  text-align: center;
+  line-height: 3;
+  position: absolute;
+}
 
-      position:relative;
-left:2px;
-top:188px;
-  z-index: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-} */
+/* corner-ribbon styles, left-bottom */
+.ribbon__left-top {
+  width: 150px;
+  height: 150px;
+  margin-left: -10px;
+  margin-top: -10px;
+  left: 0;
+  top: 0;
+}
+.ribbon__left-top:before {
+  right: 0;
+  top: 0;
+  border-width: 5px;
+  border-style: solid;
+  border-left-color: transparent;
+  border-right-color: #148f77;
+  border-top-color: transparent;
+  border-bottom-color: #148f77;
+}
+.ribbon__left-top:after {
+  left: 0;
+  bottom: 0;
+  border-width: 5px;
+  border-style: solid;
+  border-left-color: transparent;
+  border-right-color: #148f77;
+  border-top-color: transparent;
+  border-bottom-color: #148f77;
+}
+.ribbon__left-top span {
+  width: 225px;
+  color: #fff;
+  right: -15%;
+  top: 22%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  background-color: #1abc9c;
+  box-shadow: 0 0 7px rgba(35, 46, 57, 0.8);
+}
 
 
 

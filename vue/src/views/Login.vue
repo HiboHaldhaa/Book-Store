@@ -137,8 +137,8 @@ button:active {
 
 .buttonLogin {
 position:relative;
-left:169px;
-top:35px;
+left:64px;
+top:18px;
 }
 
 

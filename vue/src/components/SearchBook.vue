@@ -107,6 +107,7 @@ form {
 
 .form-control {
   margin: 0.5rem 0;
+  
 }
 
 label {
@@ -139,10 +140,12 @@ button {
   padding: 0.75rem 2rem;
   border-radius: 30px;
 
-  position:relative;
-left:243px;
-
+position:relative;
+left:177px;
+top:2px;
 }
+
+
 
 button:hover,
 button:active {
@@ -158,7 +161,14 @@ top:13px;
 .search{
   display: flex;
   flex-direction: row;
+   height: 2000px;
+}
 
+#search-results{
+  display: flex;
+  flex-direction: row;
+
+ 
 
 }
 
