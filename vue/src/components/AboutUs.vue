@@ -52,7 +52,7 @@
       <img class="profile" src="../assets\Edgardo Martinez.jpg" />
        <h1 class="names">Edgardo Martinez</h1>
 
-          <h5 class="position">Senior Software Developer</h5>
+          <h5 class="position">Junior Software Developer</h5>
 
        <a href="https://www.linkedin.com/in/eddymtez/" target=_blank>
         <img class="icon" src="../assets\icon.png" />
