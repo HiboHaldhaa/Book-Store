@@ -29,23 +29,28 @@ created() {
     this.title = book.title;
     this.genre = book.genres[0];
 
-    ApiService.searchByAuthor(this.author).then(response => {
-        let random = Math.floor(Math.random() * 10);
-        let book = response.data.items[random].volumeInfo;
+    ApiService.searchByAuthor(this.author).then((response) => response.json()).then((data) => {
+
+        let random = Math.floor(Math.random() * 3);
+        let book = data.items[random].volumeInfo;
         this.books.push(book);
 
     }).catch(e => console.log(e))
 
-    ApiService.searchByTitle(this.title).then(response => {
-        let random = Math.floor(Math.random() * 10);
-        let book = response.data.items[random].volumeInfo;
+
+
+    ApiService.searchByTitle(this.title).then((response) => response.json()).then((data) => {
+
+        let random = Math.floor(Math.random() * 3);
+        let book = data.items[random].volumeInfo;
         this.books.push(book);
 
     }).catch(e => console.log(e))
 
-    ApiService.searchBySubject(this.genre).then(response => {
-        let random = Math.floor(Math.random() * 10);
-        let book = response.data.items[random].volumeInfo;
+    ApiService.searchBySubject(this.genre).then((response) => response.json()).then((data) => {
+
+        let random = Math.floor(Math.random() * 3);
+        let book = data.items[random].volumeInfo;
         this.books.push(book);
 
     }).catch(e => console.log(e))

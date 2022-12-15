@@ -29,14 +29,14 @@ export default {
 h3{
 font-size: 25px;
 position:relative;
-left:325px;
+left:450px;
 top:565px;
 }
 
 h4{
   font-size: 25px;
 position:relative;
-left:1013px;
+left:1250px;
 top:533px;
 }
 

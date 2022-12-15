@@ -223,8 +223,8 @@ top:100px;
 
 .barcode-form{
   position:relative;
-  left: -1;
-  top: 3px;
+ 
+  top: 50px;
   margin: 2rem auto;
   min-height: 20rem;
   max-width: 40rem;
@@ -234,8 +234,15 @@ top:100px;
 }
 
 .barcode-img{
-  position:relative;
-  top:-10px;
+position:relative;
+left:170px;
+top:20px;
+}
+
+#save-barcode-button{
+position:relative;
+left:-410px;
+top:60px;
 }
 
 
@@ -287,7 +294,8 @@ button {
   border-radius: 30px;
 
   position:relative;
-  left:411px;
+left:632px;
+top:-8px;
 
 }
 
@@ -297,10 +305,6 @@ button:active {
   background-color: #002350;
 }
 
-#save-barcode-button{
-position:relative;
-left:-410px;
-top:-6px;
-}
+
 
 </style>

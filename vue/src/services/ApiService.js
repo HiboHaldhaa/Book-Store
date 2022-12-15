@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ApiKey = "AIzaSyADNHzh2ftWxrpAlTbubnJxqNoH0Eq4agQ";
+const ApiKey = "AIzaSyBXgahO9dRrvWDEVGRVSK9PCZJCmEGLc4Y";
 
 const newInstanceOfAxios = axios.create();
 
@@ -11,17 +11,17 @@ export default {
 
     searchByAuthor(author) {
 
-        return newInstanceOfAxios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${author}&key=${ApiKey}`);
+        return fetch(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${author}`);
         
     },
     
     searchByTitle(title) {
-        return newInstanceOfAxios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}&key=${ApiKey}`);
+        return fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${title}&key=${ApiKey}`);
 
     },
 
     searchBySubject(subject) {
-        return newInstanceOfAxios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${subject}&key=${ApiKey}`);
+        return fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${subject}&key=${ApiKey}`);
 
     }
     

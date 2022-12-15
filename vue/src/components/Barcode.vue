@@ -128,12 +128,7 @@ left:-2px;
 top:13px;
 }
 
-.search{
-  display: flex;
-  flex-direction: row;
 
-
-}
 
 
 
