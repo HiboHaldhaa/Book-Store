@@ -2,11 +2,14 @@
 
   <div >
     <img class="CoverImgCard" v-bind:src="book.coverLink">
+    <new-books/>
   </div>
 </template>
 
 <script>
+import NewBooks from './NewBooks.vue';
 export default {
+  components: { NewBooks },
   name : 'book-card',
   props : ['book'],
   computed: {
