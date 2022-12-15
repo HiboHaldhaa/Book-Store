@@ -6,17 +6,17 @@
   <div class="flex-container">
     <!-- <h1 class="title">Book Bravo's Team</h1> -->
 <h1 class="reveal-text">
-	...
+	
 </h1>
 <h1 class="reveal-text">
-	Title Animation
+	Team Bravo Books
 </h1>  
 
  
     <div class="about">
     <img class="profile" src="../assets\Michael Chaney.jpg" />
     <h1 class="names">Michael Chaney</h1>
-          <h5 class="position">Software Developer</h5>
+          <h5 class="position">Junior Software Developer</h5>
 
     <a href="https://www.linkedin.com/in/michael-scott-chaney/" target=_blank>
             <img class="icon" src="../assets\icon.png" />
@@ -40,7 +40,7 @@
       <img class="profile" src="../assets/Hibo Jama.jpg" />
 
     <h1 class="names">Hibo Jama</h1>
-          <h5 class="position">Software Developer</h5>
+          <h5 class="position">Junior Software Developer</h5>
 
     <a href="https://www.linkedin.com/in/hibo-jama/" target=_blank>
             <img class="icon" src="../assets\icon.png" />
@@ -52,7 +52,7 @@
       <img class="profile" src="../assets\Edgardo Martinez.jpg" />
        <h1 class="names">Edgardo Martinez</h1>
 
-          <h5 class="position">Software Developer</h5>
+          <h5 class="position">Senior Software Developer</h5>
 
        <a href="https://www.linkedin.com/in/eddymtez/" target=_blank>
         <img class="icon" src="../assets\icon.png" />
@@ -260,7 +260,7 @@ top:-17px;
   position:relative;
 left:3px;
 top:-12px;
-color: rgb(6, 66, 114);
+color: rgb(173, 148, 148);
 
 }
 /* 
