@@ -33,6 +33,7 @@ background: -webkit-linear-gradient(135deg, hsla(126, 82%, 33%, 1) 0%, hsla(184,
 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0F971C", endColorstr="#005F66", GradientType=1 );
 background-repeat: no-repeat;
 scroll-behavior: smooth;
+min-height: auto;
 min-height: 100vh;
 overflow-x: hidden;
 }
