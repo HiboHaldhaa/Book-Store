@@ -35,7 +35,7 @@ mounted() {
 <style>
 
 h1{
-  color:rgb(25, 112, 184);
+  color:#291711;
 }
 
 #search-results{

@@ -7,7 +7,7 @@
         <div>V</div>
         <div>S</div>
       </span>
-      <img class="logo" src=".\LogoBrown.png" alt="Bravo Books">
+      <img class="logo" src=".\newnewlogo.png" alt="Bravo Books">
       
     </h1>
 
@@ -66,8 +66,16 @@ export default {
 </script>
 <style>
 :root {
-  --sidebar-bg-color: #34495e;
-  --sidebar-item-hover: #38a169;
+--sidebar-bg-color: hsla(197, 93%, 66%, 1);
+
+background: linear-gradient(180deg, hsla(197, 93%, 66%, 1) 25%, hsla(226, 50%, 65%, 1) 54%);
+
+background: -moz-linear-gradient(180deg, hsla(197, 93%, 66%, 1) 25%, hsla(226, 50%, 65%, 1) 54%);
+
+background: -webkit-linear-gradient(180deg, hsla(197, 93%, 66%, 1) 25%, hsla(226, 50%, 65%, 1) 54%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#56CBF9", endColorstr="#7A8FD3", GradientType=1 );
+  --sidebar-item-hover: #0c76a0;
   --sidebar-item-active: #276749;
 }
 </style>
