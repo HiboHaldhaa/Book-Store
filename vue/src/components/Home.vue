@@ -1,12 +1,17 @@
 <template>
+ 
+
+<div class="bookshelf--frame">
+
   <div id="mainGrid">
 
     <AddedBookList/>
+  </div>  
+
+    
+</div>
 
 
-
-
-  </div>
 </template>
 
 <script>
@@ -17,79 +22,44 @@ export default {
 }
 </script>
 
-<style scoped>
-/* CSS VARIABLES */
-:root {
-  --primary: #141414;
-  --light: #F3F3F3;
-  --dark: 	#686868;
+<style lang="scss" scoped>
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+*, *:after, *:before {
+	box-sizing: inherit;
 }
 
-html, body {
-  width: 100vw;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  
-  color: var(--light);
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-  line-height: 1.4;
+// variables
+$darktan: #9A8548;
+$grad2: #373737;
+$grad1: darken($grad2, 2);
+$grad3: lighten($darktan, 4);
+$grad5: darken($darktan, 4);
+
+// for presentation's sake
+body {
+  background: lightgray;
+}
+.bookshelf--frame {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-img {
-  max-width: 100%;
+.bookshelf--frame {
+	background: tan;
+	background: url('https://static.tumblr.com/8x9m588/C8ho55ylx/bg-wood2.png'), linear-gradient($grad1,$grad2 290px,$grad3 290px,$grad3 292px,$darktan 292px,$darktan 298px,$grad5 298px,$grad5 300px);	
+	background-size: auto, 10px 300px;
+	border-left: 10px solid $darktan;
+	border-right: 20px solid $darktan;
+	text-align: center;
+	&:first-of-type {
+		border-top: 10px solid $darktan;
+	}
+
 }
 
-h1 {
-  padding-top: 60px;  
-}
-
-.wrapper {
-  margin: 0;
-  padding: 0;
-}
-
-/* HEADER */
-header {
-  padding: 20px 20px 0 20px;
-  position: fixed;
-  top: 0;
-  display: grid;  
-  grid-gap:5px;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-areas: 
-   "nt mn mn sb . . . "; 
-  background-color: var(--primary);
-  width: 100%;
-  margin-bottom: 0px;  
-}
-
-.netflixLogo {
-  grid-area: nt;
-  object-fit: cover;
-  width: 100px;
-  max-height: 100%;
-  
-  padding-left: 30px;
-  padding-top: 0px;  
-}
-
-.netflixLogo img {  
-  height: 35px;     
-}
-
-#logo {
-  color: #E50914;  
-  margin: 0; 
-  padding: 0; 
-}
-
-
-.main-nav {
-  grid-area: mn;
-  padding: 0 30px 0 20px;
-}
 
 
 </style>
