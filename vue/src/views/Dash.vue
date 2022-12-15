@@ -34,14 +34,18 @@ body {background-color:#335c67;
 }
 
 .content {
-    background-color: #FFF3B0;
+    background: url("../assets/bookshelf.jpg");
     border-radius: 20px;
     margin: 20px 90px 0px 0px;
     overflow-y: scroll;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-content: center;
+  
+
+    width: 1500px;
+  height: 1000px;
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
     
 
 }
