@@ -73,7 +73,7 @@ top:4px;
 }
 
 .hero-container {
-	margin: auto;
+	/* margin: auto; */
 	display: flex;
 }
 
@@ -232,7 +232,7 @@ top:4px;
   position: absolute;
   display: block;
   width: 225px;
-  padding: 15px 0;
+  padding: 1px 0;
   background-color: #3498db;
   box-shadow: 0 5px 10px rgba(0,0,0,.1);
   color: #fff;

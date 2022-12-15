@@ -201,8 +201,8 @@ public class JdbcBookDao implements BookDao{
 
         String sql = "SELECT isbn13, title, date_added, num_pages, language_id, overview, coverlink " +
                 "FROM book " +
-                "ORDER BY date_added ASC " +
-                "LIMIT 20";
+                "ORDER BY date_added DESC " +
+                "LIMIT 5";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
         while (results.next()) {
