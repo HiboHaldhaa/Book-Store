@@ -1,11 +1,12 @@
 <template>
  
-
-
-
   <div id="mainGrid">
+<h1 class="addedHeader"> HE GOT AN OFFERRRRRRRR</h1>
+<div id="addedBooks">
 
     <AddedBookList/>
+
+    </div>
   </div>  
 
     
@@ -22,9 +23,11 @@ export default {
 }
 </script>
 
-<style>
-
-
-
+<style scoped >
+.addedHeader{
+ text-align: center;
+  margin-top: 5%;
+  color: aliceblue;
+}
 
 </style>

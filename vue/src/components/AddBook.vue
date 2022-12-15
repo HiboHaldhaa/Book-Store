@@ -42,15 +42,15 @@
     <div class = "form-control" v-if="previewUrl">
         <img class="post_image" :src="previewUrl" />
       </div>
-    <div id= "add-book-button">
+    <div >
       <button>Add Book</button>
     </div>
 
     
     
-    <div class= "barcode-reader">
+    <!-- <div class= "barcode-reader">
     <BarcodeReader/>
-    </div>
+    </div> -->
   </form>
 
   <!-- -------------------------------------------------------------------------------------------------------- -->
@@ -76,8 +76,8 @@
     </div>
 
 
-      <div id="save-barcode-button">
-    <!-- <input type="text" v-model="BarcodeValue" /> -->
+      <div >
+    
     <button v-if="BarcodeValue">Save Barcode</button>
       </div>
     </form>
@@ -85,6 +85,7 @@
 
 
   <div class= "book-list">
+    
   <addedBookList/>
   </div>
 
@@ -94,7 +95,7 @@
 
 <script>
 import VueBarcode from "@chenfengyuan/vue-barcode";
-import BarcodeReader from '../components/Barcode.vue'
+// import BarcodeReader from '../components/Barcode.vue'
 import addedBookList from '../components/AddedBookList.vue'
 import bookServices from "@/services/BookServices.js"
 import {initializeApp} from 'firebase/app'
@@ -116,7 +117,7 @@ const firebaseConfig = {
 export default{
   components: {
     "vue-barcode": VueBarcode,
-     BarcodeReader,
+    //  BarcodeReader,
     addedBookList
   },
      name: "addBook",
@@ -203,27 +204,8 @@ export default{
 
 <style scoped>
 
-#add-book-button{
-  position:relative;
-left:-410px;
-top:500px;
-}
-
-
-#barCodeDiv{
-  position: absolute;
-left:100px;
-top:100px;
-
-}
-.barcode-reader{
-  position: relative;
-  
-}
-
 .barcode-form{
   position:relative;
- 
   top: 50px;
   margin: 2rem auto;
   min-height: 20rem;
@@ -239,19 +221,10 @@ left:170px;
 top:20px;
 }
 
-#save-barcode-button{
-position:relative;
-left:-410px;
-top:60px;
-}
-
-
-
-
 
 .addbook-form {
   margin: 2rem auto;
-  min-height: 60rem;
+  min-height: 30rem;
   max-width: 40rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -284,27 +257,14 @@ select {
   width: auto;
 }
 
-button {
-  font: inherit;
-  border: 1px solid #0076bb;
-  background-color: #0076bb;
-  color: white;
-  cursor: pointer;
-  padding: 0.75rem 2rem;
-  border-radius: 30px;
-
-  position:relative;
-left:632px;
-top:-8px;
-
-}
-
 button:hover,
 button:active {
   border-color: #002350;
   background-color: #002350;
 }
-
+.book-list{
+  margin-top: 10%;
+}
 
 
 </style>
