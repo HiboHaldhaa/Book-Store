@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>The sidebar is {{ collapsed ? 'closed' : 'open' }}</h1>
+  <!-- <h1>The sidebar is {{ collapsed ? 'closed' : 'open' }}</h1> -->
   <button @click="toggleSidebar">Toggle Sidebar</button>
   <router-view/>
   <Sidebar/>
@@ -21,3 +21,9 @@ export default {
   }
 }
 </script>
+<style>
+body{
+  display:grid;
+   background-color: cornsilk;
+}
+</style>

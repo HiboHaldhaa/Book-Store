@@ -1,6 +1,6 @@
 <template>
 
-      
+      <div>
 
   <div class="flex-container">
 <h1 class="title">Book Bravo's Team</h1>
@@ -52,9 +52,11 @@
  </a>
 
           </div>
-
-
+        
   </div>
+
+
+      </div>
 </template>
 
 <script>

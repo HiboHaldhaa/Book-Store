@@ -1,3 +1,33 @@
+
+<template>
+  <div class="sidebar" :style="{ width: sidebarWidth }">
+    <h1>
+      <span v-if="collapsed">
+        <div>V</div>
+        <div>S</div>
+      </span>
+      <span v-else>Bravo Books</span>
+      
+    </h1>
+
+    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
+    <SidebarLink v-if="isAdmin" to="/book" icon="fas fa-columns" >Dashboard</SidebarLink>
+    <SidebarLink v-if="isUser" to="/reading_list" icon="fas fa-chart-bar">Reading List</SidebarLink>
+    <SidebarLink to="/search" icon="fas fa-users">Search</SidebarLink>
+    <SidebarLink to="/about_us" icon="fas fa-image">About us</SidebarLink>
+    <SidebarLink v-if="!isLoggedIn" to="/login" icon="fas fa-image">Sign In </SidebarLink>
+    <SidebarLink v-if="isLoggedIn" to="/logout" icon="fas fa-image">Log Out</SidebarLink>
+
+    <span
+      class="collapse-icon"
+      :class="{ 'rotate-180': collapsed }"
+      @click="toggleSidebar"
+    >
+      <i class="fas fa-angle-double-left" />
+    </span>
+  </div>
+</template>
+
 <script>
 import SidebarLink from './SidebarLink'
 import { collapsed, toggleSidebar, sidebarWidth } from './state'
@@ -32,38 +62,9 @@ export default {
     
 }
 </script>
-
-<template>
-  <div class="sidebar" :style="{ width: sidebarWidth }">
-    <h1>
-      <span v-if="collapsed">
-        <div>V</div>
-        <div>S</div>
-      </span>
-      <span v-else>Vue Sidebar</span>
-    </h1>
-
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink v-if="isAdmin" to="/book" icon="fas fa-columns" >Dashboard</SidebarLink>
-    <SidebarLink v-if="isUser" to="/reading_list" icon="fas fa-chart-bar">Reading List</SidebarLink>
-    <SidebarLink to="/search" icon="fas fa-users">Search</SidebarLink>
-    <SidebarLink to="/about_us" icon="fas fa-image">About us</SidebarLink>
-    <SidebarLink v-if="!isLoggedIn" to="/login" icon="fas fa-image">Sign In </SidebarLink>
-    <SidebarLink v-if="isLoggedIn" to="/logout" icon="fas fa-image">Log Out</SidebarLink>
-
-    <span
-      class="collapse-icon"
-      :class="{ 'rotate-180': collapsed }"
-      @click="toggleSidebar"
-    >
-      <i class="fas fa-angle-double-left" />
-    </span>
-  </div>
-</template>
-
 <style>
 :root {
-  --sidebar-bg-color: #2f855a;
+  --sidebar-bg-color: rgb(21, 160, 148);
   --sidebar-item-hover: #38a169;
   --sidebar-item-active: #276749;
 }

@@ -139,10 +139,12 @@ button {
   padding: 0.75rem 2rem;
   border-radius: 30px;
 
-  position:relative;
-left:243px;
-
+ position:relative;
+left:395px;
+top:-1px;
 }
+
+
 
 button:hover,
 button:active {
@@ -158,7 +160,14 @@ top:13px;
 .search{
   display: flex;
   flex-direction: row;
+   height: 2000px;
+}
 
+#search-results{
+  display: flex;
+  flex-direction: row;
+
+ 
 
 }
 
