@@ -107,7 +107,7 @@ $iterations: 1;
 	font-size: 40px;
 	user-select: none;
 	animation-name: reveal-text;
-color: rgb(25, 112, 184);
+color: #291711;
 	white-space: nowrap;
   font-family: 'Work Sans', sans-serif;
 	left:729px;
@@ -271,7 +271,7 @@ div .page .title{
 } */
 
 .title {
-color: rgb(25, 112, 184);
+color: #291711;
 position:relative;
 left:746px;
 top:-354px;
