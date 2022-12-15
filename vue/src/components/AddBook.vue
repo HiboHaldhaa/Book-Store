@@ -205,8 +205,8 @@ export default{
 
 #add-book-button{
   position:relative;
-left:1px;
-top:496px;
+left:-410px;
+top:500px;
 }
 
 
@@ -235,9 +235,7 @@ top:100px;
 
 .barcode-img{
   position:relative;
-position:relative;
-left:163px;
-top:10px;
+  top:-10px;
 }
 
 
@@ -301,8 +299,8 @@ button:active {
 
 #save-barcode-button{
 position:relative;
-left:-204px;
-top:14px;
+left:-410px;
+top:-6px;
 }
 
 </style>

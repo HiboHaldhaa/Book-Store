@@ -28,7 +28,7 @@
 <script>
 import { Container, Draggable } from "vue-smooth-dnd";
 import { applyDrag } from "../utils/applyDrag";
-import BookCard from '../components/BookCard.vue';
+import BookCard from '../components/BookAddedCard.vue';
 import ReadingListService from '../services/ReadingListService'
 export default {
   name: "CardList",
@@ -102,11 +102,9 @@ export default {
   flex: 0 0 30%;
   height: 100%;
   border: 9px solid #a5a9ac;
-  border-radius: 6px;
-  padding: 9rem 1rem 0 1rem;
+  padding: 9rem 0 0 0;
   margin-top: 5rem;
-  margin-right: 2.5rem;
-  margin-left: 1rem;
+  
   
 }
 .card-ghost {

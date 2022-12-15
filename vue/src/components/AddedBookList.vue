@@ -70,7 +70,7 @@ flex-direction:row;
   left: 0;
   width: 100%;
   height: 1rem;
-  background-color: #f9f9f9;
+  background-color:rgb(90, 52, 8);
   border-radius: 2px;
   z-index: 3;
 }

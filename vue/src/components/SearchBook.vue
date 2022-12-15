@@ -107,6 +107,7 @@ form {
 
 .form-control {
   margin: 0.5rem 0;
+  
 }
 
 label {
@@ -139,9 +140,9 @@ button {
   padding: 0.75rem 2rem;
   border-radius: 30px;
 
- position:relative;
-left:395px;
-top:-1px;
+position:relative;
+left:177px;
+top:2px;
 }
 
 
