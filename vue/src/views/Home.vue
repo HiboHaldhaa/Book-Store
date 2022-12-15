@@ -61,7 +61,15 @@ export default {
 </script>
 <style scoped>
 
-
+#app{
+  display: flex;
+  
+  justify-content:space-around;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 20px;
+}
 
 
 .display-book{
@@ -71,8 +79,9 @@ export default {
   min-height: 100vh;
   display: flex;
   
-  justify-content:space-around;
+  justify-content:space-between;
   flex-direction: row; 
+  align-content: center;
   flex-wrap: wrap;
   row-gap: 10px;
   column-gap: 20px;

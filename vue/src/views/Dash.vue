@@ -50,7 +50,4 @@ body {background-color:#335c67;
 
 }
 
-
-
-
-</style>
+ </style>
