@@ -29,7 +29,7 @@ display:grid;
 background: #80d8bd;
 background-repeat: no-repeat;
 scroll-behavior: smooth;
-min-height: 2000px;
+min-height: auto;
 }
 
 .invisible-scrollbar::-webkit-scrollbar {

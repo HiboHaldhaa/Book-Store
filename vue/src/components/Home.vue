@@ -50,7 +50,7 @@ body {
 .bookshelf--frame {
 	background: tan;
 	background: url('https://static.tumblr.com/8x9m588/C8ho55ylx/bg-wood2.png'), linear-gradient($grad1,$grad2 290px,$grad3 290px,$grad3 292px,$darktan 292px,$darktan 298px,$grad5 298px,$grad5 300px);	
-	background-size: auto, 10px 300px;
+	background-size: auto;
 	border-left: 10px solid $darktan;
 	border-right: 20px solid $darktan;
 	text-align: center;
