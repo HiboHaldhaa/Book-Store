@@ -1,7 +1,7 @@
 <template>
  
   <div id="mainGrid">
-<h1 class="addedHeader"> Featured Books</h1>
+<h1 class="addedHeader"> Newly Added Books</h1>
 <div id="addedBooks">
 
     <AddedBookList/>
