@@ -77,7 +77,7 @@
     </div>
 
 
-      <div >
+      <div id="save-barcode-button">
     
     <button v-if="BarcodeValue">Save Barcode</button>
       </div>
@@ -217,13 +217,20 @@ export default{
   max-width: 40rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  background-color: #E1B07E;
+  background-color: #167c5d00;
+
 }
 
 .barcode-img{
 position:relative;
-left:170px;
-top:20px;
+left:980px;
+top:-47px;
+}
+
+#save-barcode-button{
+  position:relative;
+left:1024px;
+top:-37px;
 }
 
 

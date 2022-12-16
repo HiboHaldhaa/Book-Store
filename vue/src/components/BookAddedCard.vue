@@ -47,13 +47,13 @@ export default {
 position:relative;
 left:25px;
 
-height: 400px;
+height: 50px;
 }
 .CoverImgCard {
       display: block;
       box-shadow: 0px -5px 20px 2px rgba(black, 0.3);
-      width: 200px;
-      height: 300px;
+      width: 50px;
+      height: 75px;
       object-fit: cover;
 		}
 </style>

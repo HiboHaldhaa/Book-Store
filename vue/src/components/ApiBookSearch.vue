@@ -5,11 +5,12 @@
 </template>
 
 <script>
+
 import ApiService from '../services/ApiService';
 import DisplayBook from './DisplayBook.vue';
 
 export default {
-  components: {DisplayBook  },
+  components: {DisplayBook},
     data() {
         return  {
             author: "",
