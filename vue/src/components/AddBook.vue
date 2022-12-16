@@ -39,11 +39,12 @@
       <label for="coverImage">Cover Image </label>
       <input id="coverImage" name="coverImage" type="file" @change="previewImage($event)" accept="image/*" />
     </div>
-    <div class = "form-control" v-if="previewUrl">
-        <img class="post_image" :src="previewUrl" />
-      </div>
+    
     <div >
       <button>Add Book</button>
+      <div class = "form-control" v-if="previewUrl && !BarcodeValue">
+        <img class="post_image" :src="previewUrl" style="max-height: 300px; width: auto;">
+      </div>
     </div>
 
     
@@ -56,7 +57,7 @@
   <!-- -------------------------------------------------------------------------------------------------------- -->
 
 
-  <div class="barcode-form">
+  <div class="barcode-form" v-if="BarcodeValue">
      <form @submit.prevent="downloadBarCode()" class="barcode-generator">
   <!-- <h1>Type to view BarCode</h1> -->
 
@@ -204,6 +205,10 @@ export default{
 
 <style scoped>
 
+.form-control {
+  margin: 0.5rem 0;
+  z-index: 999 !important;
+}
 .barcode-form{
   position:relative;
   top: 50px;
@@ -230,10 +235,6 @@ top:20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 2rem;
   background-color: #E1B07E;
-}
-
-.form-control {
-  margin: 0.5rem 0;
 }
 
 label {
@@ -263,7 +264,7 @@ button:active {
   background-color: #002350;
 }
 .book-list{
-  margin-top: 10%;
+  margin-top: 20%;
 }
 
 
